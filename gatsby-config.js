@@ -1,7 +1,5 @@
 'use strict';
 
-require('dotenv').config();
-
 const siteConfig = require('./config.js');
 const postCssPlugins = require('./postcss-config.js');
 
