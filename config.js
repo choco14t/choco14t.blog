@@ -8,7 +8,7 @@ module.exports = {
   copyright: '© choco14t All rights reserved.',
   disqusShortname: 'choco',
   postsPerPage: 4,
-  googleAnalyticsId: process.env.GATSBY_GOOGLE_ANALYTICS_ID,
+  googleAnalyticsId: 'UA-148031828-1',
   useKatex: false,
   menu: [
     {
