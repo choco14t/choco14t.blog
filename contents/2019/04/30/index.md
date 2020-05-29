@@ -1,21 +1,21 @@
 ---
 template: post
-title: "Laravel バージョン5.6以下でSocialiteを使う場合はバージョンを指定する"
+title: 'Laravel バージョン5.6以下でSocialiteを使う場合はバージョンを指定する'
 slug: specify-the-version-when-using-socialite-with-laravel-version-5.6-or-lower
 draft: false
 date: 2019-04-30T12:20:00.000+09:00
-description: ""
+description: ''
 category: Dev
 tags:
   - PHP
   - Laravel
-socialImage: "/icon.png"
+socialImage: '/icon.png'
 ---
 
-Laravelには[Socialite](https://laravel.com/docs/master/socialite)というOAuth認証のライブラリが提供されています。
+Laravel には[Socialite](https://laravel.com/docs/master/socialite)という OAuth 認証のライブラリが提供されています。
 インストールは`composer`から行えるので、いつも通りにコマンドを実行する。
 
-```sh
+```bash
 $ composer require laravel/socialite
 ```
 
@@ -35,9 +35,9 @@ Your requirements could not be resolved to an installable set of packages.
     - 以下 don't install が繰り返し表示
 ```
 
-調べてみたところ、現行のバージョン(4.\*)ではLaravel5.7以上を要求しているので、3.2.0をインストールすれば解決した。
+調べてみたところ、現行のバージョン(4.\*)では Laravel5.7 以上を要求しているので、3.2.0 をインストールすれば解決した。
 
-```sh
+```bash
 $ composer require laravel/socialite "^3.2.0"
 ```
 
@@ -45,5 +45,5 @@ $ composer require laravel/socialite "^3.2.0"
 
 - [Releases · laravel/socialite](https://github.com/laravel/socialite/releases)
 - [Laravel Socialite - Laravel - The PHP Framework For Web Artisans](https://laravel.com/docs/5.6/socialite)
-    - 5.6のインストール手順にはバージョン指定したコマンドが書かれている
+  - 5.6 のインストール手順にはバージョン指定したコマンドが書かれている
 - [Laravel Socialite can't be installed in upgraded version 5.6 - Stack Overflow](https://stackoverflow.com/questions/49064789/laravel-socialite-cant-be-installed-in-upgraded-version-5-6)
