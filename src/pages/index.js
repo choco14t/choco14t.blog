@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Layout from '../components/layout/index'
-import Seo from '../components/seo/index'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 import Article from '../components/article'
 
 const BlogIndex = () => {

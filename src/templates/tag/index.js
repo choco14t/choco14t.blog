@@ -4,15 +4,15 @@ import { FaTag } from 'react-icons/fa'
 
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
-import tagPageStyles from './tag.module.scss'
 import Article from '../../components/article'
+import tagPageStyles from './tag.module.scss'
 
 const TagPageTemplate = ({ data, pageContext }) => {
   const { tag } = pageContext
 
   return (
     <Layout>
-      <Seo title={data.site.siteMetadata.title}/>
+      <Seo title={data.site.siteMetadata.title} />
       <div className={tagPageStyles.top}>
         <h1>
           <FaTag />

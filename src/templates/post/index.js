@@ -2,24 +2,34 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { FaTags } from 'react-icons/fa'
 
-import Layout from '../../components/layout/index'
-import Seo from '../../components/seo/index'
+import Layout from '../../components/layout'
+import Seo from '../../components/seo'
 
 import postPageStyles from './post.module.scss'
 
 const PostPageTemplate = ({ data }) => {
   return (
     <Layout>
-      <Seo title={data.markdownRemark.frontmatter.title}/>
+      <Seo title={data.markdownRemark.frontmatter.title} />
       <article>
-        <h1 className={postPageStyles.title}>{data.markdownRemark.frontmatter.title}</h1>
+        <h1 className={postPageStyles.title}>
+          {data.markdownRemark.frontmatter.title}
+        </h1>
         <div className={postPageStyles.tagContainer}>
-          <FaTags/>
+          <FaTags />
           {data.markdownRemark.frontmatter.tags.map((tag, index) => (
-            <Link to={`/tags/${tag}`} key={index} className={postPageStyles.tag}>{tag}</Link>
+            <Link
+              to={`/tags/${tag}`}
+              key={index}
+              className={postPageStyles.tag}
+            >
+              {tag}
+            </Link>
           ))}
         </div>
-        <section dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}/>
+        <section
+          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+        />
       </article>
     </Layout>
   )
