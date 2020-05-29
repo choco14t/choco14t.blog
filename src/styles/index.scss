@@ -1,0 +1,12 @@
+@import "~nord/src/sass/nord.scss";
+@import "prism-nord.scss";
+
+body {
+  background-color: $nord0;
+  color: $nord4;
+}
+
+a {
+  color: $nord4;
+  text-decoration: none;
+}

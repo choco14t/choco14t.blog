@@ -1,4 +1,2 @@
-'use strict';
-
-require('./src/assets/scss/init.scss');
-require('./static/css/prismjs/theme.min.css');
+import './src/styles/reset.css'
+import './src/styles/code-title.scss'

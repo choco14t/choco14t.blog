@@ -1,0 +1,19 @@
+.footer {
+  padding: 1rem 0 0;
+
+  .inner {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: #d8dee9;
+
+      &:not(:first-of-type) {
+        margin-left: 35px;
+      }
+    }
+  }
+}

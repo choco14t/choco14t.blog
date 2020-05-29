@@ -1,0 +1,49 @@
+.article {
+  margin-bottom: 3rem;
+
+  a {
+    color: #d8dee9;
+
+    &:hover {
+      color: #d8dee9;
+      text-decoration: none;
+    }
+  }
+
+  p {
+    font-size: .8rem;
+    margin-bottom: .5rem;
+  }
+
+  .title {
+    margin-bottom: .5rem;
+  }
+}
+
+.metaContainer {
+  display: flex;
+}
+
+.meta {
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+
+  &:not(:first-of-type) {
+    margin-left: 15px;
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+
+  .tag {
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:not(:first-of-type) {
+      margin-left: 10px;
+    }
+  }
+}

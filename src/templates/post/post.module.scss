@@ -1,0 +1,50 @@
+a {
+  color: #a3be8c;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  margin: 1rem 0;
+}
+
+.title {
+  font-size: 1.7rem;
+}
+
+section {
+  h2 {
+    position: relative;
+    font-size: 1.2rem;
+    padding-left: .8rem;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #88c0d0;
+    }
+  }
+
+  p {
+    font-size: .9rem;
+  }
+}
+
+.tagContainer {
+  font-size: .8rem;
+  margin-bottom: 1.7rem;
+  display: flex;
+  align-items: center;
+
+  .tag {
+    color: #d8dee9;
+    margin-left: 10px;
+  }
+}
