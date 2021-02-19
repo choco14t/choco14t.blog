@@ -7,7 +7,7 @@ date: 2019-04-29T22:19:00.000+09:00
 description: エンジニアのためのマネジメントキャリアパスの読書メモ。
 category: Diary
 tags:
-  - diary
+  - Diary
 socialImage: "/icon.png"
 ---
 

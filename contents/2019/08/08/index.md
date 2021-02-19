@@ -7,7 +7,7 @@ date: 2019-08-08T22:21:54.000+09:00
 description: アクションリーディング 1日30分でも自分を変える“行動読書”の読書メモ。
 category: Diary
 tags:
-  - diary
+  - Diary
 socialImage: "/icon.png"
 ---
 

@@ -7,7 +7,7 @@ date: 2019-09-15T12:25:00.000Z
 description: たいして投稿しないのに新しく作ってしまった。GatsbyJSが気になっていたので色々調べながらやってるとのめりこんでしまった。
 category: Diary
 tags:
-  - diary
+  - Diary
 socialImage: "/icon.png"
 ---
 

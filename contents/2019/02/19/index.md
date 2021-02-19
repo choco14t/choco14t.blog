@@ -7,7 +7,7 @@ date: 2019-02-19T21:21:00.000+09:00
 description: ""
 category: Diary
 tags:
-  - diary
+  - Diary
 socialImage: "/icon.png"
 ---
 
