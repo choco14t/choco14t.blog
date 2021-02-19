@@ -1,0 +1,85 @@
+---
+template: post
+title: '2021-01-21'
+slug: log-2021-01-21
+draft: false
+date: 2021-01-21T10:00:00.000+09:00
+description:
+category: Log
+tags:
+  - Log
+  - React Native
+  - Android
+  - adb
+  - Git
+  - Gradle
+socialImage: '/icon.png'
+---
+
+## CLI で Android 端末にアプリをインストールする
+
+adb を使ってインストールできる。
+
+指定デバイスへのインストールは、`-s`オプションでデバイス ID を指定することでインストール可能。
+
+```shell
+adb -s [DEVICE_ID] install [APP_PATH]
+```
+
+## stash からファイルを指定して pop する
+
+下記のコマンドで可能。
+`checkout`を使うのでコマンドミスに注意。
+
+```shell
+git checkout stash@{[NUMBER]} [FILE_NAME]
+```
+
+[ [git]一部のファイルだけ stash する、または stash から取り出す - dackdive's blog](https://dackdive.hateblo.jp/entry/2014/07/15/132855) を参照した。
+
+## CLI で Android アプリをビルド
+
+`./gradlew [TASK_NAME]`でビルドができる。
+`TASK_NAME`については`gradlew tasks`から確認できる。
+
+直近で使ったコマンドは以下。
+
+```shell
+# デバッグビルド
+./gradlew assembleDebug
+
+# リリースビルド
+./gradlew assembleRelease
+```
+
+[コマンドラインからアプリをビルドする | Android デベロッパー | Android Developers](https://developer.android.com/studio/build/building-cmdline?hl=ja) を参考にした。
+
+## Gradle でビルドができなくなった
+
+下記のエラーメッセージが出てビルドができなくなった。
+
+```
+* What went wrong:
+Gradle could not start your build.
+> Could not create service of type FileHasher using GradleUserHomeServices.createCachingFileHasher().
+   > Timeout waiting to lock file hash cache ([PROJECT_PATH]/.gradle/caches/6.3/fileHashes). It is currently in use by another Gradle instance.
+     Owner PID: 84052
+     Our PID: 14709
+     Owner Operation:
+     Our operation:
+     Lock file: [PROJECT_PATH]/.gradle/caches/6.3/fileHashes/fileHashes.lock
+```
+
+これについては起動中のプロセスがある可能性があるので、kill してから再度実行することで解消した。
+
+上記は [Gradle :Could not create service of type FileHasher - Stack Overflow](https://stackoverflow.com/questions/45177977/gradle-could-not-create-service-of-type-filehasher/46094804) を参考にした。
+
+また、下記のエラーが発生してビルドができないこともあった。
+
+```
+Expiring Daemon because JVM heap space is exhausted
+```
+
+これについてはヒープ不足による問題だった。
+
+[android studio - Expiring Daemon because JVM heap space is exhausted - Stack Overflow](https://stackoverflow.com/questions/56075455/expiring-daemon-because-jvm-heap-space-is-exhausted) を参考にして設定を変更したらビルドできたが、変更前の状態でもビルドできたのでメモリの使用状況に依存していると思われる。変更しておいた方がビルドに失敗する心配は減りそう。
