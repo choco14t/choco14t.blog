@@ -17,7 +17,7 @@ p {
 section {
   h2 {
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding-left: 0.8rem;
 
     &::before {
@@ -30,6 +30,10 @@ section {
       height: 100%;
       background: #88c0d0;
     }
+  }
+
+  h3 {
+    font-size: 1.2rem;
   }
 
   p,
