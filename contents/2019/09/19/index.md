@@ -8,7 +8,7 @@ description: あるリポジトリを見たらセキュリティの脆弱性が�
 category: Dev
 tags:
   - npm
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 あるリポジトリを見たらセキュリティの脆弱性があるよとのことだったので、プロダクトとかではないので悪影響はないが更新しておいた。

@@ -1,6 +1,6 @@
 ---
 template: post
-title: "Laravel Eloquent Tips"
+title: 'Laravel Eloquent Tips'
 slug: laravel-eloquent-tips
 draft: false
 date: 2019-06-13T08:01:00.000+09:00
@@ -9,10 +9,10 @@ category: Dev
 tags:
   - PHP
   - Laravel
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
 
-Eloquentを使う際にちょっと便利になるTipsをまとめてみた。網羅性はないので参考程度に。
+Eloquent を使う際にちょっと便利になる Tips をまとめてみた。網羅性はないので参考程度に。
 
 ## テーブル名の変更
 
@@ -111,7 +111,7 @@ class Example extends Model
 }
 ```
 
-## タイムスタンプのプロパティからCarbonのメソッドを実行
+## タイムスタンプのプロパティから Carbon のメソッドを実行
 
 次のようなマイグレーションを作成します。
 
@@ -186,5 +186,5 @@ class Example extends Model
 
 ## 参考
 
-* [Eloquent: Getting Started - Laravel - The PHP Framework For Web Artisans](https://laravel.com/docs/5.8/eloquent)
-* [Eloquent: Mutators - Laravel - The PHP Framework For Web Artisans](https://laravel.com/docs/5.8/eloquent-mutators#accessors-and-mutators)
+- [Eloquent: Getting Started - Laravel - The PHP Framework For Web Artisans](https://laravel.com/docs/5.8/eloquent)
+- [Eloquent: Mutators - Laravel - The PHP Framework For Web Artisans](https://laravel.com/docs/5.8/eloquent-mutators#accessors-and-mutators)

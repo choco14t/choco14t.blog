@@ -10,7 +10,7 @@ tags:
   - Log
   - React Native
   - Gradle
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## 画像のトリミング

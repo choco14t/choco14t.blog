@@ -1,29 +1,29 @@
 ---
 template: post
-title: "Laravel Statsを使ったソースコードの分析"
+title: 'Laravel Statsを使ったソースコードの分析'
 slug: analyze-code-with-laravelstats
 draft: false
 date: 2019-10-06T15:23:00.000+09:00
-description: "Laravelプロジェクトでのソースコード分析ライブラリ。"
+description: 'Laravelプロジェクトでのソースコード分析ライブラリ。'
 category: Dev
 tags:
   - PHP
   - Laravel
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
 
-2019年9月1日にv2.0がリリースされました🎉
+2019 年 9 月 1 日に v2.0 がリリースされました 🎉
 
-私はv2.0になってからこのパッケージの存在を知ったので、写経用に作成していたLaravelプロジェクトの更新を兼ねてインストールしてみました。
+私は v2.0 になってからこのパッケージの存在を知ったので、写経用に作成していた Laravel プロジェクトの更新を兼ねてインストールしてみました。
 
 ## インストール条件
 
-v2.0を使用する場合は次の条件を満たしている必要があります。
+v2.0 を使用する場合は次の条件を満たしている必要があります。
 
-* PHP 7.2以上
-* Laravel v5.8以上もしくはLumen v5.8以上
+- PHP 7.2 以上
+- Laravel v5.8 以上もしくは Lumen v5.8 以上
 
-Lumenでも使用可能とのことですが、今回はLaravelプロジェクトでの使用方法を記述します。
+Lumen でも使用可能とのことですが、今回は Laravel プロジェクトでの使用方法を記述します。
 
 ## インストール
 
@@ -122,50 +122,50 @@ $ php artisan stats
 
 ### オプション
 
-| オプション | 説明 |
-| -- | -- |
-| --json | json形式で出力 |
-| --components[=COMPONENTS] | 出力対象を指定して出力 |
-| -h, --help | ヘルプの表示 |
-| -q, --quiet | 結果を出力しない |
-| -V, --version | バージョンの表示 |
-| --ansi | ANSIで出力 |
-| --no-ansi | ANSIで出力しない |
-| -n, --no-interaction | 対話形式にしない |
-| --env[=ENV] | 実行環境を指定して出力 |
-| -v, -vv, -vvv, --verbose | 出力メッセージを詳細にする。 |
+| オプション                | 説明                         |
+| ------------------------- | ---------------------------- |
+| --json                    | json 形式で出力              |
+| --components[=COMPONENTS] | 出力対象を指定して出力       |
+| -h, --help                | ヘルプの表示                 |
+| -q, --quiet               | 結果を出力しない             |
+| -V, --version             | バージョンの表示             |
+| --ansi                    | ANSI で出力                  |
+| --no-ansi                 | ANSI で出力しない            |
+| -n, --no-interaction      | 対話形式にしない             |
+| --env[=ENV]               | 実行環境を指定して出力       |
+| -v, -vv, -vvv, --verbose  | 出力メッセージを詳細にする。 |
 
-`-v, -vv, -vvv,`を実行してみましたが、私が実行した環境では出力結果が変わりませんでした😢
+`-v, -vv, -vvv,`を実行してみましたが、私が実行した環境では出力結果が変わりませんでした 😢
 
 ## 出力の分類方法
 
-Laravel Statsでは以下の条件で分類しています。
+Laravel Stats では以下の条件で分類しています。
 
-| コンポーネント | 条件 |
-|:--|:--|
-| Controller | ルーティングに登録されている。`php artisan route:list`に表示されるコントローラ |
-| Model | `Illuminate\Database\Eloquent\Model`が継承されているファイル |
-| Command | `Illuminate\Console\Command`が継承されているファイル |
-| Rule | `Illuminate\Contracts\Validation\Rule`が継承されているファイル |
-| Policy | `AuthServiceProvider`に登録されているポリシー |
-| Middleware | `App\Http\Kernel`に登録されているミドルウェア |
-| Event | `Illuminate\Foundation\Events\Dispatchable`トレイトを使用しているファイル |
-| Event Listener | `EventServiceProvider`に登録されているファイル |
-| Mail | `Illuminate\Mail\Mailable`が継承されているファイル |
-| Notification | `Illuminate\Notifications\Notification`が継承されているファイル |
-| Nova Action | `Laravel\Nova\Actions\Action`が継承されているファイル |
-| Nova Filter | `Laravel\Nova\Filters\Filter`が継承されているファイル |
-| Nova Lens | `Laravel\Nova\Lenses\Lens`が継承されているファイル |
-| Nova Resource | `Laravel\Nova\Resource`が継承されているファイル |
-| Job | `Illuminate\Foundation\Bus\Dispatchable`トレイトを使用しているファイル |
-| Migration | `Illuminate\Database\Migrations\Migration`が継承されているファイル |
-| Request | `Illuminate\Foundation\Http\FormRequest`が継承されているファイル |
-| Resource | `Illuminate\Http\Resources\Json\Resource`, `Illuminate\Http\Resources\Json\JsonResource`または`Illuminate\Http\Resources\Json\ResourceCollection`が継承されているファイル |
-| Seeder | `Illuminate\Database\Seeder`が継承されているファイル |
-| ServiceProvider | `Illuminate\Support\ServiceProvider`が継承されているファイル |
-| Dusk Tests | `Laravel\Dusk\TestCase`が継承されているファイル |
-| BrowserKit Test | `Laravel\BrowserKitTesting\TestCase`が継承されているファイル |
-| PHPUnit Test | `PHPUnit\Framework\TestCase`が継承されているファイル |
+| コンポーネント  | 条件                                                                                                                                                                      |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Controller      | ルーティングに登録されている。`php artisan route:list`に表示されるコントローラ                                                                                            |
+| Model           | `Illuminate\Database\Eloquent\Model`が継承されているファイル                                                                                                              |
+| Command         | `Illuminate\Console\Command`が継承されているファイル                                                                                                                      |
+| Rule            | `Illuminate\Contracts\Validation\Rule`が継承されているファイル                                                                                                            |
+| Policy          | `AuthServiceProvider`に登録されているポリシー                                                                                                                             |
+| Middleware      | `App\Http\Kernel`に登録されているミドルウェア                                                                                                                             |
+| Event           | `Illuminate\Foundation\Events\Dispatchable`トレイトを使用しているファイル                                                                                                 |
+| Event Listener  | `EventServiceProvider`に登録されているファイル                                                                                                                            |
+| Mail            | `Illuminate\Mail\Mailable`が継承されているファイル                                                                                                                        |
+| Notification    | `Illuminate\Notifications\Notification`が継承されているファイル                                                                                                           |
+| Nova Action     | `Laravel\Nova\Actions\Action`が継承されているファイル                                                                                                                     |
+| Nova Filter     | `Laravel\Nova\Filters\Filter`が継承されているファイル                                                                                                                     |
+| Nova Lens       | `Laravel\Nova\Lenses\Lens`が継承されているファイル                                                                                                                        |
+| Nova Resource   | `Laravel\Nova\Resource`が継承されているファイル                                                                                                                           |
+| Job             | `Illuminate\Foundation\Bus\Dispatchable`トレイトを使用しているファイル                                                                                                    |
+| Migration       | `Illuminate\Database\Migrations\Migration`が継承されているファイル                                                                                                        |
+| Request         | `Illuminate\Foundation\Http\FormRequest`が継承されているファイル                                                                                                          |
+| Resource        | `Illuminate\Http\Resources\Json\Resource`, `Illuminate\Http\Resources\Json\JsonResource`または`Illuminate\Http\Resources\Json\ResourceCollection`が継承されているファイル |
+| Seeder          | `Illuminate\Database\Seeder`が継承されているファイル                                                                                                                      |
+| ServiceProvider | `Illuminate\Support\ServiceProvider`が継承されているファイル                                                                                                              |
+| Dusk Tests      | `Laravel\Dusk\TestCase`が継承されているファイル                                                                                                                           |
+| BrowserKit Test | `Laravel\BrowserKitTesting\TestCase`が継承されているファイル                                                                                                              |
+| PHPUnit Test    | `PHPUnit\Framework\TestCase`が継承されているファイル                                                                                                                      |
 
 ## 出力分類の追加
 
@@ -233,11 +233,11 @@ class RepositoryClassifier implements Classifier
 
 このパッケージをインストールすることでファイルごとの行数やメソッド数、クラス数を分析することでどこが複雑になっているかを手軽に調べることができるようになると思います。
 
-Laravel Statsと[PHP Insights](https://phpinsights.com)を併せて利用することでよりプロジェクトのコード分析が捗ると思うので一度使用してみてはいかがでしょうか。
+Laravel Stats と[PHP Insights](https://phpinsights.com)を併せて利用することでよりプロジェクトのコード分析が捗ると思うので一度使用してみてはいかがでしょうか。
 
 ## 参考
 
-* [stefanzweifel/laravel-stats](https://github.com/stefanzweifel/laravel-stats)
-* [Release v2.0.0 · stefanzweifel/laravel-stats](https://github.com/stefanzweifel/laravel-stats/releases/tag/v2.0.0)
-  * 追加機能やv1からのアップデート手順について書かれています
-* [Laravel Stats 2.0 is Here - Laravel News](https://laravel-news.com/laravel-stats-2-0)
+- [stefanzweifel/laravel-stats](https://github.com/stefanzweifel/laravel-stats)
+- [Release v2.0.0 · stefanzweifel/laravel-stats](https://github.com/stefanzweifel/laravel-stats/releases/tag/v2.0.0)
+  - 追加機能や v1 からのアップデート手順について書かれています
+- [Laravel Stats 2.0 is Here - Laravel News](https://laravel-news.com/laravel-stats-2-0)

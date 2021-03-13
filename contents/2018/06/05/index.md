@@ -8,7 +8,7 @@ description: ''
 category: Dev
 tags:
   - PHP
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## BOM とは

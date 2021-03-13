@@ -9,7 +9,7 @@ category: Log
 tags:
   - Log
   - React Native
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## URL 指定の画像が表示されない
@@ -18,10 +18,7 @@ React Native で外部リソース（画像）を読み込もうとして表示�
 下記のように width、height を指定をすることで解決した。
 
 ```jsx
-<Image
-  source={{uri: `${resource}`}}
-  style={{height: 100, width: 100}}
-/>
+<Image source={{ uri: `${resource}` }} style={{ height: 100, width: 100 }} />
 ```
 
-[ReactNativeのImageで画像が表示されない - Qiita](https://qiita.com/ozaki25/items/d98ba7436c6e2f7841f0) を参考にした。
+[ReactNative の Image で画像が表示されない - Qiita](https://qiita.com/ozaki25/items/d98ba7436c6e2f7841f0) を参考にした。

@@ -1,18 +1,18 @@
 ---
 template: post
-title: "DDD Radio #1"
+title: 'DDD Radio #1'
 slug: ddd-radio-1
 draft: false
 date: 2019-09-23T18:53:00.000+09:00
-description: "2019/09/22に開催されたDDD Radio 公開収録 #1のメモ。"
+description: '2019/09/22に開催されたDDD Radio 公開収録 #1のメモ。'
 category: Dev
 tags:
   - DDD
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
 
-2019/09/22に開催された[DDD Radio 公開収録 #1](https://ddd-community-jp.connpass.com/event/147596/)メモ。
-ファシリテーターの[松岡さん](https://twitter.com/little_hand_s)、スピーカーの[かとじゅんさん](https://twitter.com/j5ik2o)、[すえなみさん](https://twitter.com/a_suenami)、[ミノ駆動さん](https://twitter.com/MinoDriven)の4人がDDDをどうやって導入したか、失敗などの事例について話すという内容。
+2019/09/22 に開催された[DDD Radio 公開収録 #1](https://ddd-community-jp.connpass.com/event/147596/)メモ。
+ファシリテーターの[松岡さん](https://twitter.com/little_hand_s)、スピーカーの[かとじゅんさん](https://twitter.com/j5ik2o)、[すえなみさん](https://twitter.com/a_suenami)、[ミノ駆動さん](https://twitter.com/MinoDriven)の 4 人が DDD をどうやって導入したか、失敗などの事例について話すという内容。
 
 以下は印象に残った箇所の所感。
 
@@ -27,10 +27,10 @@ socialImage: "/icon.png"
 
 こういった事態になる要因としては、
 
-* 実装するべき箇所がわからない
-* 現状で既にビジネスロジックが散在している
-* ドメインに対する知識が浅かった
-* etc...
+- 実装するべき箇所がわからない
+- 現状で既にビジネスロジックが散在している
+- ドメインに対する知識が浅かった
+- etc...
 
 があると思っている。
 

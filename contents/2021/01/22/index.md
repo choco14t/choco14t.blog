@@ -9,7 +9,7 @@ category: Log
 tags:
   - Log
   - React Native
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## React Native 入力欄がキーボードで隠れないようにする
@@ -33,9 +33,7 @@ issue は立っていたが解消されていない模様。
 ```jsx
 <KeyboardAvoidingView>
   <ScrollView>
-    <View>
-      {/* content */}
-    </View>
+    <View>{/* content */}</View>
   </ScrollView>
 </KeyboardAvoidingView>
 ```

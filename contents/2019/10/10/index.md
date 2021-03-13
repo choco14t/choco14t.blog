@@ -8,7 +8,7 @@ description: ''
 category: Dev
 tags:
   - Inkdrop
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 タイトルの通り。メモやブログの下書きなどで[Inkdrop](https://inkdrop.app)を利用している。
