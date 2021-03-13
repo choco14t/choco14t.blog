@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { FaClock, FaTags } from 'react-icons/fa'
 
-import articleStyles from './article.module.scss'
+import * as articleStyles from './article.module.scss'
 
 const Article = ({ date, excerpt, slug, tags, title }) => {
   return (

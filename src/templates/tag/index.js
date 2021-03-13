@@ -5,7 +5,7 @@ import { FaTag } from 'react-icons/fa'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import Article from '../../components/article'
-import tagPageStyles from './tag.module.scss'
+import * as tagPageStyles from './tag.module.scss'
 
 const TagPageTemplate = ({ data, pageContext }) => {
   const { tag } = pageContext

@@ -5,7 +5,7 @@ import { FaTags } from 'react-icons/fa'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 
-import postPageStyles from './post.module.scss'
+import * as postPageStyles from './post.module.scss'
 
 const PostPageTemplate = ({ data }) => {
   return (
