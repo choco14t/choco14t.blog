@@ -1,24 +1,25 @@
 ---
 template: post
-title: "FormRequestのバリデーション失敗時にjsonを返す"
+title: 'FormRequestのバリデーション失敗時にjsonを返す'
 slug: return-json-when-validation-of-form-request-fails
 draft: false
 date: 2020-02-14T22:00:00.000+09:00
-description: "failedValidation()をオーバーライドする"
+description: 'failedValidation()をオーバーライドする'
 category: Dev
 tags:
   - PHP
   - Laravel
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
-以下どちらかの実装でjsonレスポンスにできる。
 
-* `failedValidation()`をオーバーライドする
-* ヘッダーに`Accept`または`X-Requested-With`を追加する
+以下どちらかの実装で json レスポンスにできる。
+
+- `failedValidation()`をオーバーライドする
+- ヘッダーに`Accept`または`X-Requested-With`を追加する
 
 ## `failedValidation()`のオーバーライド
 
-フォームリクエストクラスの`failedValidation()`をオーバーライドすることでjsonレスポンスかつメッセージをカスタマイズすることも可能。以下はサインアップのエンドポイントを想定したリクエストの例。
+フォームリクエストクラスの`failedValidation()`をオーバーライドすることで json レスポンスかつメッセージをカスタマイズすることも可能。以下はサインアップのエンドポイントを想定したリクエストの例。
 
 ```php
 <?php
@@ -119,9 +120,9 @@ class SignUpRequest extends FormRequest
     }
 ```
 
-`expectsJson()`はヘッダに`X-Requested-With: XMLHttpRequest`が含まれているか、ヘッダに`Accept: .../json`もしくは`Accept: ...+json`が含まれている場合にjsonレスポンスを返却する。
+`expectsJson()`はヘッダに`X-Requested-With: XMLHttpRequest`が含まれているか、ヘッダに`Accept: .../json`もしくは`Accept: ...+json`が含まれている場合に json レスポンスを返却する。
 
-そのためミドルウェアでヘッダを追加することでjsonレスポンスが取得できる。
+そのためミドルウェアでヘッダを追加することで json レスポンスが取得できる。
 
 ```php
 <?php
@@ -189,6 +190,6 @@ class Kernel extends HttpKernel
 
 ## 参考
 
-* [【Laravel5】FormRequestのバリデーション結果をJSON APIで返す - Qiita](https://qiita.com/junsan50/items/ec7f810decd3b82d3d76)
-* [Laravel APIで常にJSONをリクエストするミドルウェア - Qiita](https://qiita.com/kd9951/items/9b6ef7d2c505522d873b)
-* [php - How to set header for all requests in route group - Stack Overflow](https://stackoverflow.com/questions/44453221/how-to-set-header-for-all-requests-in-route-group)
+- [【Laravel5】FormRequest のバリデーション結果を JSON API で返す - Qiita](https://qiita.com/junsan50/items/ec7f810decd3b82d3d76)
+- [Laravel API で常に JSON をリクエストするミドルウェア - Qiita](https://qiita.com/kd9951/items/9b6ef7d2c505522d873b)
+- [php - How to set header for all requests in route group - Stack Overflow](https://stackoverflow.com/questions/44453221/how-to-set-header-for-all-requests-in-route-group)

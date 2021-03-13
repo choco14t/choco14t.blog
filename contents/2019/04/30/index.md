@@ -9,7 +9,7 @@ category: Dev
 tags:
   - PHP
   - Laravel
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 Laravel には[Socialite](https://laravel.com/docs/master/socialite)という OAuth 認証のライブラリが提供されています。

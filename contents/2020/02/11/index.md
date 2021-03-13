@@ -1,32 +1,33 @@
 ---
 template: post
-title: "DockerでXdebugのインストールを失敗した場合"
+title: 'DockerでXdebugのインストールを失敗した場合'
 slug: what-to-do-if-xdebug-installation-failed-with-docker
 draft: false
 date: 2020-02-11T10:00:00.000+09:00
-description: "apk add autoconf build-baseが必要"
+description: 'apk add autoconf build-baseが必要'
 category: Dev
 tags:
   - Docker
   - PHP
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
-DockerのコンテナにXdebugをインストールしようとして失敗した。<br>
-発生したエラーは以下の2点。
 
-* autoconfがインストールされていなかった
-* Cコンパイラがインストールされていなかった
+Docker のコンテナに Xdebug をインストールしようとして失敗した。<br>
+発生したエラーは以下の 2 点。
+
+- autoconf がインストールされていなかった
+- C コンパイラがインストールされていなかった
 
 ## 実行環境
 
-* Docker 2.2.0.0
-* PHP 7.4
-  * [php:7.4-fpm-alpine](https://hub.docker.com/_/php)
-* Xdebug 2.9.2
+- Docker 2.2.0.0
+- PHP 7.4
+  - [php:7.4-fpm-alpine](https://hub.docker.com/_/php)
+- Xdebug 2.9.2
 
-## その1 autoconfがインストールされていない
+## その 1 autoconf がインストールされていない
 
-以下のようなエラーが表示された場合はautoconfがインストールされていない。
+以下のようなエラーが表示された場合は autoconf がインストールされていない。
 
 ```
 downloading xdebug-2.9.2.tgz ...
@@ -46,7 +47,7 @@ ERROR: `phpize' failed
 
 この場合は`apk add autoconf`を実行してインストールすればよい。
 
-## その2 コンパイラがインストールされていない
+## その 2 コンパイラがインストールされていない
 
 以下のようなエラーが表示された場合はコンパイラのインストールがされていない。
 
@@ -77,16 +78,16 @@ ERROR: `/tmp/pear/temp/xdebug/configure --with-php-config=/usr/local/bin/php-con
 この場合は`apk add gcc g++ make`を実行してインストールすればコンパイルが可能になる。
 
 また、`apk add build-base`の実行でも必要なパッケージのインストールが行える。
-[build-base](https://pkgs.alpinelinux.org/package/edge/main/x86_64/build-base)は以下7つのパッケージをインストールする。
+[build-base](https://pkgs.alpinelinux.org/package/edge/main/x86_64/build-base)は以下 7 つのパッケージをインストールする。
 
-* binutils
-* file
-* fortify-headers
-* g++
-* gcc
-* libc-dev
-* make
+- binutils
+- file
+- fortify-headers
+- g++
+- gcc
+- libc-dev
+- make
 
 ## 参考
 
-* [php-alpineコンテナにxdebugをインストールする時にハマったメモ - Qiita](https://qiita.com/ucan-lab/items/fbf021bf69896538e515)
+- [php-alpine コンテナに xdebug をインストールする時にハマったメモ - Qiita](https://qiita.com/ucan-lab/items/fbf021bf69896538e515)

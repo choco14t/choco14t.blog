@@ -9,7 +9,7 @@ category: Log
 tags:
   - Log
   - React Native
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## Tab ごとにヘッダーのタイトルを切り替える
@@ -17,34 +17,34 @@ socialImage: '/icon.png'
 `navigation.dangerouslyGetParent()`を使って対応した。
 
 ```jsx
-import React, { useCallback } from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { useFocusEffect } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { useCallback } from 'react'
+import { View, Text } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { useFocusEffect } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 
-const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator()
 
 const TabHomeScreen = ({ navigation }) => {
   useFocusEffect(
     useCallback(() => {
       // 親要素である Stack を取得し、Stack に対して title を設定する
-      const stackNavigator = navigation.dangerouslyGetParent();
+      const stackNavigator = navigation.dangerouslyGetParent()
 
       if (stackNavigator) {
-        stackNavigator.setOptions({ title: 'HOME' });
+        stackNavigator.setOptions({ title: 'HOME' })
       }
     }, [navigation])
-  );
+  )
 
   return (
     <View>
       <Text>This is Home Screen</Text>
     </View>
-  );
-};
+  )
+}
 
 const TabScreens = () => {
   return (
@@ -52,16 +52,16 @@ const TabScreens = () => {
       <Tab.Screen component={TabHomeScreen} />
       <Tab.Screen />
     </Tab.Navigator>
-  );
-};
+  )
+}
 
 const StackScreens = () => {
-  <NavigationContainer>
+  ;<NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen component={TabScreens} />
     </Stack.Navigator>
-  </NavigationContainer>;
-};
+  </NavigationContainer>
+}
 ```
 
 [ドキュメント](https://reactnavigation.org/docs/navigation-prop/#dangerouslygetparent)にも以下のように記載されている。

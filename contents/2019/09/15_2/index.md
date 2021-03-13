@@ -9,7 +9,7 @@ category: Dev
 tags:
   - VSCode
   - PHP
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 この記事では以下のプラグインが動作するようにセットアップを行う。

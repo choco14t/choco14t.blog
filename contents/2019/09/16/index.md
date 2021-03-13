@@ -8,7 +8,7 @@ description: ''
 category: Dev
 tags:
   - MySQL
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## まえがき

@@ -13,7 +13,7 @@ tags:
   - adb
   - Git
   - Gradle
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## CLI で Android 端末にアプリをインストールする

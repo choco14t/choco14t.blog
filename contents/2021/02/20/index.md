@@ -8,7 +8,7 @@ description: '明けましておめでとうございます'
 category: Diary
 tags:
   - Diary
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 新年初投稿。

@@ -8,7 +8,7 @@ description: '楽しかったの一言に尽きる'
 category: Diary
 tags:
   - Diary
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 3 月 6 日に開催された [TDDBC Sendai X](https://tddbc-sendai-x.peatix.com/) に初参加したので感想だったり、ふりかえりをしてみる。

@@ -9,7 +9,7 @@ category: Log
 tags:
   - Log
   - React Native
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 ## iOS シミュレータで React Native のデバッグメニューが表示されない

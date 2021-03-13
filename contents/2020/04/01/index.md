@@ -1,23 +1,24 @@
 ---
 template: post
-title: "tymon/jwt-authにパーサーを追加する"
+title: 'tymon/jwt-authにパーサーを追加する'
 slug: add-parser-to-tymon-jwt-auth
 draft: false
 date: 2020-04-01T10:00:00.000+09:00
-description: ""
+description: ''
 category: Dev
 tags:
   - PHP
   - Laravel
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
+
 `Authorization: Token {token}`の形式でトークンを取得するためにやったことのメモ。
 
 ## TL;DR
 
-* `Tymon\JWTAuth\Contracts\Http\Parser`を実装したクラスを作成する
-  * 今回の場合だと`Tymon\JWTAuth\Http\Parser\AuthHeaders`を使ってもよかった
-* `Tymon\JWTAuth\JWTAuth`に作成したクラスをサービスプロバイダー経由で追加する
+- `Tymon\JWTAuth\Contracts\Http\Parser`を実装したクラスを作成する
+  - 今回の場合だと`Tymon\JWTAuth\Http\Parser\AuthHeaders`を使ってもよかった
+- `Tymon\JWTAuth\JWTAuth`に作成したクラスをサービスプロバイダー経由で追加する
 
 ## 解決方法
 
@@ -94,4 +95,4 @@ class AppServiceProvider extends ServiceProvider
 
 ## 参考
 
-* [Laravelで作ったらすべて解決ではないよ？ - Qiita](https://qiita.com/imunew/items/ff2b61eb62b5ac4ffac7#tymonjwt-auth)
+- [Laravel で作ったらすべて解決ではないよ？ - Qiita](https://qiita.com/imunew/items/ff2b61eb62b5ac4ffac7#tymonjwt-auth)

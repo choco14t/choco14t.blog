@@ -1,6 +1,6 @@
 ---
 template: post
-title: "PHPにおけるオブジェクトの比較"
+title: 'PHPにおけるオブジェクトの比較'
 slug: object-comparison-in-php
 draft: false
 date: 2019-01-20T21:06:00.000+09:00
@@ -8,24 +8,24 @@ description: 業務中にとあるクラスのオブジェクトを比較して�
 category: Dev
 tags:
   - PHP
-socialImage: "/icon.png"
+socialImage: 'icon.png'
 ---
 
 業務中にとあるクラスのオブジェクトを比較している箇所で不思議な挙動をしていたので、改めてドキュメントを読み直した。
 
 ## オブジェクトの比較
 
-PHPにおける、オブジェクト比較の定義として以下が挙げられる。
+PHP における、オブジェクト比較の定義として以下が挙げられる。
 
-* 組み込みのクラスには独自の比較基準が定義されている
-* 組み込みクラス以外の比較は出来ない
-* 比較演算子`==`では、同じ属性と値を持ち、同じクラスのインスタンスであれば`true`となる
-* 厳密な比較演算子`===`では、同じクラスの同じインスタンスを参照している場合のみ`true`となる
+- 組み込みのクラスには独自の比較基準が定義されている
+- 組み込みクラス以外の比較は出来ない
+- 比較演算子`==`では、同じ属性と値を持ち、同じクラスのインスタンスであれば`true`となる
+- 厳密な比較演算子`===`では、同じクラスの同じインスタンスを参照している場合のみ`true`となる
 
 上記に関しては、以下のドキュメントページから引用した。
 
-* [PHP: 比較演算子 - Manual](http://php.net/manual/ja/language.operators.comparison.php)
-* [PHP: オブジェクトの比較 - Manual](http://php.net/manual/ja/language.oop5.object-comparison.php)
+- [PHP: 比較演算子 - Manual](http://php.net/manual/ja/language.operators.comparison.php)
+- [PHP: オブジェクトの比較 - Manual](http://php.net/manual/ja/language.oop5.object-comparison.php)
 
 ### 組み込みのクラスには独自の比較基準が定義されている
 
@@ -107,7 +107,7 @@ var_dump($cls1 == $cls5); // false
 ```
 
 先述している通り、同一の属性・値を持ち、同じクラスのインスタンスであれば`true`となる。
-`$cls5`は全ての値を変更しているが、1つでも異なる値になっていれば`false`となる。
+`$cls5`は全ての値を変更しているが、1 つでも異なる値になっていれば`false`となる。
 
 ### 厳密な比較演算子`===`によるオブジェクトの比較
 
@@ -129,7 +129,7 @@ var_dump($cls1 === $cls5); // false
 比較演算子`==`で`true`となっていた比較も厳密な比較演算子の場合は`false`となり、
 同一の参照を持つ場合でなければ`true`とならない。
 
-## おまけ：DateIntervalの比較
+## おまけ：DateInterval の比較
 
 冒頭に不思議な挙動をしていたと書いたが、正体は`DateInterval`。
 
@@ -144,8 +144,8 @@ var_dump($interval1 < $interval2);
 var_dump($interval1 > $interval2);
 ```
 
-このとき`var_dump()`は1つ目が`true`となり、以降は`false`と表示される。
-先程書いたとおりにプロパティを順に比較していれば、`$interval2`の方が大きいと判定されて2つ目の`var_dump()`のみ`true`となるはず。
+このとき`var_dump()`は 1 つ目が`true`となり、以降は`false`と表示される。
+先程書いたとおりにプロパティを順に比較していれば、`$interval2`の方が大きいと判定されて 2 つ目の`var_dump()`のみ`true`となるはず。
 
 ネタバラシをするとバグであり、[こちら](https://bugs.php.net/bug.php?id=49914)で報告されている。推測としては、組み込みクラスでないためオブジェクト同士の比較をサポートしていないと思われる。
 
@@ -153,4 +153,4 @@ var_dump($interval1 > $interval2);
 
 ### Reference
 
-* [Are PHP DateInterval comparable like DateTime? - Stack Overflow](https://stackoverflow.com/questions/9547855/are-php-dateinterval-comparable-like-datetime)
+- [Are PHP DateInterval comparable like DateTime? - Stack Overflow](https://stackoverflow.com/questions/9547855/are-php-dateinterval-comparable-like-datetime)

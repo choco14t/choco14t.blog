@@ -8,7 +8,7 @@ description: '2020年も色々買った'
 category: Diary
 tags:
   - Diary
-socialImage: '/icon.png'
+socialImage: 'icon.png'
 ---
 
 年末も近づいてきたということで。
