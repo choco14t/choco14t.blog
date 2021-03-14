@@ -40,7 +40,7 @@ BUILD SETTINGS > Environment Variables をクリックして「Add Variable」�
 
 公式ドキュメントの設定を編集して以下のようにする。
 
-```yml:title=config.yml
+```yaml:title=config.yml
 version: 2
 jobs:
   build:
