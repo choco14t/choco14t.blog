@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { FaTwitter, FaGithub } from 'react-icons/fa'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import { FaTwitter, FaGithub, FaRss } from 'react-icons/fa'
 
 import * as footerStyles from './footer.module.scss'
 
@@ -24,6 +24,7 @@ const Footer = () => {
           </address>
         </div>
         <div>
+          <Link to="/rss.xml"><FaRss /></Link>
           <a href="https://twitter.com/choco14t" target="_blank" rel="noopener noreferrer"><FaTwitter/></a>
           <a href="https://github.com/choco14t" target="_blank" rel="noopener noreferrer"><FaGithub/></a>
         </div>
