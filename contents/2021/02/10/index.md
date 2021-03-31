@@ -56,7 +56,7 @@ const TabScreens = () => {
 }
 
 const StackScreens = () => {
-  ;<NavigationContainer>
+  <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen component={TabScreens} />
     </Stack.Navigator>

@@ -22,7 +22,7 @@ adb を使ってインストールできる。
 
 指定デバイスへのインストールは、`-s`オプションでデバイス ID を指定することでインストール可能。
 
-```shell
+```sh
 adb -s [DEVICE_ID] install [APP_PATH]
 ```
 
@@ -31,7 +31,7 @@ adb -s [DEVICE_ID] install [APP_PATH]
 下記のコマンドで可能。
 `checkout`を使うのでコマンドミスに注意。
 
-```shell
+```sh
 git checkout stash@{[NUMBER]} [FILE_NAME]
 ```
 
@@ -44,7 +44,7 @@ git checkout stash@{[NUMBER]} [FILE_NAME]
 
 直近で使ったコマンドは以下。
 
-```shell
+```sh
 # デバッグビルド
 ./gradlew assembleDebug
 
