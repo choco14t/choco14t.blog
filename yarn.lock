@@ -6426,12 +6426,12 @@ gatsby-remark-relative-images@^2.0.2:
     traverse "0.6.6"
     unist-util-select "3.0.1"
 
-gatsby-remark-shiki@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-shiki/-/gatsby-remark-shiki-0.2.0.tgz#f9d881c21469466f2a5673c3286ca902e44d7f82"
-  integrity sha512-Jo4r0+Oz9G9F/SsGUiepSR4L7PGW5v8281FlztVVuEOPo7fmMY7zM9TgD/pnlrCITB/EwbogFWxLU9PtVV3RyA==
+gatsby-remark-shiki@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-shiki/-/gatsby-remark-shiki-0.1.2.tgz#5c04e42092cdce08aaddd9de493df802bf72e762"
+  integrity sha512-HjG3TuTNJJaCK3eGHsB2DQiwrHTEgeJKSzbotFb6W+auX4wAfEurkWStkyxbWo7zUc9UuiJkZKqOll3D7NrsIg==
   dependencies:
-    shiki "^0.2.2"
+    shiki "^0.1.6"
     unist-util-visit "^2.0.1"
 
 gatsby-source-filesystem@^3.0.0:
@@ -9911,7 +9911,7 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onigasm@^2.2.5:
+onigasm@^2.2.1:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/onigasm/-/onigasm-2.2.5.tgz#cc4d2a79a0fa0b64caec1f4c7ea367585a676892"
   integrity sha512-F+th54mPc0l1lp1ZcFMyL/jTs2Tlq4SqIHKIXGZOR/VkHkF9A7Fr5rRr5+ZG/lWeRsyrClLYRq7s/yFQ/XhWCA==
@@ -12233,30 +12233,30 @@ shell-quote@1.7.2:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
-shiki-languages@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/shiki-languages/-/shiki-languages-0.2.7.tgz#7230b675b96d37a36ac1bf995525375ce69f3924"
-  integrity sha512-REmakh7pn2jCn9GDMRSK36oDgqhh+rSvJPo77sdWTOmk44C5b0XlYPwJZcFOMJWUZJE0c7FCbKclw4FLwUKLRw==
+shiki-languages@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/shiki-languages/-/shiki-languages-0.1.6.tgz#4a71eba9d345de4780fc46994e4d073356573e3e"
+  integrity sha512-rMu+z97UCPKMtPBkzLBItReawXnlOgXZmELFwI/s3ATxd9VzJgSQTtQW/hmW5EYCrzF2kAUjoOnn+50/MPWjgQ==
   dependencies:
-    vscode-textmate "^5.2.0"
+    vscode-textmate "https://github.com/octref/vscode-textmate"
 
-shiki-themes@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/shiki-themes/-/shiki-themes-0.2.7.tgz#6e04451d832152e0fc969876a7bd926b3963c1f2"
-  integrity sha512-ZMmboDYw5+SEpugM8KGUq3tkZ0vXg+k60XX6NngDK7gc1Sv6YLUlanpvG3evm57uKJvfXsky/S5MzSOTtYKLjA==
+shiki-themes@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/shiki-themes/-/shiki-themes-0.1.7.tgz#edaf2027b31bb3645dd044f66a76d4cdb2599b77"
+  integrity sha512-mpF/VynGun/uNdjOIPnyPv4boN/QYDh+zE94SavgvmatMHkXXjZhls19Xv9rcRwuxUrWfXjaPkEZj7VAk94GGg==
   dependencies:
     json5 "^2.1.0"
-    vscode-textmate "^5.2.0"
+    vscode-textmate "https://github.com/octref/vscode-textmate"
 
-shiki@^0.2.2:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.2.7.tgz#d2547548ed8742673730e1e4bbe792a77c445540"
-  integrity sha512-bwVc7cdtYYHEO9O+XJ8aNOskKRfaQd5Y4ovLRfbQkmiLSUaR+bdlssbZUUhbQ0JAFMYcTcJ5tjG5KtnufttDHQ==
+shiki@^0.1.6:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.1.7.tgz#138eed000063a80e44eedc800381977c690271e5"
+  integrity sha512-9J0PhAdXv6tt3FZf82oKZkcV8c8NRZYJEOH0eIrrxfcyNzMuB79tJFGFSI3OhhiYFL5namob/Ii0Ri4iDoF15A==
   dependencies:
-    onigasm "^2.2.5"
-    shiki-languages "^0.2.7"
-    shiki-themes "^0.2.7"
-    vscode-textmate "^5.2.0"
+    onigasm "^2.2.1"
+    shiki-languages "^0.1.6"
+    shiki-themes "^0.1.7"
+    vscode-textmate "https://github.com/octref/vscode-textmate"
 
 side-channel@^1.0.2:
   version "1.0.2"
@@ -14022,10 +14022,14 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vscode-textmate@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-5.2.0.tgz#01f01760a391e8222fe4f33fbccbd1ad71aed74e"
-  integrity sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==
+"vscode-textmate@git+https://github.com/octref/vscode-textmate.git":
+  version "4.0.1"
+  uid e65aabe2227febda7beaad31dd0fca1228c5ddf3
+  resolved "git+https://github.com/octref/vscode-textmate.git#e65aabe2227febda7beaad31dd0fca1228c5ddf3"
+
+"vscode-textmate@https://github.com/octref/vscode-textmate":
+  version "4.0.1"
+  resolved "https://github.com/octref/vscode-textmate#e65aabe2227febda7beaad31dd0fca1228c5ddf3"
 
 watchpack@^2.0.0:
   version "2.1.1"
