@@ -27,7 +27,7 @@
     "gatsby-remark-shiki": "^0.1.2",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-transformer-remark": "^3.0.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "nord": "^0.2.1",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
