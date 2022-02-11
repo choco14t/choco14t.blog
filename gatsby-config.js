@@ -4,14 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const title = 'choco14t.blog'
+const title = 'blog.choco14t.net'
 
 module.exports = {
   siteMetadata: {
     title,
     author: 'choco',
-    description: 'choco14t.blog',
-    siteUrl: 'https://choco14t.blog',
+    description: 'blog.choco14t.net',
+    siteUrl: 'https://blog.choco14t.net',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -57,9 +57,11 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: 'UA-148031828-1',
+        trackingIds: [
+          'G-CJJ2ER4EPC',
+        ]
       }
     },
     {
