@@ -2,11 +2,11 @@
 
 # choco14t.blog
 
-Link: https://choco14t.blog
+Link: https://blog.choco14t.net
 
 <p>
   Made with
   <a href="https://github.com/gatsbyjs/gatsby">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="20" style="vertical-align: middle;" /> Gatsby.js
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="20" style="vertical-align: middle;" /> Gatsby.js
   </a>
 </p>
