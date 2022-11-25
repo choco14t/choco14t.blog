@@ -11,7 +11,7 @@ tags:
 socialImage: 'icon.png'
 ---
 
-TDD とライオンで著名？な t-wada さんがこんなツイートをしていた。
+TDD とライオンで著名な t-wada さんがこんなツイートをしていた。
 
 <blockquote class="twitter-tweet tw-align-center" data-cards="hidden">
   <p lang="ja" dir="ltr">
