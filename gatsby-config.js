@@ -17,12 +17,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'contents',
-        path: `${__dirname}/contents/`
-      }
+        path: `${__dirname}/contents/`,
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -36,7 +37,7 @@ module.exports = {
               maxWidth: 500,
               linkImagesToOriginal: false,
               showCaptions: ['title', 'alt'],
-            }
+            },
           },
           {
             resolve: `gatsby-remark-shiki`,
@@ -44,8 +45,8 @@ module.exports = {
               theme: 'nord',
             },
           },
-        ]
-      }
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -54,16 +55,14 @@ module.exports = {
         short_name: title,
         start_url: `/`,
         display: 'standalone',
-        icon: 'static/icon.png'
-      }
+        icon: 'static/icon.png',
+      },
     },
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: [
-          'G-CJJ2ER4EPC',
-        ]
-      }
+        trackingIds: ['G-CJJ2ER4EPC'],
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -89,7 +88,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },
@@ -118,5 +117,5 @@ module.exports = {
         ],
       },
     },
-  ]
+  ],
 }
