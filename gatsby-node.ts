@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
@@ -13,11 +13,12 @@ module.exports.onCreateNode = ({ node, actions }) => {
 
 module.exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const postPageTemplate = path.resolve('./src/templates/post/index.js')
-  const tagPageTemplate = path.resolve('./src/templates/tag/index.js')
+  const postPageTemplate = path.resolve('./src/templates/post/index.tsx')
+  const tagPageTemplate = path.resolve('./src/templates/tag/index.tsx')
   const response = await graphql(`{
     postsRemark: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC },
+      sort: { frontmatter: { date: DESC } },
+      filter: { frontmatter: { draft: { eq: false } } },
       limit: 1000
     ) {
       edges {
@@ -32,9 +33,7 @@ module.exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     }
     tagsGroup: allMarkdownRemark(limit: 1000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-      }
+      distinct(field: { frontmatter: { tags: SELECT } })
     }
   }`)
 
@@ -55,12 +54,12 @@ module.exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   // Tag pages
-  response.data.tagsGroup.group.forEach(({ fieldValue }) => {
+  response.data.tagsGroup.distinct.forEach((tag) => {
     createPage({
       component: tagPageTemplate,
-      path: `/tags/${fieldValue}`,
+      path: `/tags/${tag}`,
       context: {
-        tag: fieldValue
+        tag
       }
     })
   })
