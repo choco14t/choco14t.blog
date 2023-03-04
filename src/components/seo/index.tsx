@@ -1,14 +1,13 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Seo = ({ lang, title, imageUrl }) => {
-  return <Helmet htmlAttributes={{ lang }} title={title} />
+type Props = {
+  title: string
+  lang?: string
 }
 
-Seo.defaultProps = {
-  lang: 'ja',
-  description: '',
-  imageUrl: '',
+const Seo = ({ title, lang = 'ja' }: Props) => {
+  return <Helmet htmlAttributes={{ lang }} title={title} />
 }
 
 export default Seo

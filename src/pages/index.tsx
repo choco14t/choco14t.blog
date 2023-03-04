@@ -6,11 +6,12 @@ import Seo from '../components/seo'
 import Article from '../components/article'
 
 const BlogIndex = () => {
-  const data = useStaticQuery(graphql`
-    query BlogIndex {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  const data = useStaticQuery<Queries.BlogIndexQueryQuery>(graphql`
+    query BlogIndexQuery {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
         edges {
           node {
+            id
             frontmatter {
               title
               date(formatString: "YYYY-MM-DD")
@@ -26,16 +27,16 @@ const BlogIndex = () => {
 
   return (
     <Layout>
-      <Seo title="choco14t.blog" />
-      {data.allMarkdownRemark.edges.map(edge => {
+      <Seo title="blog.choco14t.net" />
+      {data.allMarkdownRemark.edges.map((edge) => {
         return (
           <Article
-            key={edge.node.frontmatter.slug}
-            date={edge.node.frontmatter.date}
-            excerpt={edge.node.excerpt}
-            slug={edge.node.frontmatter.slug}
-            tags={edge.node.frontmatter.tags}
-            title={edge.node.frontmatter.title}
+            key={edge.node.id}
+            date={edge.node.frontmatter?.date ?? ''}
+            excerpt={edge.node.excerpt ?? ''}
+            slug={edge.node.frontmatter?.slug ?? ''}
+            tags={(edge.node.frontmatter?.tags as string[]) ?? []}
+            title={edge.node.frontmatter?.title ?? ''}
           />
         )
       })}
@@ -44,3 +45,4 @@ const BlogIndex = () => {
 }
 
 export default BlogIndex
+
