@@ -2,7 +2,7 @@
 template: post
 title: '作業ログを投稿した'
 slug: posted-the-work-log
-draft: false
+draft: true
 date: 2021-02-20T10:00:00.000+09:00
 description: '明けましておめでとうございます'
 category: Diary
