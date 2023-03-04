@@ -1,4 +1,4 @@
-import { GatsbyConfig } from "gatsby"
+import { GatsbyConfig } from 'gatsby'
 
 const title = 'blog.choco14t.net'
 const config: GatsbyConfig = {
@@ -17,8 +17,15 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'contents',
-        path: `${__dirname}/contents/`,
+        name: 'articles',
+        path: `${__dirname}/articles/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/images/`,
       },
     },
     {
@@ -116,5 +123,4 @@ const config: GatsbyConfig = {
   ],
 }
 
-export default config;
-
+export default config
