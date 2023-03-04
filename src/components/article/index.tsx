@@ -4,7 +4,15 @@ import { FaClock, FaTags } from 'react-icons/fa'
 
 import * as articleStyles from './article.module.scss'
 
-const Article = ({ date, excerpt, slug, tags, title }) => {
+type Props = {
+  date: string
+  excerpt: string
+  slug: string
+  tags: string[]
+  title: string
+}
+
+const Article = ({ date, excerpt, slug, tags, title }: Props) => {
   return (
     <article className={articleStyles.article}>
       <h3 className={articleStyles.title}><Link to={`/posts/${slug}`}>{title}</Link></h3>
@@ -18,8 +26,8 @@ const Article = ({ date, excerpt, slug, tags, title }) => {
 
         <div className={articleStyles.meta}>
           <FaTags/>
-          {tags.map(tag => (
-            <span className={articleStyles.tag}>
+          {tags.map((tag) => (
+            <span key={`${slug}_${tag}`} className={articleStyles.tag}>
               <Link to={`/tags/${tag}`}>{tag}</Link>
             </span>
           ))}

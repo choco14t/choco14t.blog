@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import { FaTags } from 'react-icons/fa'
 
 import Layout from '../../components/layout'
@@ -7,20 +7,20 @@ import Seo from '../../components/seo'
 
 import * as postPageStyles from './post.module.scss'
 
-const PostPageTemplate = ({ data }) => {
+const PostPageTemplate = ({ data }: PageProps<Queries.PostTemplateQueryQuery>) => {
   return (
     <Layout>
-      <Seo title={data.markdownRemark.frontmatter.title} />
+      <Seo title={data.markdownRemark?.frontmatter?.title ?? 'blog.choco14t.net'} />
       <article>
         <h1 className={postPageStyles.title}>
-          {data.markdownRemark.frontmatter.title}
+          {data.markdownRemark?.frontmatter?.title}
         </h1>
         <div className={postPageStyles.tagContainer}>
           <FaTags />
-          {data.markdownRemark.frontmatter.tags.map((tag, index) => (
+          {data.markdownRemark?.frontmatter?.tags?.map((tag) => (
             <Link
               to={`/tags/${tag}`}
-              key={index}
+              key={data.markdownRemark?.id}
               className={postPageStyles.tag}
             >
               {tag}
@@ -28,7 +28,7 @@ const PostPageTemplate = ({ data }) => {
           ))}
         </div>
         <section
-          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+          dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html ?? '' }}
         />
       </article>
     </Layout>
@@ -36,8 +36,9 @@ const PostPageTemplate = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query PostTemplate($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query PostTemplateQuery($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
       frontmatter {
         title
         date
@@ -49,3 +50,4 @@ export const pageQuery = graphql`
 `
 
 export default PostPageTemplate
+
