@@ -1,62 +1,83 @@
+import { GatsbyNode } from 'gatsby'
 import path from 'path'
 
-module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === 'MarkdownRemark') {
-    createNodeField({
-      node,
-      name: 'slug',
-      value: node.frontmatter.slug
-    })
-  }
+export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+
+  await createPostPages(createPage, graphql, reporter)
+  await createTagPages(createPage, graphql, reporter)
 }
 
-module.exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
-  const postPageTemplate = path.resolve('./src/templates/post/index.tsx')
-  const tagPageTemplate = path.resolve('./src/templates/tag/index.tsx')
-  const response = await graphql(`{
-    postsRemark: allMarkdownRemark(
-      sort: { frontmatter: { date: DESC } },
-      filter: { frontmatter: { draft: { eq: false } } },
-      limit: 1000
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            tags
+export interface PostPageContext {
+  id: string
+}
+
+const createPostPages = async (
+  createPage: Parameters<NonNullable<GatsbyNode['createPages']>>['0']['actions']['createPage'],
+  graphql: Parameters<NonNullable<GatsbyNode['createPages']>>['0']['graphql'],
+  reporter: Parameters<NonNullable<GatsbyNode['createPages']>>['0']['reporter'],
+) => {
+  const response = await graphql<Queries.PostPagesQueryQuery>(`
+    query PostPagesQuery {
+      articles: allMarkdownRemark(
+        sort: { frontmatter: { date: DESC } },
+        filter: { frontmatter: { draft: { eq: false } } },
+        limit: 1000
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              slug
+              tags
+            }
           }
         }
       }
     }
-    tagsGroup: allMarkdownRemark(limit: 1000) {
-      distinct(field: { frontmatter: { tags: SELECT } })
-    }
-  }`)
+  `)
 
-  if (response.errors) {
+  if (!response.data || response.errors) {
     reporter.panicOnBuild('Error while running GraphQL query.')
     return
   }
 
-  // Article detail pages
-  response.data.postsRemark.edges.forEach(({ node }) => {
-    createPage({
-      component: postPageTemplate,
-      path: `/posts/${node.fields.slug}`,
+  response.data.articles.edges.forEach(({ node }) => {
+    createPage<PostPageContext>({
+      component: path.resolve('./src/templates/post/index.tsx'),
+      path: `/posts/${node.frontmatter?.slug}`,
       context: {
-        slug: node.fields.slug
+        id: node.id
       }
     })
   })
+}
 
-  // Tag pages
-  response.data.tagsGroup.distinct.forEach((tag) => {
-    createPage({
-      component: tagPageTemplate,
+export interface TagPageContext {
+  tag: string
+}
+
+const createTagPages = async (
+  createPage: Parameters<NonNullable<GatsbyNode['createPages']>>['0']['actions']['createPage'],
+  graphql: Parameters<NonNullable<GatsbyNode['createPages']>>['0']['graphql'],
+  reporter: Parameters<NonNullable<GatsbyNode['createPages']>>['0']['reporter'],
+) => {
+  const response = await graphql<Queries.TagPagesQueryQuery>(`
+    query TagPagesQuery {
+      tags: allMarkdownRemark(limit: 1000) {
+        distinct(field: { frontmatter: { tags: SELECT } })
+      }
+    }
+  `)
+
+  if (!response.data || response.errors) {
+    reporter.panicOnBuild('Error while running GraphQL query.')
+    return
+  }
+
+  response.data.tags.distinct.forEach((tag) => {
+    createPage<TagPageContext>({
+      component: path.resolve('./src/templates/tag/index.tsx'),
       path: `/tags/${tag}`,
       context: {
         tag
@@ -64,3 +85,4 @@ module.exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 }
+
