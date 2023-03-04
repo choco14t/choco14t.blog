@@ -11,7 +11,7 @@ tags:
 socialImage: 'icon.png'
 ---
 
-久方ぶりの更新。昨日[月曜日の抹茶カフェ](https://www.amazon.co.jp/dp/B09CD7Y3K2/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)を読み終えた。
+久方ぶりの更新。昨日 [月曜日の抹茶カフェ](https://www.amazon.co.jp/dp/B09CD7Y3K2/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) を読み終えた。
 
 マーブル・カフェという喫茶店から話が始まり、ひと月ごとに様々な人物に焦点を当てた物語となっている。
 また、ひと月ごとの内容は 20 ページ程度と長くなく読み進めやすかった。
@@ -24,6 +24,6 @@ socialImage: 'icon.png'
 月曜日の抹茶カフェは [Cat's Meow Books](https://catsmeowbooks.stores.jp/) というお店にたまたま立ち寄ったときに目がついて買った。
 このお店には保護猫が居て、本を探しつつ猫も眺めることができるので猫が好きな方はぜひ一度行ってみてほしい。
 
-<img src="./bookcover.jpg" width="400" alt="Cat's Meow Books のブックカバー">
+<img src="../images/yonda-1/bookcover.jpg" width="400" alt="Cat's Meow Books のブックカバー">
 
 自分が月曜日の抹茶カフェを手に取ったように、思いがけない本との縁があるかもしれない。
