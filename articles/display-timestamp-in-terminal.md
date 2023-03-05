@@ -11,16 +11,16 @@ tags:
 socialImage: 'icon.png'
 ---
 
-`date`コマンドに引数を渡すことでタイムスタンプの表示ができる。
+`date` コマンドに引数を渡すことでタイムスタンプの表示ができる。
 
 ```sh
 $ date +%s
 ```
 
-引数の補足をすると、`+`でユーザ定義の出力フォーマットを設定してから strftime のタイムスタンプフォーマットである`%s`を指定している。
-そのため`+%s`を引数にすることでタイムスタンプが表示できる。
+引数の補足をすると、`+` でユーザ定義の出力フォーマットを設定してから strftime のタイムスタンプフォーマットである `%s` を指定している。
+そのため `+%s` を引数にすることでタイムスタンプが表示できる。
 
-以下は`man date`の一部抜粋。
+以下は `man date` の一部抜粋。
 
 > An operand with a leading plus ('+') sign signals a user-defined format string which specifies the format in which to display the date and time. The format string may contain any of the conversion specifications described in the strftime(3) manual page, as well as any arbitrary text. A newline ('\n') character is always output after the characters specified by the format string. The format string for the default display is ''+%+''.
 

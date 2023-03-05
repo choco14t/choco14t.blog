@@ -16,7 +16,7 @@ Eloquent を使う際にちょっと便利になる Tips をまとめてみた�
 
 ## テーブル名の変更
 
-`$table`を定義することで任意のテーブルへのアクセス出来ます。
+`$table` を定義することで任意のテーブルへのアクセス出来ます。
 
 ```php
 <?php
@@ -31,7 +31,7 @@ class Example extends Model
 
 ## 主キー名の変更
 
-`$primaryKey`を定義して変更することが可能です。
+`$primaryKey` を定義して変更することが可能です。
 
 ```php
 <?php
@@ -47,7 +47,7 @@ class Example extends Model
 
 ## 主キーの型を変更する
 
-`$keyType`を定義して変更することが可能です。
+`$keyType` を定義して変更することが可能です。
 
 ```php
 <?php
@@ -63,7 +63,7 @@ class Example extends Model
 
 ## 主キーのインクリメントをしないようにする
 
-`$keyType`を定義して変更することが可能です。
+`$keyType` を定義して変更することが可能です。
 
 ```php
 <?php
@@ -79,7 +79,7 @@ class Example extends Model
 
 ## デフォルトのタイムスタンプを使用しないようにする
 
-`$timestamps`を定義することでデフォルトのタイムスタンプを使用しなくなります。
+`$timestamps` を定義することでデフォルトのタイムスタンプを使用しなくなります。
 
 ```php
 <?php
@@ -97,7 +97,7 @@ class Example extends Model
 
 ## タイムスタンプのカラム名を変更する
 
-モデルクラスに`CREATED_AT`、`UPDATED_AT`を定義することで変更できます。
+モデルクラスに `CREATED_AT`、`UPDATED_AT` を定義することで変更できます。
 
 ```php
 <?php
@@ -141,7 +141,7 @@ class CreateSampleTable extends Migration
 }
 ```
 
-モデルクラスを`Sample`とした時、次のような実行が可能です。
+モデルクラスを `Sample` とした時、次のような実行が可能です。
 
 ```php
 <?php
@@ -163,12 +163,12 @@ class HomeController extends Controller
 }
 ```
 
-`created_at`、`updated_at`にアクセスすると、`Carbon`オブジェクトに変換してくれています。
-そのため、`diffForHumans`などのメソッドが呼び出せます。
+`created_at`、`updated_at` にアクセスすると、`Carbon` オブジェクトに変換してくれています。
+そのため、`diffForHumans` などのメソッドが呼び出せます。
 
 詳細は[`Illuminate\Database\Eloquent\Concerns\HasAttributes`](https://laravel.com/api/5.8/Illuminate/Database/Eloquent/Concerns/HasAttributes.html)を参照してください。
 
-また、独自に`Carbon`オブジェクトで受け取りたいカラムを設定したい場合は`$dates`を定義することで可能です。
+また、独自に `Carbon` オブジェクトで受け取りたいカラムを設定したい場合は `$dates` を定義することで可能です。
 
 ```php
 <?php

@@ -13,7 +13,7 @@ socialImage: 'icon.png'
 ---
 
 Laravel には[Socialite](https://laravel.com/docs/master/socialite)という OAuth 認証のライブラリが提供されています。
-インストールは`composer`から行えるので、いつも通りにコマンドを実行する。
+インストールは `composer` から行えるので、いつも通りにコマンドを実行する。
 
 ```bash
 $ composer require laravel/socialite

@@ -33,7 +33,7 @@ Lumen でも使用可能とのことですが、今回は Laravel プロジェ�
 $ composer require "wnx/laravel-stats" --dev
 ```
 
-サービスプロバイダーの設定は自動で行われますが、手動で行う場合は`config/app.php`に次のコードを追加できます。
+サービスプロバイダーの設定は自動で行われますが、手動で行う場合は `config/app.php` に次のコードを追加できます。
 
 ```php
 'providers' => [
@@ -48,7 +48,7 @@ $ composer require "wnx/laravel-stats" --dev
 $ php artisan vendor:publish --provider="Wnx\LaravelStats\StatsServiceProvider"
 ```
 
-実行が完了すると以下のようなファイルが`config/stats.php`として作成されます。（以下のコードはコメントを書き換えています。）
+実行が完了すると以下のようなファイルが `config/stats.php` として作成されます（以下のコードはコメントを書き換えています）。
 
 ```php
 <?php
@@ -110,7 +110,7 @@ return [
 
 ## 使い方
 
-`artisan`コマンドで実行することができます。
+`artisan` コマンドで実行できます。
 
 ```sh
 $ php artisan stats
@@ -135,7 +135,7 @@ $ php artisan stats
 | --env[=ENV]               | 実行環境を指定して出力       |
 | -v, -vv, -vvv, --verbose  | 出力メッセージを詳細にする。 |
 
-`-v, -vv, -vvv,`を実行してみましたが、私が実行した環境では出力結果が変わりませんでした 😢
+`-v, -vv, -vvv,` を実行してみましたが、私が実行した環境では出力結果が変わりませんでした 😢
 
 ## 出力の分類方法
 
@@ -143,35 +143,35 @@ Laravel Stats では以下の条件で分類しています。
 
 | コンポーネント  | 条件                                                                                                                                                                      |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Controller      | ルーティングに登録されている。`php artisan route:list`に表示されるコントローラ                                                                                            |
-| Model           | `Illuminate\Database\Eloquent\Model`が継承されているファイル                                                                                                              |
-| Command         | `Illuminate\Console\Command`が継承されているファイル                                                                                                                      |
-| Rule            | `Illuminate\Contracts\Validation\Rule`が継承されているファイル                                                                                                            |
-| Policy          | `AuthServiceProvider`に登録されているポリシー                                                                                                                             |
-| Middleware      | `App\Http\Kernel`に登録されているミドルウェア                                                                                                                             |
-| Event           | `Illuminate\Foundation\Events\Dispatchable`トレイトを使用しているファイル                                                                                                 |
-| Event Listener  | `EventServiceProvider`に登録されているファイル                                                                                                                            |
-| Mail            | `Illuminate\Mail\Mailable`が継承されているファイル                                                                                                                        |
-| Notification    | `Illuminate\Notifications\Notification`が継承されているファイル                                                                                                           |
-| Nova Action     | `Laravel\Nova\Actions\Action`が継承されているファイル                                                                                                                     |
-| Nova Filter     | `Laravel\Nova\Filters\Filter`が継承されているファイル                                                                                                                     |
-| Nova Lens       | `Laravel\Nova\Lenses\Lens`が継承されているファイル                                                                                                                        |
-| Nova Resource   | `Laravel\Nova\Resource`が継承されているファイル                                                                                                                           |
-| Job             | `Illuminate\Foundation\Bus\Dispatchable`トレイトを使用しているファイル                                                                                                    |
-| Migration       | `Illuminate\Database\Migrations\Migration`が継承されているファイル                                                                                                        |
-| Request         | `Illuminate\Foundation\Http\FormRequest`が継承されているファイル                                                                                                          |
-| Resource        | `Illuminate\Http\Resources\Json\Resource`, `Illuminate\Http\Resources\Json\JsonResource`または`Illuminate\Http\Resources\Json\ResourceCollection`が継承されているファイル |
-| Seeder          | `Illuminate\Database\Seeder`が継承されているファイル                                                                                                                      |
-| ServiceProvider | `Illuminate\Support\ServiceProvider`が継承されているファイル                                                                                                              |
-| Dusk Tests      | `Laravel\Dusk\TestCase`が継承されているファイル                                                                                                                           |
-| BrowserKit Test | `Laravel\BrowserKitTesting\TestCase`が継承されているファイル                                                                                                              |
-| PHPUnit Test    | `PHPUnit\Framework\TestCase`が継承されているファイル                                                                                                                      |
+| Controller      | ルーティングに登録されている。`php artisan route:list` に表示されるコントローラ                                                                                            |
+| Model           | `Illuminate\Database\Eloquent\Model` が継承されているファイル                                                                                                              |
+| Command         | `Illuminate\Console\Command` が継承されているファイル                                                                                                                      |
+| Rule            | `Illuminate\Contracts\Validation\Rule` が継承されているファイル                                                                                                            |
+| Policy          | `AuthServiceProvider` に登録されているポリシー                                                                                                                             |
+| Middleware      | `App\Http\Kernel` に登録されているミドルウェア                                                                                                                             |
+| Event           | `Illuminate\Foundation\Events\Dispatchable` トレイトを使用しているファイル                                                                                                 |
+| Event Listener  | `EventServiceProvider` に登録されているファイル                                                                                                                            |
+| Mail            | `Illuminate\Mail\Mailable` が継承されているファイル                                                                                                                        |
+| Notification    | `Illuminate\Notifications\Notification` が継承されているファイル                                                                                                           |
+| Nova Action     | `Laravel\Nova\Actions\Action` が継承されているファイル                                                                                                                     |
+| Nova Filter     | `Laravel\Nova\Filters\Filter` が継承されているファイル                                                                                                                     |
+| Nova Lens       | `Laravel\Nova\Lenses\Lens` が継承されているファイル                                                                                                                        |
+| Nova Resource   | `Laravel\Nova\Resource` が継承されているファイル                                                                                                                           |
+| Job             | `Illuminate\Foundation\Bus\Dispatchable` トレイトを使用しているファイル                                                                                                    |
+| Migration       | `Illuminate\Database\Migrations\Migration` が継承されているファイル                                                                                                        |
+| Request         | `Illuminate\Foundation\Http\FormRequest` が継承されているファイル                                                                                                          |
+| Resource        | `Illuminate\Http\Resources\Json\Resource`, `Illuminate\Http\Resources\Json\JsonResource` または `Illuminate\Http\Resources\Json\ResourceCollection` が継承されているファイル |
+| Seeder          | `Illuminate\Database\Seeder` が継承されているファイル                                                                                                                      |
+| ServiceProvider | `Illuminate\Support\ServiceProvider` が継承されているファイル                                                                                                              |
+| Dusk Tests      | `Laravel\Dusk\TestCase` が継承されているファイル                                                                                                                           |
+| BrowserKit Test | `Laravel\BrowserKitTesting\TestCase` が継承されているファイル                                                                                                              |
+| PHPUnit Test    | `PHPUnit\Framework\TestCase` が継承されているファイル                                                                                                                      |
 
 ## 出力分類の追加
 
-プロジェクト毎に作成しているファイルを分析対象にする場合は、`Wnx\LaravelStats\Contracts\Classifier`を実装したクラスを作成することで追加することができます。
+プロジェクト毎に作成しているファイルを分析対象にする場合は、`Wnx\LaravelStats\Contracts\Classifier` を実装したクラスを作成することで追加できます。
 
-例として`app/Classifiers/RepositoryClassifier.php`を作成すると以下のようなファイルになります。
+例として `app/Classifiers/RepositoryClassifier.php` を作成すると以下のようなファイルになります。
 
 ```php
 <?php
@@ -218,7 +218,7 @@ class RepositoryClassifier implements Classifier
 }
 ```
 
-作成したファイルを`config/stats.php`の`custom_component_classifier`に追加することで出力対象が追加されます。
+作成したファイルを `config/stats.php` の `custom_component_classifier` に追加することで出力対象が追加されます。
 
 ```php
 <?php

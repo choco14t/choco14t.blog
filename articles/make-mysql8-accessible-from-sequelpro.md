@@ -13,11 +13,11 @@ socialImage: 'icon.png'
 
 ## まえがき
 
-Sequel Pro から MySQL8.0 に接続しようとすると以下のようなエラーが出て接続出来ない。
+Sequel Pro から MySQL 8.0 に接続しようとすると以下のようなエラーが出て接続出来ない。
 
 ![dialog](./dialog.png)
 
-原因としては MySQL8.0 で認証プラグインが`caching_sha2_password`というものに変更されたため。
+原因としては MySQL 8.0 で認証プラグインが `caching_sha2_password` というものに変更されたため。
 
 どういったものかわからなかったので調べてみると、ドキュメントに次のように書かれていた。
 
@@ -29,7 +29,7 @@ Sequel Pro から MySQL8.0 に接続しようとすると以下のようなエ�
 
 > ([MySQL :: MySQL 8.0 Reference Manual :: 2.11.3 Changes in MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password)) より
 
-`mysql_native_password`より安全で`sha256_password`より高パフォーマンスとのこと。
+`mysql_native_password` より安全で `sha256_password` より高パフォーマンスとのこと。
 どういった仕組みで動くのかなどは今回調べていない。
 
 [こちらの記事](https://yoku0825.blogspot.com/2018/10/mysql-80cachingsha2password-ssl.html)によると、いくつか解決法があるみたいだが今回は認証プラグインを変更する方法で解決した。
@@ -60,7 +60,7 @@ mysql> CREATE USER 'choco'@'%' IDENTIFIED BY 'hogehoge';
 mysql> ALTER USER 'choco'@'%' IDENTIFIED WITH mysql_native_password BY 'hogehoge';
 ```
 
-再度確認すると、`plugin`の項目が変更されていることがわかる。
+再度確認すると、`plugin` の項目が変更されていることがわかる。
 
 ![user-list-after](./user-list-after.png)
 

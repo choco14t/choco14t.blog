@@ -12,7 +12,7 @@ tags:
 socialImage: 'icon.png'
 ---
 
-FormRequest では、`rules()`でリクエストの値に対してユニーク制約を設定できる。
+FormRequest では、`rules()` でリクエストの値に対してユニーク制約を設定できる。
 例としてユーザー更新のリクエストを想定した UpdateUserRequest を定義する。
 
 ```php

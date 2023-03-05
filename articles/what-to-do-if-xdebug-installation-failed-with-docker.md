@@ -45,7 +45,7 @@ $PHP_AUTOCONF environment variable. Then, rerun this script.
 ERROR: `phpize' failed
 ```
 
-この場合は`apk add autoconf`を実行してインストールすればよい。
+この場合は `apk add autoconf` を実行してインストールすればよい。
 
 ## その 2 コンパイラがインストールされていない
 
@@ -75,9 +75,9 @@ See `config.log' for more details
 ERROR: `/tmp/pear/temp/xdebug/configure --with-php-config=/usr/local/bin/php-config' failed
 ```
 
-この場合は`apk add gcc g++ make`を実行してインストールすればコンパイルが可能になる。
+この場合は `apk add gcc g++ make` を実行してインストールすればコンパイルが可能になる。
 
-また、`apk add build-base`の実行でも必要なパッケージのインストールが行える。
+また、`apk add build-base` の実行でも必要なパッケージのインストールが行える。
 [build-base](https://pkgs.alpinelinux.org/package/edge/main/x86_64/build-base)は以下 7 つのパッケージをインストールする。
 
 - binutils

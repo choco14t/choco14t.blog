@@ -12,17 +12,17 @@ tags:
 socialImage: 'icon.png'
 ---
 
-`Authorization: Token {token}`の形式でトークンを取得するためにやったことのメモ。
+`Authorization: Token {token}` の形式でトークンを取得するためにやったことのメモ。
 
 ## TL;DR
 
-- `Tymon\JWTAuth\Contracts\Http\Parser`を実装したクラスを作成する
-  - 今回の場合だと`Tymon\JWTAuth\Http\Parser\AuthHeaders`を使ってもよかった
-- `Tymon\JWTAuth\JWTAuth`に作成したクラスをサービスプロバイダー経由で追加する
+- `Tymon\JWTAuth\Contracts\Http\Parser` を実装したクラスを作成する
+  - 今回の場合だと `Tymon\JWTAuth\Http\Parser\AuthHeaders` を使ってもよかった
+- `Tymon\JWTAuth\JWTAuth` に作成したクラスをサービスプロバイダー経由で追加する
 
 ## 解決方法
 
-`AuthHeaders`に`setHeaderName`と`setHeaderPrefix`というメソッドが定義されていてトークンの取得形式を変更することができるので、サービスプロバイダーでインスタンスを生成してパーサーへ追加することで解決できた。
+`AuthHeaders` に `setHeaderName` と `setHeaderPrefix` というメソッドが定義されていてトークンの取得形式を変更できるので、サービスプロバイダーでインスタンスを生成してパーサーへ追加することで解決できた。
 
 ```php:title=vendor/tymon/jwt-auth/src/Http/Parser/AuthHeaders.php
 class AuthHeaders implements ParserContract
@@ -58,7 +58,7 @@ class AuthHeaders implements ParserContract
 }
 ```
 
-例として`AppServiceProvider`に追加しているが、別途サービスプロバイダーを作成して追加しても良いと思う。
+例として `AppServiceProvider` に追加しているが、別途サービスプロバイダーを作成して追加しても良いと思う。
 
 ```php:title=app/Providers/AppServiceProvider.php
 <?php

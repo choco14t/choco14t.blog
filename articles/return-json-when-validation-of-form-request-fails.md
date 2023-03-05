@@ -14,12 +14,12 @@ socialImage: 'icon.png'
 
 以下どちらかの実装で json レスポンスにできる。
 
-- `failedValidation()`をオーバーライドする
-- ヘッダーに`Accept`または`X-Requested-With`を追加する
+- `failedValidation()` をオーバーライドする
+- ヘッダーに `Accept` または `X-Requested-With` を追加する
 
-## `failedValidation()`のオーバーライド
+## `failedValidation()` のオーバーライド
 
-フォームリクエストクラスの`failedValidation()`をオーバーライドすることで json レスポンスかつメッセージをカスタマイズすることも可能。以下はサインアップのエンドポイントを想定したリクエストの例。
+フォームリクエストクラスの `failedValidation()` をオーバーライドすることで json レスポンスかつメッセージをカスタマイズすることも可能。以下はサインアップのエンドポイントを想定したリクエストの例。
 
 ```php
 <?php
@@ -74,9 +74,9 @@ class SignUpRequest extends FormRequest
 }
 ```
 
-## ヘッダに`Accept`または`X-Requested-With`を追加する
+## ヘッダに `Accept` または `X-Requested-With` を追加する
 
-エクセプションハンドラを変更していない場合、バリデーションエラー発生時は`Illuminate/Foundation/Exceptions/Handler::render()`でレスポンス生成が行われる。
+エクセプションハンドラを変更していない場合、バリデーションエラー発生時は `Illuminate/Foundation/Exceptions/Handler::render()` でレスポンス生成が行われる。
 
 ```php
     // Illuminate/Foundation/Exceptions/Handler.php
@@ -104,7 +104,7 @@ class SignUpRequest extends FormRequest
     }
 ```
 
-今回はバリデーションエラーの場合なので`convertValidationExceptionToResponse()`が実行される。
+今回はバリデーションエラーの場合なので `convertValidationExceptionToResponse()` が実行される。
 
 ```php
     // Illuminate/Foundation/Exceptions/Handler.php
@@ -120,7 +120,7 @@ class SignUpRequest extends FormRequest
     }
 ```
 
-`expectsJson()`はヘッダに`X-Requested-With: XMLHttpRequest`が含まれているか、ヘッダに`Accept: .../json`もしくは`Accept: ...+json`が含まれている場合に json レスポンスを返却する。
+`expectsJson()` はヘッダに `X-Requested-With: XMLHttpRequest` が含まれているか、ヘッダに `Accept: .../json` もしくは `Accept: ...+json` が含まれている場合に json レスポンスを返却する。
 
 そのためミドルウェアでヘッダを追加することで json レスポンスが取得できる。
 
@@ -186,7 +186,7 @@ class Kernel extends HttpKernel
 }
 ```
 
-個人的には返却するメッセージを変更できるので`failedValidation()`をオーバーライドするほうが好みです。
+個人的には返却するメッセージを変更できるので `failedValidation()` をオーバーライドするほうが好みです。
 
 ## 参考
 

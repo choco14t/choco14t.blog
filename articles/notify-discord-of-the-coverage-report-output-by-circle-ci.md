@@ -26,11 +26,11 @@ Circle CI のロゴを設定したい場合は[こちら](https://brandfolder.co
 
 ## 環境変数の設定
 
-`config.yml`に URL を直接書くのを避けるためにプロジェクトの環境変数へ Webhook URL を追加する。
+`config.yml` に URL を直接書くのを避けるためにプロジェクトの環境変数へ Webhook URL を追加する。
 
 トップページから通知したいプロジェクトの歯車アイコンをクリックする。
 BUILD SETTINGS > Environment Variables をクリックして「Add Variable」ボタンから環境変数を追加する。
-例として`DISCORD_WEB_HOOK_URL`を追加する。
+例として `DISCORD_WEB_HOOK_URL` を追加する。
 
 ![add variable](../images/notify-discord-of-the-coverage-report-output-by-circle-ci/add_environment_variable.png)
 
@@ -63,10 +63,10 @@ jobs:
 
 上記設定の環境変数について補足。
 
-- `$CIRCLE_BUILD_NUM`は[定義済み環境変数](https://circleci.com/docs/ja/2.0/env-vars/#%E5%AE%9A%E7%BE%A9%E6%B8%88%E3%81%BF%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)。CircleCI でのビルド回数。
-- `{ID}`はプロジェクトごとに設定される値。Circle CI で生成されたリンクを参照する。
+- `$CIRCLE_BUILD_NUM` は[定義済み環境変数](https://circleci.com/docs/ja/2.0/env-vars/#%E5%AE%9A%E7%BE%A9%E6%B8%88%E3%81%BF%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)。CircleCI でのビルド回数。
+- `{ID}` はプロジェクトごとに設定される値。Circle CI で生成されたリンクを参照する。
 
-`index.html`については任意のファイルを選択できるのでお好みで。
+`index.html` については任意のファイルを選択できるのでお好みで。
 
 ## 完成
 

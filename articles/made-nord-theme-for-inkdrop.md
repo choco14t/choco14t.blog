@@ -24,28 +24,28 @@ VSCode のテーマに似せて作ったのでそれっぽくはなっている�
 ## UI
 
 エディタ部分以外が対象。確認のモーダルや設定のウィンドウも UI テーマに含まれる。
-あらかじめ定義されている変数の値を変えたり、`.overrides`ファイルで設定を上書きしたりすることで既存のスタイルが変更できる。
+あらかじめ定義されている変数の値を変えたり、`.overrides` ファイルで設定を上書きしたりすることで既存のスタイルが変更できる。
 
-各コンポーネント（ボタンなど）の変数を`.overrides`ファイルに書いてみたが適用されなかったので`.variables`ファイルの値を直接書き換えた。
-`site.overrides`では変数の上書きも可能なのでこの点は謎のまま…。
+各コンポーネント（ボタンなど）の変数を `.overrides` ファイルに書いてみたが適用されなかったので `.variables` ファイルの値を直接書き換えた。
+`site.overrides` では変数の上書きも可能なのでこの点は謎のまま…。
 
 ## Syntax
 
-[CodeMirror](https://codemirror.net) が利用されているので、`cm-*`クラスを編集すればコードに関するスタイルが変更できる。
+[CodeMirror](https://codemirror.net) が利用されているので、`cm-*` クラスを編集すればコードに関するスタイルが変更できる。
 
-マッチするたびに背景色が変わるのがあまり好きではないので`outline`プロパティを使ったブラケットマッチにした。
+マッチするたびに背景色が変わるのがあまり好きではないので `outline` プロパティを使ったブラケットマッチにした。
 
 ![](../images/made-nord-theme-for-inkdrop/bracket-match.png)
 
 また Bulleted List で 3 段目になるとテキストにまでカラーが適用されていたので力技だが適用されないようにした。
-左が`Default Dark Syntax`で右が今回作った`Nord Syntax`。
+左が `Default Dark Syntax` で右が今回作った `Nord Syntax`。
 
 ![](../images/made-nord-theme-for-inkdrop/bulleted-list.png)
 
 ## Preview
 
-UI テーマ名に合わせてプレビューのスタイルが適用される。今回だと UI のテーマ名を`nord-ui`にしたのでプレビュー側では次のように定義する必要がある。
-Syntax と同様 CodeMirror を利用しているので、`cm-*`クラスを編集
+UI テーマ名に合わせてプレビューのスタイルが適用される。今回だと UI のテーマ名を `nord-ui` にしたのでプレビュー側では次のように定義する必要がある。
+Syntax と同様 CodeMirror を利用しているので、`cm-*` クラスを編集
 
 ```less
 body[class*='nord-ui'] {
