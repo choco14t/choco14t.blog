@@ -8,7 +8,10 @@ import Article from '../components/article'
 const BlogIndex = () => {
   const data = useStaticQuery<Queries.BlogIndexQueryQuery>(graphql`
     query BlogIndexQuery {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: DESC } }
+        filter: { frontmatter: { draft: { eq: false } } }
+      ) {
         edges {
           node {
             id
@@ -28,7 +31,7 @@ const BlogIndex = () => {
   return (
     <Layout>
       <Seo title="blog.choco14t.net" />
-      {data.allMarkdownRemark.edges.map((edge) => {
+      {data.allMarkdownRemark.edges.map(edge => {
         return (
           <Article
             key={edge.node.id}
@@ -45,4 +48,3 @@ const BlogIndex = () => {
 }
 
 export default BlogIndex
-
