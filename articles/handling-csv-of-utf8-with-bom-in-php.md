@@ -2,7 +2,7 @@
 template: post
 title: 'PHPでUTF-8 with BOMのcsvを扱う'
 slug: handling-csv-of-utf8-with-bom-in-php
-draft: false
+draft: true
 date: 2018-06-05T22:19:00.000+09:00
 description: ''
 category: Dev

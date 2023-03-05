@@ -2,7 +2,7 @@
 template: post
 title: 'ボトムアップDDDをLaravelで書いてみた'
 slug: wrote-a-bottom-up-ddd-with-laravel
-draft: false
+draft: true
 date: 2018-09-25T22:09:24.000+09:00
 description: PHPとLaravelを使って写経をしてみた。一通り書いてみた感想としては、OOPの特性を活かしたコーディングとはこういうことなんだなとふんわり掴め、責務の所在が明確だとファイルが増えても処理が追いやすいなと感じた。
 category: Dev
