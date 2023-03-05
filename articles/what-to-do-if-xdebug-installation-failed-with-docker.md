@@ -2,7 +2,7 @@
 template: post
 title: 'DockerでXdebugのインストールを失敗した場合'
 slug: what-to-do-if-xdebug-installation-failed-with-docker
-draft: false
+draft: true
 date: 2020-02-11T10:00:00.000+09:00
 description: 'apk add autoconf build-baseが必要'
 category: Dev

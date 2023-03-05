@@ -2,7 +2,7 @@
 template: post
 title: 'ターミナルでタイムスタンプを表示する'
 slug: display-timestamp-in-terminal
-draft: false
+draft: true
 date: 2020-02-13T10:00:00.000+09:00
 description: ''
 category: Dev

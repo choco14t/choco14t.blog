@@ -2,7 +2,7 @@
 template: post
 title: 'tymon/jwt-authにパーサーを追加する'
 slug: add-parser-to-tymon-jwt-auth
-draft: false
+draft: true
 date: 2020-04-01T10:00:00.000+09:00
 description: ''
 category: Dev
