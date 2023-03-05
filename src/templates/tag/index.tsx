@@ -8,12 +8,15 @@ import Seo from '../../components/seo'
 import Article from '../../components/article'
 import * as tagPageStyles from './tag.module.scss'
 
-const TagPageTemplate = ({ data, pageContext }: PageProps<Queries.TagPageTemplateQuery, TagPageContext>) => {
+const TagPageTemplate = ({
+  data,
+  pageContext,
+}: PageProps<Queries.TagPageTemplateQuery, TagPageContext>) => {
   const { tag } = pageContext
 
   return (
     <Layout>
-      <Seo title={data.site?.siteMetadata?.title} />
+      <Seo title={data.site?.siteMetadata?.title ?? 'blog.choco14t.net'} />
       <div className={tagPageStyles.top}>
         <h1>
           <FaTag />
@@ -24,11 +27,11 @@ const TagPageTemplate = ({ data, pageContext }: PageProps<Queries.TagPageTemplat
         return (
           <Article
             key={edge.node.frontmatter?.slug}
-            date={edge.node.frontmatter?.date}
-            excerpt={edge.node.excerpt}
-            slug={edge.node.frontmatter?.slug}
-            tags={edge.node.frontmatter?.tags}
-            title={edge.node.frontmatter?.title}
+            date={edge.node.frontmatter?.date ?? ''}
+            excerpt={edge.node.excerpt ?? ''}
+            slug={edge.node.frontmatter?.slug ?? ''}
+            tags={(edge.node.frontmatter?.tags as string[]) ?? []}
+            title={edge.node.frontmatter?.title ?? ''}
           />
         )
       })}
@@ -44,8 +47,8 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$tag] }}}
-      sort: { frontmatter: { date: DESC }}
+      filter: { frontmatter: { draft: { eq: false }, tags: { in: [$tag] } } }
+      sort: { frontmatter: { date: DESC } }
       limit: 1000
     ) {
       edges {
@@ -54,7 +57,6 @@ export const pageQuery = graphql`
             slug
             date(formatString: "YYYY-MM-DD")
             title
-            description
             tags
           }
           excerpt

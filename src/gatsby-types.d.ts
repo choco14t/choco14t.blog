@@ -2162,7 +2162,7 @@ type TagPageTemplateQueryVariables = Exact<{
 }>;
 
 
-type TagPageTemplateQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly frontmatter: { readonly slug: string | null, readonly date: string | null, readonly title: string | null, readonly description: string | null, readonly tags: ReadonlyArray<string | null> | null } | null } }> } };
+type TagPageTemplateQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly frontmatter: { readonly slug: string | null, readonly date: string | null, readonly title: string | null, readonly tags: ReadonlyArray<string | null> | null } | null } }> } };
 
 type PostPagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
