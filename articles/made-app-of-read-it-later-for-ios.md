@@ -2,7 +2,7 @@
 template: post
 title: 'iOSで後で読むアプリを作ってみた'
 slug: made-app-of-read-it-later-for-ios
-draft: false
+draft: true
 date: 2019-10-26T07:21:00.000+09:00
 description: 'SwiftとFirebaseでお試しアプリ開発メモ'
 category: Dev

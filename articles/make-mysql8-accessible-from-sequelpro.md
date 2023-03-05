@@ -2,7 +2,7 @@
 template: post
 title: 'Sequel ProからMySQL8.0にアクセスできるようにする'
 slug: make-mysql8-accessible-from-sequelpro
-draft: false
+draft: true
 date: 2019-09-16T00:26:00.000+09:00
 description: ''
 category: Dev

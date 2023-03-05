@@ -2,7 +2,7 @@
 template: post
 title: 'Laravel Statsを使ったソースコードの分析'
 slug: analyze-code-with-laravelstats
-draft: false
+draft: true
 date: 2019-10-06T15:23:00.000+09:00
 description: 'Laravelプロジェクトでのソースコード分析ライブラリ。'
 category: Dev

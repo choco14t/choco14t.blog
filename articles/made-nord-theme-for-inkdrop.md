@@ -1,25 +1,25 @@
 ---
 template: post
-title: 'InkdropのNordテーマを作った'
+title: 'Inkdrop の Nord テーマを作った'
 slug: made-nord-theme-for-inkdrop
 draft: false
 date: 2019-10-10T15:04:00.000+09:00
 description: ''
 category: Dev
 tags:
-  - Inkdrop
+  - Diary
 socialImage: 'icon.png'
 ---
 
-タイトルの通り。メモやブログの下書きなどで[Inkdrop](https://inkdrop.app)を利用している。
-別のエディタでは[Nord](https://www.nordtheme.com)テーマを使っているので Inkdrop でも同じテーマにしたいなと思って作成した。
+メモやブログの下書きなどで [Inkdrop](https://inkdrop.app) を利用している。
+別のエディタでは [Nord](https://www.nordtheme.com) テーマを使っているので Inkdrop でも同じテーマにしたいなと思って作成した。
 
 Inkdrop のテーマは UI、Syntax、Preview の 3 つに分かれているので個別に作成する必要がある。
-テーマの作り方については[ドキュメント](https://docs.inkdrop.app/manual/creating-a-theme)で丁寧に書かれているので作ってみたい場合はドキュメントを参照。
+テーマの作り方については [ドキュメント](https://docs.inkdrop.app/manual/creating-a-theme) で丁寧に書かれているので作ってみたい場合はドキュメントを参照。
 
 VSCode のテーマに似せて作ったのでそれっぽくはなっているはず。テーマを適用した場合は次の画像のような感じ。
 
-![screenshot](./preview.png)
+![](../images/made-nord-theme-for-inkdrop/preview.png)
 
 ## UI
 
@@ -31,16 +31,16 @@ VSCode のテーマに似せて作ったのでそれっぽくはなっている�
 
 ## Syntax
 
-[CodeMirror](https://codemirror.net)が利用されているので、`cm-*`クラスを編集すればコードに関するスタイルが変更できる。
+[CodeMirror](https://codemirror.net) が利用されているので、`cm-*`クラスを編集すればコードに関するスタイルが変更できる。
 
 マッチするたびに背景色が変わるのがあまり好きではないので`outline`プロパティを使ったブラケットマッチにした。
 
-![screenshot-bracket-matching](./bracket-match.png)
+![](../images/made-nord-theme-for-inkdrop/bracket-match.png)
 
 また Bulleted List で 3 段目になるとテキストにまでカラーが適用されていたので力技だが適用されないようにした。
 左が`Default Dark Syntax`で右が今回作った`Nord Syntax`。
 
-![screenshot-syntax](./bulleted-list.png)
+![](../images/made-nord-theme-for-inkdrop/bulleted-list.png)
 
 ## Preview
 

@@ -2,7 +2,7 @@
 template: post
 title: 'Laravel バージョン5.6以下でSocialiteを使う場合はバージョンを指定する'
 slug: specify-the-version-when-using-socialite-with-laravel-version-5.6-or-lower
-draft: false
+draft: true
 date: 2019-04-30T12:20:00.000+09:00
 description: ''
 category: Dev

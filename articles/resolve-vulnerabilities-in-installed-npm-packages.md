@@ -24,7 +24,7 @@ $ npm audit [--audit-level(low|moderate|high|critical)]
 
 上記のコマンドを実行すると脆弱性となっている箇所とアップデートのコマンドを表示してくれる。
 
-![console](./console-preview.png)
+![](../images/resolve-vulnerabilities-in-installed-npm-packages/console-preview.png)
 
 ## パッケージのアップデート
 

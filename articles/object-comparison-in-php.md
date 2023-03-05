@@ -2,7 +2,7 @@
 template: post
 title: 'PHPにおけるオブジェクトの比較'
 slug: object-comparison-in-php
-draft: false
+draft: true
 date: 2019-01-20T21:06:00.000+09:00
 description: 業務中にとあるクラスのオブジェクトを比較している箇所で不思議な挙動をしていたので、改めてドキュメントを読み直した。
 category: Dev

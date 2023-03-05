@@ -2,7 +2,7 @@
 template: post
 title: 'VSCodeでPHPを書くためのセットアップ'
 slug: setup-for-writing-php-with-vscode
-draft: false
+draft: true
 date: 2019-09-15T14:45:58.989Z
 description: ''
 category: Dev
@@ -32,7 +32,7 @@ socialImage: 'icon.png'
 1. `cmd + ,`で Settings を表示
 2. 画像赤枠のアイコンをクリック（エディタ右上）
 
-![settings](./open-settings-json.png)
+![](../images/setup-for-writing-php-with-vscode/open-settings-json.png)
 
 ## [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
 
