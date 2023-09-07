@@ -2138,7 +2138,7 @@ type StringQueryOperatorInput = {
 type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogIndexQueryQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null } | null } }> } };
+type BlogIndexQueryQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null } | null } }> } };
 
 type FooterIndexQueryVariables = Exact<{ [key: string]: never; }>;
 

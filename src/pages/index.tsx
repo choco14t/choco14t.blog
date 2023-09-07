@@ -21,7 +21,6 @@ const BlogIndex = () => {
               slug
               tags
             }
-            excerpt(pruneLength: 100, truncate: true)
           }
         }
       }
@@ -36,7 +35,6 @@ const BlogIndex = () => {
           <Article
             key={edge.node.id}
             date={edge.node.frontmatter?.date ?? ''}
-            excerpt={edge.node.excerpt ?? ''}
             slug={edge.node.frontmatter?.slug ?? ''}
             tags={(edge.node.frontmatter?.tags as string[]) ?? []}
             title={edge.node.frontmatter?.title ?? ''}

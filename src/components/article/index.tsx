@@ -6,18 +6,14 @@ import * as articleStyles from './article.module.scss'
 
 type Props = {
   date: string
-  excerpt: string
   slug: string
   tags: string[]
   title: string
 }
 
-const Article = ({ date, excerpt, slug, tags, title }: Props) => {
+const Article = ({ date, slug, tags, title }: Props) => {
   return (
     <article className={articleStyles.article}>
-      <h3 className={articleStyles.title}><Link to={`/posts/${slug}`}>{title}</Link></h3>
-      <p>{excerpt}</p>
-
       <div className={articleStyles.metaContainer}>
         <div className={articleStyles.meta}>
           <FaClock/>
@@ -33,6 +29,7 @@ const Article = ({ date, excerpt, slug, tags, title }: Props) => {
           ))}
         </div>
       </div>
+      <h3 className={articleStyles.title}><Link to={`/posts/${slug}`}>{title}</Link></h3>
     </article>
   )
 }
