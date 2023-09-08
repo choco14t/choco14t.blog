@@ -1,0 +1,24 @@
+{
+  "extends": ["config:recommended", ":dependencyDashboard"],
+  "lockFileMaintenance": { "enabled": true },
+  "rangeStrategy": "pin",
+  "npm": {
+    "packageRules": [
+      {
+        "labels": ["UPDATE-MAJOR"],
+        "matchUpdateTypes": ["major"],
+        "automerge": false
+      },
+      {
+        "addLabels": ["DEV-DEPS"],
+        "matchDepTypes": ["devDependencies"],
+        "automerge": true
+      },
+      {
+        "matchFiles": ["package.json"],
+        "matchUpdateTypes": ["patch", "pin", "digest"],
+        "automerge": true
+      }
+    ]
+  }
+}
