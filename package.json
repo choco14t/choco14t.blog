@@ -14,7 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "5.7.0",
+    "gatsby": "5.9.1",
     "gatsby-plugin-feed": "5.7.0",
     "gatsby-plugin-google-gtag": "5.7.0",
     "gatsby-plugin-manifest": "5.7.0",
