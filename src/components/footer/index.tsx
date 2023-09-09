@@ -1,4 +1,3 @@
-import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { FaGithub, FaRss } from 'react-icons/fa'
 

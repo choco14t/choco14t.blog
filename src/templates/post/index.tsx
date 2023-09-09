@@ -1,4 +1,3 @@
-import React from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
 import { FaTags } from 'react-icons/fa'
 
