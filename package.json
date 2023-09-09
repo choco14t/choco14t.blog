@@ -44,7 +44,7 @@
     "@types/react-helmet": "6.1.6",
     "env-cmd": "10.1.0",
     "prettier": "2.8.8",
-    "textlint": "13.3.1",
+    "textlint": "13.3.3",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-preset-ja-spacing": "2.3.0",
     "textlint-rule-preset-ja-technical-writing": "7.0.0",
