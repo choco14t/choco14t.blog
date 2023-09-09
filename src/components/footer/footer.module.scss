@@ -1,10 +1,13 @@
 .footer {
-  padding: 1rem 0 0;
-
-  .inner {
+  .container {
     margin: 0 auto;
     max-width: 800px;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inner {
     display: flex;
     justify-content: space-between;
 
@@ -14,6 +17,20 @@
       &:not(:first-of-type) {
         margin-left: 35px;
       }
+    }
+
+    address {
+      font-style: normal;
+      font-size: 0.9rem;
+      margin-bottom: 1rem
+    }
+  }
+
+  .ga {
+    font-size: 0.8rem;
+
+    p {
+      margin-top: 0;
     }
   }
 }
