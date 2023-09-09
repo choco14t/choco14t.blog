@@ -1,4 +1,3 @@
-import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import { FaTag } from 'react-icons/fa'
 
@@ -28,7 +27,6 @@ const TagPageTemplate = ({
           <Article
             key={edge.node.frontmatter?.slug}
             date={edge.node.frontmatter?.date ?? ''}
-            excerpt={edge.node.excerpt ?? ''}
             slug={edge.node.frontmatter?.slug ?? ''}
             tags={(edge.node.frontmatter?.tags as string[]) ?? []}
             title={edge.node.frontmatter?.title ?? ''}
