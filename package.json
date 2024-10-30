@@ -47,7 +47,7 @@
     "env-cmd": "10.1.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react": "7.37.2",
     "prettier": "3.0.3",
     "textlint": "13.3.3",
     "textlint-filter-rule-allowlist": "4.0.0",
