@@ -1,7 +1,6 @@
 [build]
   publish = "public"
-  command = "yarn build"
+  command = "pnpm build"
 [build.environment]
-  NODE_VERSION = "18.17.1"
-  YARN_VERSION = "1.22.19"
-  YARN_FLAGS = "--no-ignore-optional"
+  NODE_VERSION = "18"
+  PNPM_FLAGS = "--no-frozen-lockfile"
