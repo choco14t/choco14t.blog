@@ -1,12 +1,9 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b2fbf224-5c66-4024-b622-0ce08ff833cb/deploy-status)](https://app.netlify.com/sites/cranky-kalam-bb0ca8/deploys)
-
 # choco14t.blog
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b2fbf224-5c66-4024-b622-0ce08ff833cb/deploy-status)](https://app.netlify.com/sites/cranky-kalam-bb0ca8/deploys)
 
 Link: https://blog.choco14t.net
 
-<p>
-  Made with
-  <a href="https://github.com/gatsbyjs/gatsby">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="20" style="vertical-align: middle;" /> Gatsby.js
-  </a>
-</p>
+## Credits
+
+Icons by [Tabler Icons](https://tabler.io/icons), licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
