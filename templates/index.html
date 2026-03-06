@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}blog.choco14t.net{% endblock title %}
+
+{% block content %}
+{% set posts = get_section(path="posts/_index.md") %}
+{% for page in posts.pages %}
+<article class="article">
+  <div class="meta-container">
+    <div class="meta">
+      {{ load_data(path="static/icons/calendar.svg") | safe }}
+      <span>{{ page.date | date(format="%Y-%m-%d") }}</span>
+    </div>
+    <div class="meta">
+      {{ load_data(path="static/icons/tags.svg") | safe }}
+      {% if page.taxonomies.tags %}
+        {% for tag in page.taxonomies.tags %}
+          <span class="tag"><a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a></span>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <h3 class="article-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+</article>
+{% endfor %}
+{% endblock content %}

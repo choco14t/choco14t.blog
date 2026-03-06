@@ -1,0 +1,50 @@
+.article {
+  margin-bottom: 3rem;
+
+  a {
+    color: $nord4;
+
+    &:hover {
+      color: $nord4;
+      text-decoration: none;
+    }
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-title {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.meta-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+
+  &:not(:first-of-type) {
+    margin-left: 15px;
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+
+  .tag {
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:not(:first-of-type) {
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "variables";
+@import "reset";
+@import "layout";
+@import "header";
+@import "footer";
+@import "article";
+@import "post";
+@import "tag";
+@import "code";
+
+body {
+  background-color: $nord0;
+  color: $nord4;
+}
+
+a {
+  color: $nord4;
+  text-decoration: none;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+}

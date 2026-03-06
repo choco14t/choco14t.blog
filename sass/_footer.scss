@@ -1,0 +1,36 @@
+.footer {
+  .footer-container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: $nord4;
+
+      &:not(:first-of-type) {
+        margin-left: 35px;
+      }
+    }
+
+    address {
+      font-style: normal;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .footer-ga {
+    font-size: 0.8rem;
+
+    p {
+      margin-top: 0;
+    }
+  }
+}

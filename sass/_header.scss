@@ -1,0 +1,18 @@
+.header {
+  padding: 1rem 0 2rem;
+
+  .header-inner {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+}
+
+.brand {
+  font-weight: 600;
+  color: $nord4;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,22 @@
+.code-title {
+  background: $nord10;
+  color: $nord4;
+  padding: 6px 12px;
+  font-size: 0.8em;
+  line-height: 1;
+  font-weight: bold;
+  display: table;
+}
+
+pre {
+  border: 1px solid $nord3;
+  border-radius: 0;
+  overflow: scroll;
+}
+
+/* Inline code */
+:not(pre) > code {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
