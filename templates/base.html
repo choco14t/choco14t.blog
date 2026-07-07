@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}blog.choco14t.net{% endblock title %}</title>
   <link rel="stylesheet" href="/style.css">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
   <link rel="icon" href="/icon.png">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJJ2ER4EPC"></script>
@@ -25,14 +24,6 @@
     <div class="footer-container">
       <div class="footer-inner">
         <address>&copy; choco All rights reserved.</address>
-        <div>
-          <a href="/rss.xml">
-            {{ load_data(path="static/icons/rss.svg") | safe }}
-          </a>
-          <a href="https://github.com/choco14t" target="_blank" rel="noopener noreferrer">
-            {{ load_data(path="static/icons/github.svg") | safe }}
-          </a>
-        </div>
       </div>
       <div class="footer-ga">
         <p>
