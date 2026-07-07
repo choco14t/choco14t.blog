@@ -40,6 +40,18 @@
   li {
     font-size: 0.9rem;
   }
+
+  img {
+    max-width: 100%;
+    padding: 0;
+    border-style: none;
+  }
+
+  blockquote {
+    margin: 0 2rem;
+    border-left: 2px solid $nord4;
+    padding-left: .5rem;
+  }
 }
 
 .tag-container {
@@ -50,6 +62,9 @@
 
   .tag {
     color: $nord4;
-    margin-left: 10px;
+
+    &:not(:first-child) {
+      margin-left: .5rem;
+    }
   }
 }
