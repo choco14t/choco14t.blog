@@ -118,10 +118,14 @@ pre {
   font-size: 0.85rem;
   line-height: 1.42;
   border-radius: 3px;
-  overflow: auto;
   word-wrap: normal;
   padding: 1.45rem;
   margin: 0 0 1.45rem;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 code,
