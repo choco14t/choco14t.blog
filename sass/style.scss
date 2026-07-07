@@ -1,5 +1,4 @@
 @import "variables";
-@import "reset";
 @import "layout";
 @import "header";
 @import "footer";
@@ -8,14 +7,71 @@
 @import "tag";
 @import "code";
 
+html {
+  font: 112.5%/1.45em georgia, serif;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
+  font-kerning: normal;
   background-color: $nord0;
   color: $nord4;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  line-height: 1.1;
+  margin: 0 0 1.45rem;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.62671rem;
+}
+
+h3 {
+  font-size: 1.38316rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.85028rem;
+}
+
+h6 {
+  font-size: 0.78405rem;
+}
+
 a {
   color: $nord4;
-  text-decoration: none;
 }
 
 figcaption {
@@ -23,3 +79,80 @@ figcaption {
   margin-top: 0.5em;
   font-size: 0.8rem;
 }
+
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+pre,
+table,
+fieldset,
+blockquote,
+form,
+noscript,
+iframe,
+address {
+  padding: 0;
+}
+
+ul,
+ol {
+  margin-left: 1.45rem;
+  list-style-position: outside;
+}
+
+li {
+  margin-bottom: calc(.8rem / 2);
+}
+
+li > ol,
+li > ul {
+  margin-left: 1.45rem;
+  margin-bottom: calc(1.45rem / 2);
+  margin-top: calc(1.45rem / 2);
+}
+
+pre {
+  font-size: 0.85rem;
+  line-height: 1.42;
+  border-radius: 3px;
+  overflow: auto;
+  word-wrap: normal;
+  padding: 1.45rem;
+  margin: 0 0 1.45rem;
+}
+
+code,
+kbd,
+samp {
+  font-size: 0.85rem;
+  line-height: 1.45rem;
+}
+
+tt,
+code {
+  font-family: SFMono-Regular, Consolas, "Roboto Mono", "Droid Sans Mono",
+    "Liberation Mono", Menlo, Courier, monospace;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border-radius: 3px;
+}
+
+pre code {
+  background: none;
+  line-height: 1.42;
+}
+
+code::before,
+code::after {
+  letter-spacing: -0.2em;
+  content: " ";
+}
+
+pre code::before,
+pre code::after {
+  content: "";
+}
+
