@@ -1,0 +1,567 @@
+[
+  {
+    "path": "2019-02-19.md",
+    "title": "2019-02-19",
+    "slug": "2019-02-19",
+    "draft": true,
+    "date": "2019-02-19T21:21:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "7f080a18cd92c07778177985e0b6d41e0c2db0c1ec916eb7092def354a5c9f7d"
+  },
+  {
+    "path": "2019-04-29.md",
+    "title": "2019-04-29",
+    "slug": "2019-04-29",
+    "draft": true,
+    "date": "2019-04-29T22:19:00.000+09:00",
+    "description": "エンジニアのためのマネジメントキャリアパスの読書メモ。",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "d52c1449e42916bb578e9451ac5ff820b4f84d2b986076552249bfba8d22d8df"
+  },
+  {
+    "path": "2019-08-08.md",
+    "title": "2019-08-08",
+    "slug": "2019-08-08",
+    "draft": true,
+    "date": "2019-08-08T22:21:54.000+09:00",
+    "description": "アクションリーディング 1日30分でも自分を変える“行動読書”の読書メモ。",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "6591e642e971b84be79f7e1aa2bfb5db49f9ce00fe0f8f11d344c72b1d402a2d"
+  },
+  {
+    "path": "2022-10/index.md",
+    "title": "近況 2022年10月",
+    "slug": "2022-10",
+    "draft": false,
+    "date": "2022-11-09T15:00:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "4b14d7e61cbd6d5fbbe1f89250510663d82f02cd624818aab11a075c126ae430"
+  },
+  {
+    "path": "2022-12.md",
+    "title": "2022 年振り返り",
+    "slug": "2022-12",
+    "draft": false,
+    "date": "2022-12-18T15:00:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "d8e29827699b3f29e6ed00364e0afaab180a049e3b70a7e5b46f7fc7fa63a18d"
+  },
+  {
+    "path": "2023-03/index.md",
+    "title": "近況 2023年3月",
+    "slug": "2023-03",
+    "draft": false,
+    "date": "2023-03-05T00:00:00.000Z",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "83b42d0fbd636df1b60be2327f88f977a52ec1a87d5b2a35cfab25cace50b8a4"
+  },
+  {
+    "path": "2023-09.md",
+    "title": "近況 2023年9月",
+    "slug": "2023-09",
+    "draft": false,
+    "date": "2023-09-06T15:00:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "70c3e88899be8416bc2567f259aa35d8fc31870717a76733274f6cb097e78295"
+  },
+  {
+    "path": "add-parser-to-tymon-jwt-auth.md",
+    "title": "tymon/jwt-authにパーサーを追加する",
+    "slug": "add-parser-to-tymon-jwt-auth",
+    "draft": true,
+    "date": "2020-04-01T10:00:00.000+09:00",
+    "tags": [
+      "PHP",
+      "Laravel"
+    ],
+    "bodySha256": "0572604f7a6f17a4e354158a100d18e288f8053459e3e77cd4835e028d37322b"
+  },
+  {
+    "path": "agentic-coding-202602.md",
+    "title": "Agentic coding 2026-02",
+    "slug": "agentic-coding-202602",
+    "draft": false,
+    "date": "2026-02-26T15:00:00.000+09:00",
+    "tags": [
+      "AI",
+      "Claude Code"
+    ],
+    "bodySha256": "cab05b4501cb6c921a24595ff753239123b60c9d3543f4539558868fcc2e175c"
+  },
+  {
+    "path": "analyze-code-with-laravelstats.md",
+    "title": "Laravel Statsを使ったソースコードの分析",
+    "slug": "analyze-code-with-laravelstats",
+    "draft": true,
+    "date": "2019-10-06T15:23:00.000+09:00",
+    "description": "Laravelプロジェクトでのソースコード分析ライブラリ。",
+    "tags": [
+      "PHP",
+      "Laravel"
+    ],
+    "bodySha256": "b886ac12305a8a23b7f87c9f1aa2c8ad0729f768232ecf0814cc3d9233c0659f"
+  },
+  {
+    "path": "db-mock-and-test.md",
+    "title": "DB のモックとテスト",
+    "slug": "db-mock-and-test",
+    "draft": false,
+    "date": "2022-11-26T15:00:00.000+09:00",
+    "tags": [
+      "Test"
+    ],
+    "bodySha256": "39cd9f601161548ed3c1fd998eebac7a75f8a1cea3e36598e2a95babb36fa008"
+  },
+  {
+    "path": "ddd-radio-1.md",
+    "title": "DDD Radio #1",
+    "slug": "ddd-radio-1",
+    "draft": true,
+    "date": "2019-09-23T18:53:00.000+09:00",
+    "description": "2019/09/22に開催されたDDD Radio 公開収録 #1のメモ。",
+    "tags": [
+      "DDD"
+    ],
+    "bodySha256": "3a753ee65859c24b78515e5f38957bd2143cbc423f0b275099799a0884581996"
+  },
+  {
+    "path": "display-timestamp-in-terminal.md",
+    "title": "ターミナルでタイムスタンプを表示する",
+    "slug": "display-timestamp-in-terminal",
+    "draft": true,
+    "date": "2020-02-13T10:00:00.000+09:00",
+    "tags": [
+      "CLI"
+    ],
+    "bodySha256": "5bde3866da2855dc07d0794b7c58c2b7c06ffc833351095a90e8d329d27e6058"
+  },
+  {
+    "path": "enjoy-wasting-time.md",
+    "title": "無駄な時間を楽しむ",
+    "slug": "enjoy-wasting-time",
+    "draft": false,
+    "date": "2023-03-11T00:00:00.000Z",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "7bd97f047dc7ce58f3db3ba88db5ffd35a8001c2d2f2f1ba3b16c176aec6fb78"
+  },
+  {
+    "path": "enjoyed-tddbc.md",
+    "title": "TDDBC を楽しんできた",
+    "slug": "enjoyed-tddbc",
+    "draft": false,
+    "date": "2021-03-07T10:00:00.000+09:00",
+    "description": "楽しかったの一言に尽きる",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "c1e5cacd4900c69d184307e5bf58a1b16370b6b94884a4f81215b214ec0f3cfa"
+  },
+  {
+    "path": "exclude-login-users-from-unique-targets-with-formrequest.md",
+    "title": "FormRequestでログインユーザーをユニークの対象外にする",
+    "slug": "exclude-login-users-from-unique-targets-with-formrequest",
+    "draft": true,
+    "date": "2020-03-28T10:00:00.000+09:00",
+    "tags": [
+      "PHP",
+      "Laravel"
+    ],
+    "bodySha256": "c61c1871e8394c819ea30fdf0ffe8ca6154f5942f1c727e78569c06897dc1d3b"
+  },
+  {
+    "path": "good-things-to-buy-in-2020.md",
+    "title": "2020年 買ってよかったもの",
+    "slug": "good-things-to-buy-in-2020",
+    "draft": false,
+    "date": "2020-12-15T22:00:00.000+09:00",
+    "description": "2020年も色々買った",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "ef6edf557131a3ceeea1d824b6a43f7ef41132d492bd2ae22a01b1de98bb77c4"
+  },
+  {
+    "path": "handling-csv-of-utf8-with-bom-in-php.md",
+    "title": "PHPでUTF-8 with BOMのcsvを扱う",
+    "slug": "handling-csv-of-utf8-with-bom-in-php",
+    "draft": true,
+    "date": "2018-06-05T22:19:00.000+09:00",
+    "tags": [
+      "PHP"
+    ],
+    "bodySha256": "e41ef1b4ed9ded197c73653c53cdb9d50fcdb62dba50951cc6eadb6245bfaf37"
+  },
+  {
+    "path": "implement-field-permissions-with-field-middleware.md",
+    "title": "FieldMiddleware で Field Permissions を実装する",
+    "slug": "implement-field-permissions-with-field-middleware",
+    "draft": false,
+    "date": "2022-10-14T15:00:00.000+09:00",
+    "tags": [
+      "GraphQL",
+      "Apollo",
+      "NestJS"
+    ],
+    "bodySha256": "82b3769145e47c189650cae1b615c6251ea48fc30a8e1d9baf014ac478a5e853"
+  },
+  {
+    "path": "interface-or-union-in-graphql.md",
+    "title": "GraphQL における interface と union に関するメモ",
+    "slug": "interface-or-union-in-graphql",
+    "draft": false,
+    "date": "2023-09-07T15:00:00.000+09:00",
+    "tags": [
+      "GraphQL"
+    ],
+    "bodySha256": "74030b310693b85dd25553ff77b0d02b004c477df67d11a52093c4726398a9cf"
+  },
+  {
+    "path": "laravel-eloquent-tips.md",
+    "title": "Laravel Eloquent Tips",
+    "slug": "laravel-eloquent-tips",
+    "draft": true,
+    "date": "2019-06-13T08:01:00.000+09:00",
+    "description": "Eloquentを使う際にちょっと便利になるTipsをまとめてみた。網羅性はないので参考程度に。",
+    "tags": [
+      "PHP",
+      "Laravel"
+    ],
+    "bodySha256": "8d56d77380606df165c5865ab0f64af622b1334acf19017c4c82c735465d7bd0"
+  },
+  {
+    "path": "log-2021-01-07.md",
+    "title": "2021-01-07",
+    "slug": "log-2021-01-07",
+    "draft": true,
+    "date": "2021-01-07T10:00:00.000+09:00",
+    "tags": [
+      "Log",
+      "React Native"
+    ],
+    "bodySha256": "e914b427a6ca18e82057a4032a4250c9d03bd4bc2d2f984eaf9b80c54088f6a3"
+  },
+  {
+    "path": "log-2021-01-21.md",
+    "title": "2021-01-21",
+    "slug": "log-2021-01-21",
+    "draft": true,
+    "date": "2021-01-21T10:00:00.000+09:00",
+    "tags": [
+      "Log",
+      "React Native",
+      "Android",
+      "adb",
+      "Git",
+      "Gradle"
+    ],
+    "bodySha256": "1cd500b2bacec5f1639a0fd0bc7517589d2db3d79eb6a451837c1a04f328e037"
+  },
+  {
+    "path": "log-2021-01-22.md",
+    "title": "2021-01-22",
+    "slug": "log-2021-01-22",
+    "draft": true,
+    "date": "2021-01-22T10:00:00.000+09:00",
+    "tags": [
+      "Log",
+      "React Native"
+    ],
+    "bodySha256": "d6e9756fa53fe5a5a4bb28b76d2fd7f2ee1777a827f2109cceadd68c7dee3182"
+  },
+  {
+    "path": "log-2021-02-10.md",
+    "title": "2021-02-10",
+    "slug": "log-2021-02-10",
+    "draft": true,
+    "date": "2021-02-10T10:00:00.000+09:00",
+    "tags": [
+      "Log",
+      "React Native"
+    ],
+    "bodySha256": "5486a9426af8b997e50e7281c9a222687c45c10d8bd044fc517eedff2590e0ec"
+  },
+  {
+    "path": "log-2021-02-16.md",
+    "title": "2021-02-16",
+    "slug": "log-2021-02-16",
+    "draft": true,
+    "date": "2021-02-16T10:00:00.000+09:00",
+    "tags": [
+      "Log",
+      "React Native"
+    ],
+    "bodySha256": "b810e91a9da8684f0e8db16ad93f4c8661e9b8b41fe1412330f862445ff8f283"
+  },
+  {
+    "path": "log-2021-02-17.md",
+    "title": "2021-02-17",
+    "slug": "log-2021-02-17",
+    "draft": true,
+    "date": "2021-02-17T10:00:00.000+09:00",
+    "tags": [
+      "Log",
+      "React Native",
+      "Gradle"
+    ],
+    "bodySha256": "698e26b8c2c82001d0cbc6e3c4abb554dd0f9c6c73e966b6bc76fd87ad2409c3"
+  },
+  {
+    "path": "made-app-of-read-it-later-for-ios.md",
+    "title": "iOSで後で読むアプリを作ってみた",
+    "slug": "made-app-of-read-it-later-for-ios",
+    "draft": true,
+    "date": "2019-10-26T07:21:00.000+09:00",
+    "description": "SwiftとFirebaseでお試しアプリ開発メモ",
+    "tags": [
+      "Swift",
+      "Firebase"
+    ],
+    "bodySha256": "9d8ea2077d804c2b288d78304735d079b9d2ec0e48569c85a117aeb43f6e2b90"
+  },
+  {
+    "path": "made-nord-theme-for-inkdrop/index.md",
+    "title": "Inkdrop の Nord テーマを作った",
+    "slug": "made-nord-theme-for-inkdrop",
+    "draft": true,
+    "date": "2019-10-10T15:04:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "ac5f9413b526f0c3f2192855334ab0822840eae393fea85dabd4e6d3d72bc31d"
+  },
+  {
+    "path": "make-mysql8-accessible-from-sequelpro/index.md",
+    "title": "Sequel ProからMySQL8.0にアクセスできるようにする",
+    "slug": "make-mysql8-accessible-from-sequelpro",
+    "draft": true,
+    "date": "2019-09-16T00:26:00.000+09:00",
+    "tags": [
+      "MySQL"
+    ],
+    "bodySha256": "2e7503f120ac48dd421c52dff46892719e0a0236c0702c638246a0275eb786c7"
+  },
+  {
+    "path": "memo-apollo-server-v4.md",
+    "title": "Apollo Server v4 の調査メモ",
+    "slug": "memo-apollo-server-v4",
+    "draft": false,
+    "date": "2023-01-06T15:00:00.000+09:00",
+    "tags": [
+      "GraphQL",
+      "Apollo",
+      "TypeScript",
+      "Node.js"
+    ],
+    "bodySha256": "b684caa7f0a6219aabf2a943f233a32e0a10494c0278f170bcd351e8be9d8bcf"
+  },
+  {
+    "path": "migrate-rails-to-nestjs/index.md",
+    "title": "Rails から NestJS への移行に挑戦してみて",
+    "slug": "migrate-rails-to-nestjs",
+    "draft": false,
+    "date": "2023-02-13T15:00:00.000+09:00",
+    "tags": [
+      "GraphQL",
+      "Apollo",
+      "NestJS"
+    ],
+    "bodySha256": "833ba8449b77ecde7a58f24eb6f799ad4790aa451babfcf051055cb6ab84b9e6"
+  },
+  {
+    "path": "new-blog.md",
+    "title": "ブログを新しくした",
+    "slug": "new-blog",
+    "draft": true,
+    "date": "2019-09-15T12:25:00.000Z",
+    "description": "たいして投稿しないのに新しく作ってしまった。GatsbyJSが気になっていたので色々調べながらやってるとのめりこんでしまった。",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "25ed3ea2bf9d28fa595f035d140da5b8b0979cfcdb861af2f62440543de51146"
+  },
+  {
+    "path": "notify-discord-of-the-coverage-report-output-by-circle-ci/index.md",
+    "title": "Circle CIで出力したカバレッジレポートをDiscordに通知する",
+    "slug": "notify-discord-of-the-coverage-report-output-by-circle-ci",
+    "draft": true,
+    "date": "2020-04-05T10:00:00.000+09:00",
+    "tags": [
+      "CI"
+    ],
+    "bodySha256": "fadf78668bb379d37ff03718bc9565f2bd50b7c3d002286efc618da252e07e53"
+  },
+  {
+    "path": "object-comparison-in-php.md",
+    "title": "PHPにおけるオブジェクトの比較",
+    "slug": "object-comparison-in-php",
+    "draft": true,
+    "date": "2019-01-20T21:06:00.000+09:00",
+    "description": "業務中にとあるクラスのオブジェクトを比較している箇所で不思議な挙動をしていたので、改めてドキュメントを読み直した。",
+    "tags": [
+      "PHP"
+    ],
+    "bodySha256": "23895e33ea646533f2db5c20ebad6072f5a7465160b7cf56944de60d71b27335"
+  },
+  {
+    "path": "posted-the-work-log.md",
+    "title": "作業ログを投稿した",
+    "slug": "posted-the-work-log",
+    "draft": true,
+    "date": "2021-02-20T10:00:00.000+09:00",
+    "description": "明けましておめでとうございます",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "728210c63d7c933274d16a8ecec07afe154fb9a61821511adb9eb5148821bd79"
+  },
+  {
+    "path": "resolve-vulnerabilities-in-installed-npm-packages/index.md",
+    "title": "インストールしているnpmパッケージの脆弱性を解消する",
+    "slug": "resolve-vulnerabilities-in-installed-npm-packages",
+    "draft": false,
+    "date": "2019-09-19T10:13:00.000+09:00",
+    "description": "あるリポジトリを見たらセキュリティの脆弱性があるよとのことだったので、プロダクトとかではないので悪影響はないが更新しておいた。",
+    "tags": [
+      "npm"
+    ],
+    "bodySha256": "ed8f6783a7a36fb0f40ebf6c06487762510f7af15bde287ffdbd9d861c474746"
+  },
+  {
+    "path": "return-json-when-validation-of-form-request-fails.md",
+    "title": "FormRequestのバリデーション失敗時にjsonを返す",
+    "slug": "return-json-when-validation-of-form-request-fails",
+    "draft": true,
+    "date": "2020-02-14T22:00:00.000+09:00",
+    "description": "failedValidation()をオーバーライドする",
+    "tags": [
+      "PHP",
+      "Laravel"
+    ],
+    "bodySha256": "3ac5011021ec69d519fae20a28e2c30abdbc9698446c4d72ebd7dd23f20f9be0"
+  },
+  {
+    "path": "send-request-id-from-gateway/index.md",
+    "title": "リクエストIDを追加して調査を快適にする",
+    "slug": "send-request-id-from-gateway",
+    "draft": false,
+    "date": "2023-01-07T15:00:00.000+09:00",
+    "tags": [
+      "GraphQL",
+      "Apollo",
+      "NestJS"
+    ],
+    "bodySha256": "b8dafcc32cf3a8f13b3bd4459ee1c94fa90b65c4ed456417dda78afdf18cef22"
+  },
+  {
+    "path": "setup-for-writing-php-with-vscode/index.md",
+    "title": "VSCodeでPHPを書くためのセットアップ",
+    "slug": "setup-for-writing-php-with-vscode",
+    "draft": true,
+    "date": "2019-09-15T14:45:58.989Z",
+    "tags": [
+      "VSCode",
+      "PHP"
+    ],
+    "bodySha256": "b43e491cd78c1c9249e8ee69d0029f49aa199d7ea6921be9e5add27d7e7b170e"
+  },
+  {
+    "path": "specify-the-version-when-using-socialite-with-laravel-version-5.6-or-lower.md",
+    "title": "Laravel バージョン5.6以下でSocialiteを使う場合はバージョンを指定する",
+    "slug": "specify-the-version-when-using-socialite-with-laravel-version-5.6-or-lower",
+    "draft": true,
+    "date": "2019-04-30T12:20:00.000+09:00",
+    "tags": [
+      "PHP",
+      "Laravel"
+    ],
+    "bodySha256": "7f020b613412414411196077e99dce008f55a3f97d4276244d59dbba527f0079"
+  },
+  {
+    "path": "todays-ice/index.md",
+    "title": "今日のアイス",
+    "slug": "todays-ice",
+    "draft": false,
+    "date": "2026-07-07T22:53:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "da4f94875ba68a509f0cd43b30595ba814bd1e3169f2863d70ee9bb05e2c7f44"
+  },
+  {
+    "path": "tos-remastered.md",
+    "title": "テイルズ オブ シンフォニア Remastered",
+    "slug": "tos-remastered",
+    "draft": false,
+    "date": "2023-02-27T00:00:00.000Z",
+    "tags": [
+      "Diary",
+      "Game"
+    ],
+    "bodySha256": "e836e8b5b06f6b71f8336ac756722cb0814c0a2891069189da1196007f4fc640"
+  },
+  {
+    "path": "what-to-do-if-xdebug-installation-failed-with-docker.md",
+    "title": "DockerでXdebugのインストールを失敗した場合",
+    "slug": "what-to-do-if-xdebug-installation-failed-with-docker",
+    "draft": true,
+    "date": "2020-02-11T10:00:00.000+09:00",
+    "description": "apk add autoconf build-baseが必要",
+    "tags": [
+      "Docker",
+      "PHP"
+    ],
+    "bodySha256": "f5655563c55376543f9ab85fd4d2f601d2ea237657a06a211ddd28de09f38ca9"
+  },
+  {
+    "path": "wrote-a-bottom-up-ddd-with-laravel.md",
+    "title": "ボトムアップDDDをLaravelで書いてみた",
+    "slug": "wrote-a-bottom-up-ddd-with-laravel",
+    "draft": true,
+    "date": "2018-09-25T22:09:24.000+09:00",
+    "description": "PHPとLaravelを使って写経をしてみた。一通り書いてみた感想としては、OOPの特性を活かしたコーディングとはこういうことなんだなとふんわり掴め、責務の所在が明確だとファイルが増えても処理が追いやすいなと感じた。",
+    "tags": [
+      "PHP",
+      "DDD",
+      "Laravel"
+    ],
+    "bodySha256": "b40f03b1ac11af959928c7dc116c54037bdf1ea68aefcc93497b299f50182f47"
+  },
+  {
+    "path": "yonda-1/index.md",
+    "title": "読んだ #1 月曜日の抹茶カフェ",
+    "slug": "yonda-1",
+    "draft": false,
+    "date": "2022-05-05T15:00:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "10d7784fa5bab661f596de23fb35d050ed1880335321b5dc452bc2cc9119e7eb"
+  },
+  {
+    "path": "yonda-2.md",
+    "title": "読んだ #2 レガシーコードとどう付き合うか",
+    "slug": "yonda-2",
+    "draft": false,
+    "date": "2023-07-12T15:00:00.000+09:00",
+    "tags": [
+      "Diary"
+    ],
+    "bodySha256": "c7548e17f0c4ac608cf55adbfedd83e633ce998c2a2b42cdf07d6715cabf046c"
+  }
+]
