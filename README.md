@@ -1,8 +1,19 @@
 # choco14t.blog
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b2fbf224-5c66-4024-b622-0ce08ff833cb/deploy-status)](https://app.netlify.com/sites/cranky-kalam-bb0ca8/deploys)
-
 Link: https://blog.choco14t.net
+
+## Deployment
+
+Configure Cloudflare Pages with these production settings:
+
+- Production branch: `main`
+- Build command: `pnpm build`
+- Build output directory: `dist`
+- Environment variables: `NODE_VERSION=24.18.0` and `PNPM_VERSION=10.4.1`
+
+Enable Cloudflare Web Analytics in the Pages dashboard, then redeploy so Cloudflare injects the analytics beacon. No application token or script is required.
+
+After merging to `main`, verify the Pages deployment before switching the `blog.choco14t.net` DNS record. Keep the Netlify project available for immediate rollback by restoring its DNS target.
 
 ## Credits
 
