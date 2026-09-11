@@ -8,7 +8,7 @@ const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8'));
 test('production emits exactly the 19 published post routes', () => {
   assert.ok(existsSync('dist/posts'), 'Astro must emit post routes');
   const actual = readdirSync('dist/posts', { withFileTypes: true })
-    .filter(entry => entry.isDirectory())
+    .filter(entry => entry.isDirectory() && existsSync(`dist/posts/${entry.name}/index.html`))
     .map(entry => entry.name)
     .sort();
   const published = posts.filter(post => !post.draft).map(post => post.slug).sort();
@@ -31,6 +31,29 @@ test('published articles render their content, co-located images, and Nord-highl
 
   const codePost = readFileSync('dist/posts/agentic-coding-202602/index.html', 'utf8');
   assert.match(codePost, /<pre class="astro-code[^" ]* nord"[^>]*style="[^"]*background-color:#2e3440(?:ff)?;[^"]*color:#d8dee9(?:ff)?/);
+});
+
+test('every local image reference resolves, including raw HTML images', () => {
+  for (const post of posts) {
+    const markdown = readFileSync(`src/content/posts/${post.path}`, 'utf8');
+    const markdownImages = [...markdown.matchAll(/!\[[^\]]*\]\((?!https?:|\/)([^)\s]+)/g)].map(match => match[1]);
+    const htmlImages = [...markdown.matchAll(/<img[^>]+src="((?!https?:|\/)[^"]+)"/g)].map(match => match[1]);
+    const localImages = [...markdownImages, ...htmlImages];
+
+    if (!post.draft) {
+      const html = readFileSync(`dist/posts/${post.slug}/index.html`, 'utf8');
+      const emitted = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(match => match[1]);
+      assert.equal(emitted.length, localImages.length, post.slug);
+      for (const source of emitted) {
+        const url = new URL(source, `https://blog.choco14t.net/posts/${post.slug}/`);
+        assert.ok(existsSync(`dist${url.pathname}`), `${post.slug}: ${source}`);
+      }
+    }
+
+    for (const source of htmlImages) {
+      assert.ok(existsSync(`public/posts/${post.slug}/${source.replace(/^\.\//, '')}`), `${post.slug}: ${source}`);
+    }
+  }
 });
 
 test('the dev server exposes draft post routes', { timeout: 30_000 }, async () => {
