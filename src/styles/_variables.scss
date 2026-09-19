@@ -1,16 +1,32 @@
-$nord0: #2e3440;
-$nord1: #3b4252;
-$nord2: #434c5e;
-$nord3: #4c566a;
-$nord4: #d8dee9;
-$nord5: #e5e9f0;
-$nord6: #eceff4;
-$nord7: #8fbcbb;
-$nord8: #88c0d0;
-$nord9: #81a1c1;
-$nord10: #5e81ac;
-$nord11: #bf616a;
-$nord12: #d08770;
-$nord13: #ebcb8b;
-$nord14: #a3be8c;
-$nord15: #b48ead;
+// Dayfox/Nightfox palettes: pinned source and license in ../themes/NOTICE.md.
+:root {
+  color-scheme: light;
+  --color-background: #f6f2ee;
+  --color-raised: #e4dcd4;
+  --color-text: #3d2b5a;
+  --color-muted: #643f61;
+  --color-border: #aab0ad;
+  --color-link: #2848a9;
+  --color-accent: #6e33ce;
+  --color-selection: #e7d2be;
+}
+
+@mixin dark-theme {
+  color-scheme: dark;
+  --color-background: #192330;
+  --color-raised: #212e3f;
+  --color-text: #cdcecf;
+  --color-muted: #aeafb0;
+  --color-border: #39506d;
+  --color-link: #719cd6;
+  --color-accent: #9d79d6;
+  --color-selection: #2b3b51;
+}
+
+:root[data-theme="dark"] { @include dark-theme; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { @include dark-theme; }
+}
+
+::selection { background: var(--color-selection); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }

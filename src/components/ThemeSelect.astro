@@ -1,0 +1,34 @@
+<div class="theme-control">
+  <label for="theme-select">Theme</label>
+  <select id="theme-select" disabled>
+    <option value="system">System</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+  <!-- Tabler Icons, MIT: https://github.com/tabler/tabler-icons -->
+  <svg data-theme-icon="light" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 0 0 -8 0M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+  <svg data-theme-icon="dark" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 .003 .393 .009a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
+</div>
+<script>
+  const select = document.querySelector<HTMLSelectElement>('#theme-select')!;
+  const root = document.documentElement;
+  const system = matchMedia('(prefers-color-scheme: dark)');
+  select.value = root.dataset.theme || 'system';
+  select.disabled = false;
+  function updateIcon() {
+    const effective = select.value === 'system' ? (system.matches ? 'dark' : 'light') : select.value;
+    root.dataset.effectiveTheme = effective;
+  }
+  select.addEventListener('change', () => {
+    const theme = select.value;
+    if (theme === 'system') delete root.dataset.theme;
+    else root.dataset.theme = theme;
+    try {
+      if (theme === 'system') localStorage.removeItem('theme');
+      else localStorage.setItem('theme', theme);
+    } catch { /* Theme selection remains usable when storage is blocked. */ }
+    updateIcon();
+  });
+  system.addEventListener('change', () => { if (select.value === 'system') updateIcon(); });
+  updateIcon();
+</script>

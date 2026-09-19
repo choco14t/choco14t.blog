@@ -1,6 +1,6 @@
 .code-title {
-  background: $nord10;
-  color: $nord4;
+  background: var(--color-accent);
+  color: var(--color-text);
   padding: 6px 12px;
   font-size: 0.8em;
   line-height: 1;
@@ -9,7 +9,7 @@
 }
 
 pre {
-  border: 1px solid $nord3;
+  border: 1px solid var(--color-border);
   border-radius: 0;
   overflow: auto;
 }
@@ -19,4 +19,19 @@ pre {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
+}
+
+:not(pre) > code { background: var(--color-raised); }
+@mixin dark-code {
+  .astro-code, .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+:root[data-theme="dark"] { @include dark-code; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { @include dark-code; }
 }

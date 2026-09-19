@@ -17,7 +17,7 @@ test('production emits exactly the published post routes', () => {
   }
 });
 
-test('published articles render their content, co-located images, and Nord-highlighted code', () => {
+test('published articles render their content, co-located images, and Dayfox/Nightfox-highlighted code', () => {
   const imagePost = readFileSync('dist/posts/2023-03/index.html', 'utf8');
   assert.match(imagePost, /<h1 class="post-title">近況 2023年3月<\/h1>/);
   assert.match(imagePost, /<section class="post-content">/);
@@ -28,7 +28,9 @@ test('published articles render their content, co-located images, and Nord-highl
   }
 
   const codePost = readFileSync('dist/posts/agentic-coding-202602/index.html', 'utf8');
-  assert.match(codePost, /<pre class="astro-code[^" ]* nord"[^>]*style="[^"]*background-color:#2e3440(?:ff)?;[^"]*color:#d8dee9(?:ff)?/);
+  assert.match(codePost, /<pre class="astro-code[^"]*dayfox[^"]*nightfox/);
+  assert.match(codePost, /--shiki-dark-bg:#192330/);
+  assert.match(codePost, /background-color:#f6f2ee/);
 });
 
 test('post images retain their aspect ratio when constrained to the content width', () => {
