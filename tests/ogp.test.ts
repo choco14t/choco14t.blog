@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, globSync, existsSync } from 'node:fs';
+import { spawn } from 'node:child_process';
+import { once } from 'node:events';
 import test from 'node:test';
 
 function metadata(html: string, key: string) {
@@ -39,4 +41,84 @@ test('the shared image is a 1200 by 630 PNG file', () => png('dist/og/default.pn
 
 test('404 has no social card metadata', () => {
   assert.doesNotMatch(readFileSync('dist/404.html', 'utf8'), /<meta\b[^>]*(?:og:|twitter:)/);
+});
+
+// Read current content rather than the historical migration snapshot.
+const posts = globSync('src/content/posts/**/*.md').map(path => {
+  const markdown = readFileSync(path, 'utf8');
+  const field = (name: string) => markdown.match(new RegExp(`^${name}(?::| =)? (.+)$`, 'm'))?.[1];
+  return { title: JSON.parse(field('title')!), slug: JSON.parse(field('slug')!), draft: field('draft') === 'true' };
+});
+
+function card(html: string, title: string, type: string, path: string, image: string, alt: string) {
+  const escape = (text: string) => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  const expected = {
+    'og:title': escape(title), 'og:type': type, 'og:url': new URL(path, 'https://blog.choco14t.net').href,
+    'og:image': `https://blog.choco14t.net${image}`, 'og:image:width': '1200', 'og:image:height': '630',
+    'og:image:type': 'image/png', 'og:image:alt': escape(alt), 'twitter:card': 'summary_large_image',
+    'twitter:title': escape(title), 'twitter:image': `https://blog.choco14t.net${image}`, 'twitter:image:alt': escape(alt),
+  };
+  for (const [key, value] of Object.entries(expected)) assert.deepEqual(metadata(html, key), [value], `${path}: ${key}`);
+  for (const key of ['og:description', 'twitter:description']) assert.deepEqual(metadata(html, key), [], path);
+}
+
+test('all published articles have title-only article cards and exactly their PNG files', () => {
+  const published = posts.filter(post => !post.draft);
+  assert.ok(published.length > 0);
+  for (const post of published) {
+    const path = `/posts/${post.slug}/`;
+    const image = `/og/posts/${post.slug}.png`;
+    const html = readFileSync(`dist${path}index.html`, 'utf8');
+    card(html, post.title, 'article', path, image, post.title);
+    png(`dist${image}`);
+  }
+  assert.deepEqual(globSync('dist/og/posts/**/*.png').sort(), published.map(post => `dist/og/posts/${post.slug}.png`).sort());
+  for (const post of posts.filter(post => post.draft)) {
+    assert.ok(!existsSync(`dist/posts/${post.slug}/index.html`));
+    assert.ok(!existsSync(`dist/og/posts/${post.slug}.png`));
+  }
+});
+
+test('tag index and every tag page use canonical website cards and the one shared image', () => {
+  const pages = globSync('dist/tags/**/index.html');
+  assert.ok(pages.includes('dist/tags/Claude Code/index.html'), 'space-containing tag exercises URL encoding');
+  for (const path of pages) {
+    const html = readFileSync(path, 'utf8');
+    const title = html.match(/<title>([^<]+)<\/title>/)![1];
+    const url = '/' + path.slice(5, -10).split('/').map(encodeURIComponent).join('/');
+    card(html, title, 'website', url, '/og/default.png', 'blog.choco14t.net');
+  }
+  assert.deepEqual(globSync('dist/og/*.png'), ['dist/og/default.png']);
+});
+
+test('development exposes a draft article card and PNG without query strings in canonical URLs', { timeout: 30_000 }, async () => {
+  const post = posts.find(post => post.draft)!;
+  const server = spawn(process.execPath, ['node_modules/astro/bin/astro.mjs', 'dev', '--ignore-lock', '--host', '127.0.0.1', '--port', '43220'], {
+    env: { ...process.env, ASTRO_DEV_BACKGROUND: '0' }, stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  const exited = once(server, 'exit');
+  let output = '';
+  server.stdout.on('data', chunk => { output += chunk; });
+  server.stderr.on('data', chunk => { output += chunk; });
+  try {
+    let response;
+    for (let attempt = 0; attempt < 100; attempt++) {
+      try { response = await fetch(`http://127.0.0.1:43220/posts/${post.slug}/?share=1`); break; }
+      catch { await new Promise(resolve => setTimeout(resolve, 100)); }
+    }
+    assert.ok(response, output);
+    assert.equal(response.status, 200, output);
+    card(await response.text(), post.title, 'article', `/posts/${post.slug}/`, `/og/posts/${post.slug}.png`, post.title);
+    const image = await fetch(`http://127.0.0.1:43220/og/posts/${post.slug}.png`);
+    assert.equal(image.status, 200);
+    assert.match(image.headers.get('content-type')!, /^image\/png/);
+    const bytes = Buffer.from(await image.arrayBuffer());
+    assert.equal(bytes.readUInt32BE(16), 1200);
+    assert.equal(bytes.readUInt32BE(20), 630);
+  } finally {
+    server.kill('SIGTERM');
+    const timer = setTimeout(() => server.kill('SIGKILL'), 2000);
+    await exited;
+    clearTimeout(timer);
+  }
 });
