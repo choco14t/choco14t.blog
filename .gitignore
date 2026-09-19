@@ -2,5 +2,9 @@
 .idea/
 .vscode/
 node_modules/
+.pnpm-store/
+pnpm-debug.log*
 dist/
 .astro/
+.env
+.env.production
