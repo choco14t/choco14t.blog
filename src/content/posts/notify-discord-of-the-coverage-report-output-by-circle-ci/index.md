@@ -15,7 +15,7 @@ tags: ["CI"]
 「Create Webhook」ボタンをクリックして名前やアイコンなどを設定して保存すれば完了。
 この時、作成画面に表示される Webhook URL をクリップボードにコピーしておく。
 
-<img src="edit_webhook.png" width="400">
+![edit_webhook](edit_webhook.png)
 
 Circle CI のロゴを設定したい場合は[こちら](https://brandfolder.com/circleci)から DL できる。
 

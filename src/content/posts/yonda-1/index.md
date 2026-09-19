@@ -19,6 +19,6 @@ tags: ["Diary"]
 月曜日の抹茶カフェは [Cat's Meow Books](https://catsmeowbooks.stores.jp/) というお店にたまたま立ち寄ったときに目がついて買った。
 このお店には保護猫が居て、本を探しつつ猫も眺めることができるので猫が好きな方はぜひ一度行ってみてほしい。
 
-<img src="bookcover.jpg" width="400" alt="Cat's Meow Books のブックカバー">
+![Cat's Meow Books のブックカバー](bookcover.jpg)
 
 自分が月曜日の抹茶カフェを手に取ったように、思いがけない本との縁があるかもしれない。
