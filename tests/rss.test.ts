@@ -1,18 +1,20 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
-
-const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8'));
+import { posts } from './posts.ts';
 
 test('RSS contains exactly the 19 published posts newest first with preserved URLs and dates', () => {
   assert.ok(existsSync('dist/rss.xml'), 'Astro must emit /rss.xml');
   const xml = readFileSync('dist/rss.xml', 'utf8');
   assert.match(xml, /<language>ja<\/language>/);
 
-  const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(([, item]) => ({
-    link: item.match(/<link>([^<]+)<\/link>/)?.[1],
-    date: item.match(/<pubDate>([^<]+)<\/pubDate>/)?.[1],
-  }));
+  const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(([, item]) => {
+    const link = item.match(/<link>([^<]+)<\/link>/)?.[1];
+    const date = item.match(/<pubDate>([^<]+)<\/pubDate>/)?.[1];
+    assert.ok(link);
+    assert.ok(date);
+    return { link, date };
+  });
   const expected = posts
     .filter(post => !post.draft)
     .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));

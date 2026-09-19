@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import test from 'node:test';
-const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8'));
+import { posts } from './posts.ts';
 
 test('all 47 posts retain their Markdown bodies and flat frontmatter', () => {
   assert.equal(posts.length, 47);
@@ -10,7 +10,9 @@ test('all 47 posts retain their Markdown bodies and flat frontmatter', () => {
     const path = 'src/content/posts/' + post.path;
     assert.ok(existsSync(path), 'Migrated article missing: ' + post.slug);
     const markdown = readFileSync(path, 'utf8');
-    const [, frontmatter, body] = markdown.match(/^---\n([\s\S]*?)\n---([\s\S]*)$/);
+    const match = markdown.match(/^---\n([\s\S]*?)\n---([\s\S]*)$/);
+    assert.ok(match);
+    const [, frontmatter, body] = match;
     assert.ok(markdown.startsWith('---\n'));
     assert.equal(createHash('sha256').update(body).digest('hex'), post.bodySha256, post.slug);
     assert.ok(frontmatter.includes('date: ' + post.date));

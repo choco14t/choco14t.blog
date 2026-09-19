@@ -2,8 +2,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import test from 'node:test';
-
-const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8'));
+import { posts } from './posts.ts';
 
 test('production emits exactly the 19 published post routes', () => {
   assert.ok(existsSync('dist/posts'), 'Astro must emit post routes');

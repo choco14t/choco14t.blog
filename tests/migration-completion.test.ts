@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
 
 test('obsolete Zola and Netlify sources are removed after their Astro replacements exist', () => {
@@ -38,4 +38,12 @@ test('README documents Cloudflare Pages deployment, analytics, cutover, and roll
   assert.match(readme, /after merging[\s\S]*DNS/i);
   assert.match(readme, /keep the Netlify project[\s\S]*rollback/i);
   assert.doesNotMatch(readme, /api\.netlify\.com\/api\/v1\/badges/);
+});
+
+test('tests run directly as TypeScript with the Node test runner', () => {
+  const packageJson = JSON.parse(readFileSync('package.json', 'utf8'));
+  assert.equal(packageJson.scripts.test, 'node --test tests/*.test.ts');
+  const testFiles = readdirSync('tests').filter(path => path.includes('.test.'));
+  assert.ok(testFiles.length > 0);
+  assert.ok(testFiles.every(path => path.endsWith('.test.ts')));
 });

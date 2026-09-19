@@ -1,8 +1,7 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
-
-const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8'));
+import { posts } from './posts.ts';
 const published = posts.filter(post => !post.draft);
 const tags = [...new Set(published.flatMap(post => post.tags))].sort();
 

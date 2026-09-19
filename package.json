@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test tests/*.test.ts",
     "textlint": "textlint"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@types/node": "^24",
     "sass": "^1.104.0",
     "textlint": "^15.8.0",
     "textlint-filter-rule-allowlist": "^4.0.0",
