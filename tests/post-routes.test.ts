@@ -4,14 +4,13 @@ import { spawn } from 'node:child_process';
 import test from 'node:test';
 import { posts } from './posts.ts';
 
-test('production emits exactly the 19 published post routes', () => {
+test('production emits exactly the published post routes', () => {
   assert.ok(existsSync('dist/posts'), 'Astro must emit post routes');
   const actual = readdirSync('dist/posts', { withFileTypes: true })
     .filter(entry => entry.isDirectory() && existsSync(`dist/posts/${entry.name}/index.html`))
     .map(entry => entry.name)
     .sort();
   const published = posts.filter(post => !post.draft).map(post => post.slug).sort();
-  assert.equal(published.length, 19);
   assert.deepEqual(actual, published);
   for (const post of posts.filter(post => post.draft)) {
     assert.ok(!existsSync(`dist/posts/${post.slug}/index.html`), post.slug);

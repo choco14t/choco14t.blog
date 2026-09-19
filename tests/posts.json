@@ -43,7 +43,7 @@
     "tags": [
       "Diary"
     ],
-    "bodySha256": "4b14d7e61cbd6d5fbbe1f89250510663d82f02cd624818aab11a075c126ae430"
+    "bodySha256": "4307300abb220cc513f086a2c94ffdc208a0ccb9cfac90a6e91d90f8e34ae4be"
   },
   {
     "path": "2022-12.md",
@@ -404,7 +404,7 @@
     "tags": [
       "CI"
     ],
-    "bodySha256": "fadf78668bb379d37ff03718bc9565f2bd50b7c3d002286efc618da252e07e53"
+    "bodySha256": "7870245681b296d64c76d870013da8dc736a24c90a97394cf6aea08b6a74e6d2"
   },
   {
     "path": "object-comparison-in-php.md",
@@ -429,6 +429,15 @@
       "Diary"
     ],
     "bodySha256": "728210c63d7c933274d16a8ecec07afe154fb9a61821511adb9eb5148821bd79"
+  },
+  {
+    "path": "recovering-too-many-records.md",
+    "title": "大規模なデータをリカバリしたときにやったこと",
+    "slug": "recovering-too-many-records",
+    "draft": false,
+    "date": "2026-09-09T16:00:00.000+09:00",
+    "tags": [],
+    "bodySha256": "a2f8208a38b8953b548b7f92d6b4a03c12d243ac17716b9c344b80fc2da146f5"
   },
   {
     "path": "resolve-vulnerabilities-in-installed-npm-packages/index.md",
@@ -551,7 +560,7 @@
     "tags": [
       "Diary"
     ],
-    "bodySha256": "10d7784fa5bab661f596de23fb35d050ed1880335321b5dc452bc2cc9119e7eb"
+    "bodySha256": "479c962341a554094b96f6db6d5e30127607af502d53a551da4e7f0dcc6aa4d5"
   },
   {
     "path": "yonda-2.md",
