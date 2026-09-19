@@ -1,4 +1,4 @@
-name: textlint
+name: test
 
 on:
   pull_request:
@@ -10,12 +10,10 @@ defaults:
     working-directory: ./
 
 jobs:
-  textlint:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 24.18.0
@@ -39,11 +37,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install modules
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v39
+      - name: Build
+        run: pnpm build
 
-      - name: Run textlint
-        run: pnpm textlint ${{ steps.changed-files.outputs.all_changed_files }}
+      - name: Test
+        run: pnpm test

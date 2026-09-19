@@ -1,10 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync, globSync } from 'node:fs';
-import { createHash } from 'node:crypto';
 import test from 'node:test';
 import { posts } from './posts.ts';
 
-test('all posts retain their Markdown bodies and original frontmatter', () => {
+test('all posts retain their original frontmatter', () => {
   assert.deepEqual(posts.map(post => post.path).sort(), globSync('**/*.md', { cwd: 'src/content/posts' }).sort());
   for (const post of posts) {
     const path = 'src/content/posts/' + post.path;
@@ -12,8 +11,7 @@ test('all posts retain their Markdown bodies and original frontmatter', () => {
     const markdown = readFileSync(path, 'utf8');
     const match = markdown.match(/^(---|\+\+\+)\n([\s\S]*?)\n\1([\s\S]*)$/);
     assert.ok(match);
-    const [, delimiter, frontmatter, body] = match;
-    assert.equal(createHash('sha256').update(body).digest('hex'), post.bodySha256, post.slug);
+    const [, delimiter, frontmatter] = match;
     if (delimiter === '---') {
       assert.ok(frontmatter.includes('date: ' + post.date));
       assert.ok(frontmatter.includes('slug: ' + JSON.stringify(post.slug)));

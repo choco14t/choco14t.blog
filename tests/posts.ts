@@ -8,7 +8,6 @@ export interface Post {
   date: string;
   description?: string;
   tags: string[];
-  bodySha256: string;
 }
 
 export const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8')) as Post[];

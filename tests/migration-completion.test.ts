@@ -11,18 +11,25 @@ test('obsolete Zola and Netlify sources are removed after their Astro replacemen
   }
 });
 
-test('textlint CI uses the Astro runtime while preserving its existing workflow', () => {
-  const workflow = readFileSync('.github/workflows/textlint.yaml', 'utf8');
+test('test CI builds before running the complete suite for pull requests to main', () => {
+  for (const path of ['.github/workflows/textlint.yaml', '.textlintrc']) {
+    assert.ok(!existsSync(path), `obsolete textlint configuration remains: ${path}`);
+  }
+  const packageJson = JSON.parse(readFileSync('package.json', 'utf8'));
+  assert.ok(!('textlint' in packageJson.scripts));
+  for (const name of Object.keys({ ...packageJson.dependencies, ...packageJson.devDependencies })) {
+    assert.doesNotMatch(name, /textlint/);
+  }
+
+  const workflow = readFileSync('.github/workflows/test.yaml', 'utf8');
+  assert.match(workflow, /on:\s*\n\s+pull_request:\s*\n\s+branches:\s*\n\s+- main\s*\n/);
+  assert.doesNotMatch(workflow, /(?:paths(?:-ignore)?|branches-ignore|push|continue-on-error|if):/);
+  assert.match(workflow, /runs-on: ubuntu-latest/);
   assert.match(workflow, /node-version: 24\.18\.0/);
   assert.match(workflow, /uses: pnpm\/action-setup@v2[\s\S]*version: 10\.4\.1/);
-  for (const behavior of [
-    'pull_request:',
-    'branches:\n      - main',
-    'uses: actions/checkout@v4',
-    'run: pnpm install',
-    'uses: tj-actions/changed-files@v39',
-    'run: pnpm textlint ${{ steps.changed-files.outputs.all_changed_files }}',
-  ]) assert.ok(workflow.includes(behavior), behavior);
+  const commands = [...workflow.matchAll(/^\s+run: (pnpm .+)$/gm)].map(match => match[1]);
+  assert.deepEqual(commands, ['pnpm install --frozen-lockfile', 'pnpm build', 'pnpm test']);
+  assert.doesNotMatch(workflow, /textlint|changed-files/);
 });
 
 test('tests run directly as TypeScript with the Node test runner', () => {

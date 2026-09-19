@@ -11,8 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node --test tests/*.test.ts",
-    "textlint": "textlint"
+    "test": "node --test tests/*.test.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",
@@ -27,11 +26,6 @@
     "@types/hast": "^3.0.5",
     "@types/node": "^24",
     "sass": "^1.104.0",
-    "textlint": "^15.8.0",
-    "textlint-filter-rule-allowlist": "^4.0.0",
-    "textlint-rule-preset-ja-spacing": "^3.0.3",
-    "textlint-rule-preset-ja-technical-writing": "^12.0.2",
-    "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "typescript": "^6.0.3"
   }
 }
