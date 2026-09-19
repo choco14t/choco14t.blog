@@ -17,15 +17,20 @@ test('404 preserves the Japanese site shell, favicon, and theme styling without 
 });
 
 
-test('theme preference initializes before styles and control offers accessible native choices', () => {
+test('theme preference initializes before styles and icon button offers accessible native popover choices', () => {
   const html = readFileSync('dist/index.html', 'utf8');
-  assert.match(html, /<label[^>]*for="theme-select"[^>]*>Theme<\/label>/);
-  assert.match(html, /<select[^>]*id="theme-select"/);
+  const trigger = html.match(/<button[^>]*id="theme-toggle"[^>]*>([\s\S]*?)<\/button>/);
+  assert.ok(trigger, 'Icon-only theme button must exist');
+  assert.match(trigger[0], /popovertarget="theme-menu"/);
+  assert.match(trigger[0], /aria-label="Theme: System"/);
+  assert.match(trigger[0], /disabled/);
+  assert.equal(trigger[1].replace(/<svg[\s\S]*?<\/svg>/g, '').trim(), '');
+  assert.match(html, /<div[^>]*id="theme-menu"[^>]*popover="auto"/);
   for (const [value, label] of [['system', 'System'], ['light', 'Light'], ['dark', 'Dark']]) {
-    assert.match(html, new RegExp(`<option value="${value}"[^>]*>${label}</option>`));
+    assert.match(html, new RegExp(`<button[^>]*value="${value}"[^>]*aria-pressed="${value === 'system'}"[^>]*>${label}</button>`));
+    assert.match(trigger[1], new RegExp(`data-theme-icon="${value}"`));
   }
-  assert.match(html, /data-theme-icon="light"/);
-  assert.match(html, /data-theme-icon="dark"/);
+  assert.doesNotMatch(html, /<select|for="theme-select"/);
   const initializer = html.indexOf('localStorage.getItem');
   assert.ok(initializer > 0 && initializer < html.indexOf('rel="stylesheet"'));
   assert.match(html.slice(0, html.indexOf('</head>')), /try[\s\S]*catch/);

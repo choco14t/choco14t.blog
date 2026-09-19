@@ -1,6 +1,6 @@
 ---
 import '../styles/style.scss';
-import ThemeSelect from '../components/ThemeSelect.astro';
+import ThemeMenu from '../components/ThemeMenu.astro';
 interface Props { title?: string; article?: boolean }
 const { title = 'blog.choco14t.net', article = false } = Astro.props;
 ---
@@ -19,7 +19,7 @@ const { title = 'blog.choco14t.net', article = false } = Astro.props;
     <link rel="icon" href="/icon.png" />
   </head>
   <body>
-    <header class="header"><div class="header-inner"><a href="/" class="brand">blog.choco14t.net</a><ThemeSelect /></div></header>
+    <header class="header"><div class="header-inner"><a href="/" class="brand">blog.choco14t.net</a><ThemeMenu /></div></header>
     <div class:list={["container", { "container-article": article }]}><main class="content"><slot /></main></div>
     <footer class="footer">
       <div class="footer-container"><div class="footer-inner"><address>&copy; choco All rights reserved.</address></div></div>

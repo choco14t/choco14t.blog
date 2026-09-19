@@ -9,7 +9,7 @@ const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)]
   .map(([, attributes, source]) => {
     const path = attributes.match(/src="([^"]+)"/)?.[1];
     return path ? readFileSync(`dist${path}`, 'utf8') : source;
-  });
+  }).filter(source => source.includes('.toc-desktop'));
 
 function page(scrollY = 0, hash = '') {
   const window = new EventTarget();
@@ -28,11 +28,10 @@ function page(scrollY = 0, hash = '') {
       removeAttribute: (name: string) => attributes.delete(name),
     };
   }));
-  const select = Object.assign(new EventTarget(), { value: 'system', disabled: true });
   const frames: FrameRequestCallback[] = [];
   Object.assign(document, {
     documentElement: root,
-    querySelector: (selector: string) => selector === '#theme-select' ? select : null,
+    querySelector: () => null,
     querySelectorAll: (selector: string) => selector.includes('.post-content') ? headings : selector.includes('.toc-') ? links : [],
     getElementById: (id: string) => headings.find(heading => heading.id === id) ?? null,
   });

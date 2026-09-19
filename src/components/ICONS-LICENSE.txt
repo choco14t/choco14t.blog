@@ -1,4 +1,4 @@
-Sun and moon icons adapted from Tabler Icons v3.35.0.
+Monitor, sun, and moon icons adapted from Tabler Icons v3.35.0.
 https://github.com/tabler/tabler-icons/tree/v3.35.0
 
 MIT License

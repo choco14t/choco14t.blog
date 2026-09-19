@@ -1,0 +1,50 @@
+<div class="theme-control">
+  <button id="theme-toggle" type="button" popovertarget="theme-menu" aria-label="Theme: System" disabled>
+    <svg data-theme-icon="system" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1" /><path d="M7 20h10M9 16v4M15 16v4" /></svg>
+  <svg data-theme-icon="light" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 0 0 -8 0M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+  <svg data-theme-icon="dark" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 .003 .393 .009a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
+  </button>
+  <div id="theme-menu" class="theme-menu" popover="auto" role="group" aria-label="Theme">
+    <button type="button" value="system" aria-pressed="true" autofocus>System</button>
+    <button type="button" value="light" aria-pressed="false">Light</button>
+    <button type="button" value="dark" aria-pressed="false">Dark</button>
+  </div>
+</div>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('#theme-toggle')!;
+  const menu = document.querySelector<HTMLElement>('#theme-menu')!;
+  const choices = [...menu.querySelectorAll<HTMLButtonElement>('button')];
+  const root = document.documentElement;
+  function update() {
+    const theme = root.dataset.theme || 'system';
+    for (const choice of choices) {
+      const selected = choice.value === theme;
+      choice.setAttribute('aria-pressed', String(selected));
+      choice.autofocus = selected;
+      if (selected) button.setAttribute('aria-label', `Theme: ${choice.textContent!.trim()}`);
+    }
+  }
+  function position() {
+    const bounds = button.getBoundingClientRect();
+    menu.style.top = `${bounds.bottom + 8}px`;
+    menu.style.right = `${Math.max(8, window.innerWidth - bounds.right)}px`;
+  }
+  for (const choice of choices) {
+    choice.addEventListener('click', () => {
+      const theme = choice.value;
+      if (theme === 'system') delete root.dataset.theme;
+      else root.dataset.theme = theme;
+      try {
+        if (theme === 'system') localStorage.removeItem('theme');
+        else localStorage.setItem('theme', theme);
+      } catch { /* Manual selection remains usable when storage is blocked. */ }
+      update();
+      menu.hidePopover();
+      button.focus();
+    });
+  }
+  menu.addEventListener('beforetoggle', position);
+  window.addEventListener('resize', position);
+  update();
+  button.disabled = false;
+</script>
