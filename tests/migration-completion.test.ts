@@ -3,7 +3,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
 
 test('obsolete Zola and Netlify sources are removed after their Astro replacements exist', () => {
-  for (const path of ['.tool-versions', 'config.toml', 'content', 'netlify.toml', 'sass', 'static', 'templates']) {
+  for (const path of ['.tool-versions', 'config.toml', 'content', 'netlify.toml', 'sass', 'scripts/migrate-content.py', 'static', 'templates']) {
     assert.ok(!existsSync(path), `obsolete path remains: ${path}`);
   }
   for (const path of ['astro.config.ts', 'public/icon.png', 'src/content/posts', 'src/layouts/Layout.astro', 'src/styles/style.scss']) {
