@@ -22,18 +22,20 @@ framework.
 | ID | Decision | Resolution |
 |---|---|---|
 | D-001 | Theme modes | Provide `System`, `Light`, and `Dark`. Default to `System` and persist manual selections locally. |
-| D-002 | Table of contents | Show nested `h2`/`h3` entries in a sticky desktop sidebar and a collapsible mobile block. Do not add active-section highlighting. |
+| D-002 | Table of contents | Show nested `h2`/`h3` entries in a sticky desktop sidebar and a collapsible mobile block. Indicate the current reading section in both TOCs with bold text; mute inactive entries and preserve hierarchy with unnumbered indentation. |
 | D-003 | Image caption syntax | Treat the title in `![alt](image.jpg "caption")` as the visible caption. |
 | D-004 | External embeds | Convert standalone Spotify URLs to official iframes. Resolve standalone Bluesky post URLs through official oEmbed at build time and fall back to a normal link on failure. Keep X static and preserve YouTube iframes. |
 | D-005 | Soft line breaks | Convert single Markdown line endings to `<br>` elements for every article. |
 | D-006 | Color themes | Start with Dayfox for light mode and Nightfox for dark mode instead of designing a new palette. Apply them to the site and syntax highlighting. |
-| D-007 | Theme control | Use a native select with a separate icon indicating the effective theme. |
+| D-007 | Theme control | Use an icon-only button opening a native auto popover with System, Light, and Dark buttons and a visible selected state. The closed icon indicates the selected mode: monitor, sun, or moon. |
 | D-008 | Desktop TOC position | Place the table of contents to the right of the article. |
+| D-009 | Active TOC follow-up | Activate the last eligible heading within 96 px of the viewport top; keep that section active through long prose. Before the first heading, no entry is active. At the page bottom, activate the last heading. |
 
 ### Acceptance Criteria
 
 1. The home page continues to show only each published post's date and title.
-2. The header offers `System`, `Light`, and `Dark` theme choices.
+2. The header offers an icon-only theme button that opens `System`, `Light`,
+   and `Dark` choices with the current selection indicated.
 3. The initial preference is `System`; manual choices persist in
    `localStorage`.
 4. `System` follows `prefers-color-scheme`, including changes made while the
@@ -42,8 +44,10 @@ framework.
    syntax-highlighted code blocks.
 6. Theme initialization occurs early enough to avoid showing the wrong manual
    theme before the page is painted.
-7. The theme control has an accessible label, works with a keyboard, and shows
-   an icon for the effective light or dark theme.
+7. The theme button has an accessible name including the selected mode and
+   shows only its monitor, sun, or moon icon when closed. Native popover
+   keyboard navigation, Escape/outside dismissal, visible focus, and focus
+   return after selection remain available.
 8. On desktop, articles with at least two eligible headings show a sticky TOC
    to the right of the article body.
 9. On narrow screens, that TOC appears as a collapsed `<details>` block before
@@ -71,12 +75,19 @@ framework.
     RSS output, and draft filtering continue to work.
 21. Normal body text has a contrast ratio of at least 4.5:1 against its
     background in both themes.
+22. Scrolling, reverse scrolling, fast jumps, initial hashes, and native TOC
+    navigation update the current `h2`/`h3` section in both TOCs.
+23. Both TOCs mark the same current link with `aria-current="location"`;
+    the current text is bold, inactive text is muted, and list numbers are
+    hidden while indentation preserves hierarchy. Do not add active-specific
+    background or left-border emphasis.
+24. Active-section tracking uses a small native browser script without new
+    dependencies. With JavaScript disabled, the native TOC links still work.
 
 ### Non-goals
 
 - Designing a new color palette before Dayfox and Nightfox have been evaluated
   on the live blog
-- Active-section highlighting or scroll spying in the TOC
 - A generic oEmbed framework
 - Automatic expansion of Spotify short links
 - Loading X's official JavaScript widget
@@ -108,7 +119,7 @@ framework.
 - If storage is unavailable or contains an invalid value, the page uses
   `System` without preventing content from rendering.
 - With JavaScript disabled, content remains available and the CSS system theme
-  remains usable; the manual selector is simply inactive.
+  remains usable; the theme button is disabled.
 
 #### Article layout
 
@@ -117,6 +128,11 @@ framework.
 - Mobile pages do not gain horizontal scrolling from the TOC, images, code, or
   embeds.
 - TOC links move focus/navigation to the matching article heading.
+- The current section remains active until the next eligible heading crosses
+  the 96 px activation line; reverse scrolling restores the preceding section.
+- Both TOCs reflect the same active section, including direct hashes and the
+  final section at the page bottom. Inactive entries use muted text; the active
+  entry uses bold text without a special background or border.
 
 #### Markdown extensions
 
@@ -171,7 +187,7 @@ migration. A stale `localStorage` theme value is harmless after rollback.
 
 Expected new implementation files:
 
-- `src/components/ThemeSelect.astro`
+- `src/components/ThemeMenu.astro`
 - `src/components/TableOfContents.astro`
 - `src/markdown/rehype-image-captions.ts`
 - `src/markdown/rehype-embeds.ts`
@@ -204,7 +220,7 @@ starting feature Red-Green cycles so new failures remain attributable.
 | Criteria | Implementation location | Verification |
 |---|---|---|
 | AC 1 | `src/pages/index.astro`, article-list styles | Generated home HTML contains one date and title link per published post and no excerpt/image markup. |
-| AC 2-7 | `Layout.astro`, `ThemeSelect.astro`, theme styles, Shiki config | Shell tests, CSS inspection, keyboard/manual browser checks, and no-flash reload check. |
+| AC 2-7 | `Layout.astro`, `ThemeMenu.astro`, theme styles, Shiki config | Shell tests, CSS inspection, keyboard/manual browser checks, and no-flash reload check. |
 | AC 8-11 | Post route, `TableOfContents.astro`, layout/post styles | Generated HTML tests for nested links, desktop/mobile containers, and the one-heading boundary. |
 | AC 12-13 | Image-caption rehype plugin | Markdown transformation tests and existing co-located image route tests. |
 | AC 14 | `remark-breaks` registration | Markdown transformation test covering paragraphs and fenced code. |
@@ -314,7 +330,8 @@ not leak into the article component or content schema.
 
 Add generated-output tests requiring:
 
-- all three select values and an accessible label
+- an icon-only trigger, accessible selected-mode name, native popover, and
+  all three choices with selected state
 - the early manual-theme initializer
 - Dayfox and Nightfox semantic variables
 - dual-theme Shiki output
@@ -331,10 +348,13 @@ Add a small contrast test for the primary foreground/background pairs.
 3. Configure Shiki with matching light and dark custom themes.
 4. Add a short inline `<head>` script that applies only a valid stored manual
    override before paint.
-5. Add `ThemeSelect.astro` with a native select and adjacent Tabler icon.
+5. Add `ThemeMenu.astro` with an icon-only Tabler monitor/sun/moon button
+   and a native auto popover containing three ordinary choice buttons.
 6. On change, save `light` or `dark`; remove the override for `system`.
-7. Observe `matchMedia` changes only to update the effective-theme icon while
-   in system mode; CSS media queries perform the visual switch.
+7. Keep the closed icon tied to the selected mode, including a monitor for
+   System; CSS media queries follow operating-system appearance changes.
+8. Use native popover dismissal and keyboard focus behavior, restore focus to
+   the trigger after selection, and keep the menu inside narrow viewports.
 
 **Refactor**
 
@@ -367,8 +387,10 @@ Extend generated article tests to prove:
 
 **Refactor**
 
-Share TOC item rendering inside the component. Do not add scroll listeners,
-intersection observers, or client-side heading parsing.
+Share TOC item rendering inside the component. The follow-up adds a passive,
+animation-frame-throttled scroll listener in that same component. Read the
+already-rendered heading positions and update `aria-current` on the existing
+links; do not intercept native link navigation or parse heading content.
 
 #### Step 6: Visual and compatibility verification
 
@@ -418,3 +440,33 @@ During planning:
   signature fetch and could not complete under restricted network access, so
   direct local binaries were used for the evidence above.
 
+
+
+### Follow-up: Current-section TOC indication
+
+The user requested active-section tracking after the initial design refresh,
+then clarified that the visual treatment should use bold active text and muted
+inactive text, not the reference screenshot's background or left-edge emphasis.
+Hide ordered-list numbers and retain heading hierarchy through indentation.
+
+Validate the generated browser script against threshold crossing, long prose,
+fast jumps, reverse scrolling, initial hashes, native hash navigation, viewport
+changes, and the page-bottom boundary. Both desktop and mobile copies must agree
+on `aria-current="location"`. Verify the same behavior in a real browser, in both
+themes, and confirm native links remain usable with JavaScript disabled.
+
+
+### Follow-up: Icon-only theme menu
+
+The user replaced the visible label/select/separate icon with one selected-mode
+icon button. Opening it reveals System, Light, and Dark with the current choice
+indicated by `aria-pressed` and a selected appearance. The button's accessible
+name includes the selected mode; System always uses the monitor icon, even when
+the operating system switches between light and dark.
+
+Use the native auto popover and ordinary buttons for Tab/Shift+Tab,
+Enter/Space, Escape, outside dismissal, and invoker relationships. Restore focus
+after choosing a mode. Preserve early theme initialization, persisted manual
+choices, storage-failure handling, CSS system following, and content with
+JavaScript disabled. Keep the menu aligned with the trigger on narrow screens
+and after viewport resizing; add no framework or dependencies.

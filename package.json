@@ -15,11 +15,14 @@
     "textlint": "textlint"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
     "@astrojs/rss": "^4.0.19",
-    "astro": "7.3.2"
+    "astro": "7.3.2",
+    "remark-breaks": "^4.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@types/hast": "^3.0.5",
     "@types/node": "^24",
     "sass": "^1.104.0",
     "textlint": "^15.8.0",

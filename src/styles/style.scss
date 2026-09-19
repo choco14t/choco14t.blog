@@ -29,8 +29,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
   font-kerning: normal;
-  background-color: $nord0;
-  color: $nord4;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 h1,
@@ -71,7 +71,7 @@ h6 {
 }
 
 a {
-  color: $nord4;
+  color: var(--color-text);
 }
 
 figcaption {

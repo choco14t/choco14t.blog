@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 import { posts } from './posts.ts';
 
-test('RSS contains exactly the 19 published posts newest first with preserved URLs and dates', () => {
+test('RSS contains exactly the published posts newest first with preserved URLs and dates', () => {
   assert.ok(existsSync('dist/rss.xml'), 'Astro must emit /rss.xml');
   const xml = readFileSync('dist/rss.xml', 'utf8');
   assert.match(xml, /<language>ja<\/language>/);
@@ -19,7 +19,7 @@ test('RSS contains exactly the 19 published posts newest first with preserved UR
     .filter(post => !post.draft)
     .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 
-  assert.equal(items.length, 19);
+  assert.equal(items.length, expected.length);
   assert.deepEqual(
     items.map(item => item.link),
     expected.map(post => `https://blog.choco14t.net/posts/${post.slug}/`),
