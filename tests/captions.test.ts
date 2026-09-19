@@ -22,3 +22,18 @@ test('caption text is escaped and mixed paragraph text remains in order', async 
   assert.match(code, /<figcaption>&#x3C;script>alert\(1\)&#x3C;\/script><\/figcaption><\/figure><p> after<\/p>/);
   assert.doesNotMatch(code, /<script>/);
 });
+
+for (const [name, markdown, opening, closing] of [
+  ['linked', '[![Fox](https://example.com/fox.jpg "At noon")](https://example.com)', '<a href="https://example.com">', '</a>'],
+  ['emphasized', '*![Fox](https://example.com/fox.jpg "At noon")*', '<em>', '</em>'],
+]) {
+  test(`${name} titled images keep their wrapper with a direct semantic caption`, async () => {
+    const { code } = await renderer.render(markdown);
+    assert.equal(code, `<figure>${opening}<img src="https://example.com/fox.jpg" alt="Fox">${closing}<figcaption>At noon</figcaption></figure>`);
+  });
+}
+
+test('nested inline wrappers preserve surrounding prose when a caption splits the paragraph', async () => {
+  const { code } = await renderer.render('Before *lead [![Fox](https://example.com/fox.jpg "At noon")](https://example.com) tail* after');
+  assert.equal(code, '<p>Before <em>lead </em></p><figure><em><a href="https://example.com"><img src="https://example.com/fox.jpg" alt="Fox"></a></em><figcaption>At noon</figcaption></figure><p><em> tail</em> after</p>');
+});

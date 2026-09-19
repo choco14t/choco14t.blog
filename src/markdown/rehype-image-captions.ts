@@ -14,20 +14,25 @@ export default function rehypeImageCaptions() {
           ] }];
         }
         transform(node);
-        if (node.tagName !== 'p' || !node.children.some(child => child.type === 'element' && child.tagName === 'figure')) return [node];
-        // Figures are flow content: split surrounding prose instead of nesting them in a paragraph.
+        if (!['p', 'a', 'em', 'strong', 'del'].includes(node.tagName)
+          || !node.children.some(child => child.type === 'element' && child.tagName === 'figure')) return [node];
+        // Lift figures through Markdown's inline wrappers, keeping captions outside those wrappers.
         const result: RootContent[] = [];
-        let paragraph: Element | undefined;
+        let segment: Element | undefined;
         for (const child of node.children) {
           if (child.type === 'element' && child.tagName === 'figure') {
-            result.push(child);
-            paragraph = undefined;
-          } else {
-            if (!paragraph) {
-              paragraph = { ...node, children: [] };
-              result.push(paragraph);
+            if (node.tagName !== 'p') {
+              const caption = child.children.at(-1)!;
+              child.children = [{ ...node, children: child.children.slice(0, -1) }, caption];
             }
-            paragraph.children.push(child);
+            result.push(child);
+            segment = undefined;
+          } else {
+            if (!segment) {
+              segment = { ...node, children: [] };
+              result.push(segment);
+            }
+            segment.children.push(child);
           }
         }
         return result;
