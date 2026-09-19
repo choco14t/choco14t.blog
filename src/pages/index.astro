@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+const posts = (await getCollection('posts', ({ data }) => !import.meta.env.PROD || !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const dateFormat = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' });
+---
+<Layout>
+  {posts.map(post => (
+    <article class="article">
+      <div class="meta-container"><div class="meta"><span>{dateFormat.format(post.data.date)}</span></div></div>
+      <h3 class="article-title"><a href={`/posts/${post.data.slug}/`}>{post.data.title}</a></h3>
+    </article>
+  ))}
+</Layout>

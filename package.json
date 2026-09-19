@@ -1,0 +1,32 @@
+{
+  "name": "choco14t-blog",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test tests/*.test.ts",
+    "textlint": "textlint"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "astro": "7.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^24",
+    "sass": "^1.104.0",
+    "textlint": "^15.8.0",
+    "textlint-filter-rule-allowlist": "^4.0.0",
+    "textlint-rule-preset-ja-spacing": "^3.0.3",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
+    "typescript": "^6.0.3"
+  }
+}

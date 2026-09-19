@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
+---
+<Layout title="Tags | blog.choco14t.net">
+  <h1>Tags</h1>
+  <ul>
+    {tags.map(tag => <li><a href={`/tags/${encodeURIComponent(tag)}/`}>{tag}</a></li>)}
+  </ul>
+</Layout>
