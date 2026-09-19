@@ -32,6 +32,14 @@ test('published articles render their content, co-located images, and Nord-highl
   assert.match(codePost, /<pre class="astro-code[^" ]* nord"[^>]*style="[^"]*background-color:#2e3440(?:ff)?;[^"]*color:#d8dee9(?:ff)?/);
 });
 
+test('post images retain their aspect ratio when constrained to the content width', () => {
+  const post = readFileSync('dist/posts/todays-ice/index.html', 'utf8');
+  const stylesheet = post.match(/href="([^" ]+\.css)"/);
+  assert.ok(stylesheet, 'Post must load compiled styles');
+  const css = readFileSync(`dist${stylesheet[1]}`, 'utf8');
+  assert.match(css, /\.post-content img\{[^}]*max-width:100%;[^}]*height:auto/);
+});
+
 test('every local image reference resolves, including raw HTML images', () => {
   for (const post of posts) {
     const markdown = readFileSync(`src/content/posts/${post.path}`, 'utf8');
