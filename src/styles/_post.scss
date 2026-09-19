@@ -84,9 +84,10 @@
   line-height: 1.5;
   border-left: 2px solid var(--color-border);
   padding: .75rem;
-  a { color: var(--color-link); text-decoration: none; }
+  a { color: var(--color-muted); text-decoration: none; }
+  a[aria-current="location"] { color: var(--color-text); font-weight: bold; }
   a:hover { text-decoration: underline; }
-  ol { padding-left: 1rem; margin: .5rem 0 0; }
+  ol { list-style: none; padding-left: 1rem; margin: .5rem 0 0; }
   li { margin-bottom: .4rem; }
   .toc-title { margin: 0; font-weight: 600; }
   summary { cursor: pointer; font-weight: 600; }

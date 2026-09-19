@@ -22,13 +22,14 @@ framework.
 | ID | Decision | Resolution |
 |---|---|---|
 | D-001 | Theme modes | Provide `System`, `Light`, and `Dark`. Default to `System` and persist manual selections locally. |
-| D-002 | Table of contents | Show nested `h2`/`h3` entries in a sticky desktop sidebar and a collapsible mobile block. Do not add active-section highlighting. |
+| D-002 | Table of contents | Show nested `h2`/`h3` entries in a sticky desktop sidebar and a collapsible mobile block. Indicate the current reading section in both TOCs with bold text; mute inactive entries and preserve hierarchy with unnumbered indentation. |
 | D-003 | Image caption syntax | Treat the title in `![alt](image.jpg "caption")` as the visible caption. |
 | D-004 | External embeds | Convert standalone Spotify URLs to official iframes. Resolve standalone Bluesky post URLs through official oEmbed at build time and fall back to a normal link on failure. Keep X static and preserve YouTube iframes. |
 | D-005 | Soft line breaks | Convert single Markdown line endings to `<br>` elements for every article. |
 | D-006 | Color themes | Start with Dayfox for light mode and Nightfox for dark mode instead of designing a new palette. Apply them to the site and syntax highlighting. |
 | D-007 | Theme control | Use a native select with a separate icon indicating the effective theme. |
 | D-008 | Desktop TOC position | Place the table of contents to the right of the article. |
+| D-009 | Active TOC follow-up | Activate the last eligible heading within 96 px of the viewport top; keep that section active through long prose. Before the first heading, no entry is active. At the page bottom, activate the last heading. |
 
 ### Acceptance Criteria
 
@@ -71,12 +72,19 @@ framework.
     RSS output, and draft filtering continue to work.
 21. Normal body text has a contrast ratio of at least 4.5:1 against its
     background in both themes.
+22. Scrolling, reverse scrolling, fast jumps, initial hashes, and native TOC
+    navigation update the current `h2`/`h3` section in both TOCs.
+23. Both TOCs mark the same current link with `aria-current="location"`;
+    the current text is bold, inactive text is muted, and list numbers are
+    hidden while indentation preserves hierarchy. Do not add active-specific
+    background or left-border emphasis.
+24. Active-section tracking uses a small native browser script without new
+    dependencies. With JavaScript disabled, the native TOC links still work.
 
 ### Non-goals
 
 - Designing a new color palette before Dayfox and Nightfox have been evaluated
   on the live blog
-- Active-section highlighting or scroll spying in the TOC
 - A generic oEmbed framework
 - Automatic expansion of Spotify short links
 - Loading X's official JavaScript widget
@@ -117,6 +125,11 @@ framework.
 - Mobile pages do not gain horizontal scrolling from the TOC, images, code, or
   embeds.
 - TOC links move focus/navigation to the matching article heading.
+- The current section remains active until the next eligible heading crosses
+  the 96 px activation line; reverse scrolling restores the preceding section.
+- Both TOCs reflect the same active section, including direct hashes and the
+  final section at the page bottom. Inactive entries use muted text; the active
+  entry uses bold text without a special background or border.
 
 #### Markdown extensions
 
@@ -367,8 +380,10 @@ Extend generated article tests to prove:
 
 **Refactor**
 
-Share TOC item rendering inside the component. Do not add scroll listeners,
-intersection observers, or client-side heading parsing.
+Share TOC item rendering inside the component. The follow-up adds a passive,
+animation-frame-throttled scroll listener in that same component. Read the
+already-rendered heading positions and update `aria-current` on the existing
+links; do not intercept native link navigation or parse heading content.
 
 #### Step 6: Visual and compatibility verification
 
@@ -418,3 +433,17 @@ During planning:
   signature fetch and could not complete under restricted network access, so
   direct local binaries were used for the evidence above.
 
+
+
+### Follow-up: Current-section TOC indication
+
+The user requested active-section tracking after the initial design refresh,
+then clarified that the visual treatment should use bold active text and muted
+inactive text, not the reference screenshot's background or left-edge emphasis.
+Hide ordered-list numbers and retain heading hierarchy through indentation.
+
+Validate the generated browser script against threshold crossing, long prose,
+fast jumps, reverse scrolling, initial hashes, native hash navigation, viewport
+changes, and the page-bottom boundary. Both desktop and mobile copies must agree
+on `aria-current="location"`. Verify the same behavior in a real browser, in both
+themes, and confirm native links remain usable with JavaScript disabled.

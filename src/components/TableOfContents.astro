@@ -25,3 +25,38 @@ for (const heading of headings) {
     </Tag>
   );
 })}
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc-desktop a, .toc-mobile a')];
+  const headings = [...document.querySelectorAll<HTMLElement>('.post-content h2, .post-content h3')];
+  if (links.length) {
+    let queued = false;
+    let previous: string | undefined;
+    function update() {
+      queued = false;
+      let active = '';
+      for (const heading of headings) {
+        if (heading.getBoundingClientRect().top > 96) break;
+        active = heading.id;
+      }
+      // The final section may be too short for its heading to reach the activation line.
+      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
+        active = headings.at(-1)?.id ?? '';
+      }
+      if (active === previous) return;
+      previous = active;
+      for (const link of links) {
+        if (link.getAttribute('href') === `#${active}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+    }
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', schedule, { passive: true });
+    for (const event of ['resize', 'hashchange', 'load', 'pageshow']) window.addEventListener(event, schedule);
+    schedule();
+  }
+</script>
