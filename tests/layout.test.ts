@@ -45,6 +45,14 @@ test('Dayfox and Nightfox primary text contrast meets WCAG AA', () => {
     const values = [luminance(background), luminance(foregrounds[i])].sort((a, b) => b - a);
     assert.ok((values[0] + 0.05) / (values[1] + 0.05) >= 4.5, `${foregrounds[i]} on ${background}`);
   });
+  const codeTitle = css.match(/\.code-title\{([^}]+)/)![1];
+  const titleForeground = codeTitle.match(/(?:^|;)color:var\((--[^)]+)\)/)![1];
+  const titleBackground = codeTitle.match(/(?:^|;)background:var\((--[^)]+)\)/)![1];
+  for (const block of css.matchAll(/--color-background:#[0-9a-f]{6};[^}]+/gi)) {
+    const tokens = Object.fromEntries([...block[0].matchAll(/(--[\w-]+):(#[0-9a-f]{6})/gi)].map(m => [m[1], m[2]]));
+    const values = [luminance(tokens[titleForeground]), luminance(tokens[titleBackground])].sort((a, b) => b - a);
+    assert.ok((values[0] + 0.05) / (values[1] + 0.05) >= 4.5, `Code title: ${tokens[titleForeground]} on ${tokens[titleBackground]}`);
+  }
   assert.match(css, /prefers-color-scheme:dark/);
   assert.match(css, /data-theme=dark/);
   assert.match(css, /--shiki-dark/);
