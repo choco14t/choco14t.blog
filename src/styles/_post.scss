@@ -78,3 +78,18 @@
   .spotify-embed { display: block; width: 100%; border-radius: .75rem; margin: 1.5rem 0; }
   .bluesky-embed { max-width: 100%; margin: 1.5rem 0; }
 }
+
+.toc-desktop, .toc-mobile {
+  font-size: .8rem;
+  line-height: 1.5;
+  border-left: 2px solid var(--color-border);
+  padding: .75rem;
+  a { color: var(--color-link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ol { padding-left: 1rem; margin: .5rem 0 0; }
+  li { margin-bottom: .4rem; }
+  .toc-title { margin: 0; font-weight: 600; }
+  summary { cursor: pointer; font-weight: 600; }
+}
+.toc-mobile { margin-bottom: 1.5rem; }
+.post-content :is(h2, h3) { scroll-margin-top: 1rem; }

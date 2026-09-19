@@ -1,0 +1,27 @@
+---
+import type { MarkdownHeading } from 'astro';
+interface Props { headings: MarkdownHeading[] }
+const headings = Astro.props.headings.filter(heading => heading.depth === 2 || heading.depth === 3);
+const groups: { heading: MarkdownHeading; children: MarkdownHeading[] }[] = [];
+for (const heading of headings) {
+  const previous = groups.at(-1);
+  if (heading.depth === 3 && previous?.heading.depth === 2) previous.children.push(heading);
+  else groups.push({ heading, children: [] });
+}
+---
+{headings.length >= 2 && ['desktop', 'mobile'].map(mode => {
+  const Tag = mode === 'desktop' ? 'nav' : 'details';
+  return (
+    <Tag class={`toc-${mode}`} aria-label="Table of contents">
+      {mode === 'mobile' ? <summary>目次</summary> : <p class="toc-title">目次</p>}
+      <ol>
+        {groups.map(({ heading, children }) => (
+          <li>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+            {children.length > 0 && <ol>{children.map(child => <li><a href={`#${child.slug}`}>{child.text}</a></li>)}</ol>}
+          </li>
+        ))}
+      </ol>
+    </Tag>
+  );
+})}

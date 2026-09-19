@@ -86,11 +86,48 @@ test('the dev server exposes draft post routes', { timeout: 30_000 }, async () =
     assert.ok(response, `Astro dev server did not start:\n${output}`);
     assert.equal(response.status, 200, output);
     assert.match(await response.text(), /<h1 class="post-title">2019-02-19<\/h1>/);
+    const singleHeading = await (await fetch('http://127.0.0.1:43219/posts/display-timestamp-in-terminal/')).text();
+    assert.equal([...singleHeading.matchAll(/<h[23]\b/g)].length, 1);
+    assert.doesNotMatch(singleHeading, /class="toc-(desktop|mobile)"/);
   } finally {
     server.kill('SIGTERM');
     await Promise.race([
       new Promise(resolve => server.once('exit', resolve)),
       new Promise(resolve => setTimeout(resolve, 2_000)),
     ]);
+  }
+});
+
+
+test('article TOCs link every h2/h3 in order and disappear below two headings', () => {
+  for (const post of posts.filter(post => !post.draft)) {
+    const html = readFileSync(`dist/posts/${post.slug}/index.html`, 'utf8');
+    const headings = [...html.matchAll(/<h([23]) id="([^"]+)"/g)].map(m => ({ depth: +m[1], id: m[2] }));
+    if (headings.length < 2) {
+      assert.doesNotMatch(html, /class="toc-(desktop|mobile)"/, post.slug);
+      continue;
+    }
+    const desktop = html.match(/<nav class="toc-desktop"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    const mobile = html.match(/<details class="toc-mobile"[^>]*>([\s\S]*?)<\/details>/)?.[1];
+    assert.ok(desktop, post.slug);
+    assert.ok(mobile, post.slug);
+    assert.doesNotMatch(html.match(/<details class="toc-mobile"[^>]*>/)![0], /\bopen\b/);
+    assert.ok(html.indexOf('<details class="toc-mobile"') < html.indexOf('<section class="post-content"'));
+    for (const toc of [desktop, mobile]) {
+      assert.deepEqual([...toc.matchAll(/href="#([^"]+)"/g)].map(m => m[1]), headings.map(h => h.id), post.slug);
+      const list = toc.slice(toc.indexOf('<ol>'));
+      let level = 0;
+      const depths: number[] = [];
+      for (const token of list.matchAll(/<ol>|<\/ol>|<a /g)) {
+        if (token[0] === '<ol>') level++;
+        else if (token[0] === '</ol>') level--;
+        else depths.push(level);
+      }
+      let hasParent = false;
+      assert.deepEqual(depths, headings.map(h => {
+        if (h.depth === 2) { hasParent = true; return 1; }
+        return hasParent ? 2 : 1;
+      }), post.slug);
+    }
   }
 });
