@@ -3,15 +3,10 @@ title: "GraphQL における interface と union に関するメモ"
 slug: "interface-or-union-in-graphql"
 draft: false
 date: 2023-09-07T15:00:00.000+09:00
-tags: ["GraphQL"]
+tags: ["graphql"]
 ---
 
-## TL;DR
-
-- 共通する field を抽象化したい場合は interface で宣言すると良いかも
-- 異なる複数の type を別のユースケースとして参照する場合は union での宣言を検討すると良いかも
-
----
+## はじめに
 
 最近は新機能の開発をしていて、GraphQL スキーマに新しく type を増やす機会があった。type で表現したいものは以下のようなもの。
 
@@ -19,6 +14,8 @@ tags: ["GraphQL"]
 - 種別 (2 種類) があり、種別ごとに異なる属性を持つ
 
 このとき、上記の type を表現するために interface または union を使えば表現できるなと思いついた。参考になるだろうと思い、GitHub の GraphQL スキーマを読んでみることにした。
+
+## Union
 
 はじめに union の定義を読んでみた。検索結果のアイテムに対する type で union を使用していて、用途の異なる type (ユーザーやリポジトリなど) が `SearchResultItem` という別用途 (検索結果) の type として定義されている。
 
@@ -38,6 +35,8 @@ union SearchResultItem =
   | Repository
   | User
 ```
+
+## Interface
 
 続いて interface の定義を読んでみた。GitHub 上で star を付けることができる要素を表す `Starrable` という interface が定義されている。この `Starrable` は `Repository` や `Gist` などで implements されている。
 
@@ -91,6 +90,8 @@ interface Starrable {
   viewerHasStarred: Boolean!
 }
 ```
+
+## ざっくりまとめ
 
 上記の定義を読んでみて、以下の結論に至った。
 
