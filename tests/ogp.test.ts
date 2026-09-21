@@ -81,7 +81,7 @@ test('all published articles have title-only article cards and exactly their PNG
 
 test('tag index and every tag page use canonical website cards and the one shared image', () => {
   const pages = globSync('dist/tags/**/index.html');
-  assert.ok(pages.includes('dist/tags/Claude Code/index.html'), 'space-containing tag exercises URL encoding');
+  assert.ok(pages.includes('dist/tags/claude code/index.html'), 'space-containing tag exercises URL encoding');
   for (const path of pages) {
     const html = readFileSync(path, 'utf8');
     const title = html.match(/<title>([^<]+)<\/title>/)![1];

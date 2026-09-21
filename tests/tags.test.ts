@@ -1,7 +1,17 @@
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, globSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
-import { posts } from './posts.ts';
+const posts = globSync('src/content/posts/**/*.md').map(path => {
+  const markdown = readFileSync(path, 'utf8');
+  const frontmatter = markdown.match(/^---\n([\s\S]*?)\n---/)![1];
+  const field = (name: string) => frontmatter.match(new RegExp(`^${name}: (.+)$`, 'm'))?.[1];
+  return {
+    slug: JSON.parse(field('slug')!) as string,
+    draft: field('draft') === 'true',
+    date: field('date')!,
+    tags: JSON.parse(field('tags')!) as string[],
+  };
+});
 const published = posts.filter(post => !post.draft);
 const tags = [...new Set(published.flatMap(post => post.tags))].sort();
 
@@ -11,8 +21,8 @@ test('the tag index lists every public tag with encoded links and no draft-only 
   const links = [...html.matchAll(/<li><a href="\/tags\/([^"]+)\/">([^<]+)<\/a><\/li>/g)]
     .map(([, href, name]) => ({ href, name }));
   assert.deepEqual(links, tags.map(name => ({ href: encodeURIComponent(name), name })));
-  assert.ok(html.includes('/tags/Claude%20Code/'));
-  assert.ok(html.includes('/tags/Node.js/'));
+  assert.ok(html.includes('/tags/claude%20code/'));
+  assert.ok(html.includes('/tags/node.js/'));
   assert.ok(!html.includes('React Native'));
 });
 
