@@ -1,17 +1,7 @@
 import assert from 'node:assert/strict';
-import { existsSync, globSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
-const posts = globSync('src/content/posts/**/*.md').map(path => {
-  const markdown = readFileSync(path, 'utf8');
-  const frontmatter = markdown.match(/^---\n([\s\S]*?)\n---/)![1];
-  const field = (name: string) => frontmatter.match(new RegExp(`^${name}: (.+)$`, 'm'))?.[1];
-  return {
-    slug: JSON.parse(field('slug')!) as string,
-    draft: field('draft') === 'true',
-    date: field('date')!,
-    tags: JSON.parse(field('tags')!) as string[],
-  };
-});
+import { posts } from './posts.ts';
 const published = posts.filter(post => !post.draft);
 const tags = [...new Set(published.flatMap(post => post.tags))].sort();
 

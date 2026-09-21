@@ -3,6 +3,7 @@ import { readFileSync, globSync, existsSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import test from 'node:test';
+import { posts } from './posts.ts';
 
 function metadata(html: string, key: string) {
   return [...html.matchAll(/<meta\b[^>]*>/g)]
@@ -41,13 +42,6 @@ test('the shared image is a 1200 by 630 PNG file', () => png('dist/og/default.pn
 
 test('404 has no social card metadata', () => {
   assert.doesNotMatch(readFileSync('dist/404.html', 'utf8'), /<meta\b[^>]*(?:og:|twitter:)/);
-});
-
-// Read current content rather than the historical migration snapshot.
-const posts = globSync('src/content/posts/**/*.md').map(path => {
-  const markdown = readFileSync(path, 'utf8');
-  const field = (name: string) => markdown.match(new RegExp(`^${name}(?::| =)? (.+)$`, 'm'))?.[1];
-  return { title: JSON.parse(field('title')!), slug: JSON.parse(field('slug')!), draft: field('draft') === 'true' };
 });
 
 function card(html: string, title: string, type: string, path: string, image: string, alt: string) {

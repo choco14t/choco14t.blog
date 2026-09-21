@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync, globSync } from 'node:fs';
 import test from 'node:test';
-import { posts } from './posts.ts';
+import { posts, type Post } from './posts.ts';
 
 test('all posts retain their original frontmatter', () => {
+  const posts = JSON.parse(readFileSync('tests/posts.json', 'utf8')) as Post[];
   assert.deepEqual(posts.map(post => post.path).sort(), globSync('**/*.md', { cwd: 'src/content/posts' }).sort());
   for (const post of posts) {
     const path = 'src/content/posts/' + post.path;

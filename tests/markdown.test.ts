@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
+import config from '../astro.config.ts';
 
 test('article tables retain their structure and have themed borders and padded cells', () => {
   const html = readFileSync('dist/posts/implement-field-permissions-with-field-middleware/index.html', 'utf8');
@@ -18,11 +19,12 @@ test('article tables retain their structure and have themed borders and padded c
   assert.match(css, /\.post-content th\{[^}]*background:var\(--color-raised\)/);
 });
 
-test('single paragraph line endings become breaks while fenced code preserves newlines', () => {
-  const prose = readFileSync('dist/posts/recovering-too-many-records/index.html', 'utf8');
-  assert.match(prose, /レコードが作成されてしまっていた。<br\s*\/?>\n?作成されてしまった/);
-  const code = readFileSync('dist/posts/agentic-coding-202602/index.html', 'utf8').match(/<pre\b[^>]*>([\s\S]*?)<\/pre>/)?.[1];
+test('single paragraph line endings become breaks while fenced code preserves newlines', async () => {
+  const renderer = await config.markdown!.processor!.createRenderer({ syntaxHighlight: false });
+  const { code: html } = await renderer.render('First line\nSecond line\n\n```text\nFirst code line\nSecond code line\n```');
+  assert.match(html, /<p>First line<br\s*\/?>\n?Second line<\/p>/);
+  const code = html.match(/<pre\b[^>]*>([\s\S]*?)<\/pre>/)?.[1];
   assert.ok(code);
-  assert.match(code, /\n/);
+  assert.match(code, /First code line\nSecond code line/);
   assert.doesNotMatch(code, /<br\b/);
 });
