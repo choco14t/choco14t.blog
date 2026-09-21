@@ -11,8 +11,8 @@ test('the tag index lists every public tag with encoded links and no draft-only 
   const links = [...html.matchAll(/<li><a href="\/tags\/([^"]+)\/">([^<]+)<\/a><\/li>/g)]
     .map(([, href, name]) => ({ href, name }));
   assert.deepEqual(links, tags.map(name => ({ href: encodeURIComponent(name), name })));
-  assert.ok(html.includes('/tags/Claude%20Code/'));
-  assert.ok(html.includes('/tags/Node.js/'));
+  assert.ok(html.includes('/tags/claude%20code/'));
+  assert.ok(html.includes('/tags/node.js/'));
   assert.ok(!html.includes('React Native'));
 });
 

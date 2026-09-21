@@ -3,6 +3,7 @@ import { readFileSync, globSync, existsSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import test from 'node:test';
+import { posts } from './posts.ts';
 
 function metadata(html: string, key: string) {
   return [...html.matchAll(/<meta\b[^>]*>/g)]
@@ -43,13 +44,6 @@ test('404 has no social card metadata', () => {
   assert.doesNotMatch(readFileSync('dist/404.html', 'utf8'), /<meta\b[^>]*(?:og:|twitter:)/);
 });
 
-// Read current content rather than the historical migration snapshot.
-const posts = globSync('src/content/posts/**/*.md').map(path => {
-  const markdown = readFileSync(path, 'utf8');
-  const field = (name: string) => markdown.match(new RegExp(`^${name}(?::| =)? (.+)$`, 'm'))?.[1];
-  return { title: JSON.parse(field('title')!), slug: JSON.parse(field('slug')!), draft: field('draft') === 'true' };
-});
-
 function card(html: string, title: string, type: string, path: string, image: string, alt: string) {
   const escape = (text: string) => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   const expected = {
@@ -81,7 +75,7 @@ test('all published articles have title-only article cards and exactly their PNG
 
 test('tag index and every tag page use canonical website cards and the one shared image', () => {
   const pages = globSync('dist/tags/**/index.html');
-  assert.ok(pages.includes('dist/tags/Claude Code/index.html'), 'space-containing tag exercises URL encoding');
+  assert.ok(pages.includes('dist/tags/claude code/index.html'), 'space-containing tag exercises URL encoding');
   for (const path of pages) {
     const html = readFileSync(path, 'utf8');
     const title = html.match(/<title>([^<]+)<\/title>/)![1];

@@ -3,7 +3,7 @@ title: "FieldMiddleware で Field Permissions を実装する"
 slug: "implement-field-permissions-with-field-middleware"
 draft: false
 date: 2022-10-14T15:00:00.000+09:00
-tags: ["GraphQL", "Apollo", "NestJS"]
+tags: ["graphql", "apollo", "nestjs"]
 ---
 
 この記事は Zenn で投稿していた内容を移行したものになります。

@@ -3,7 +3,7 @@ title: "Agentic coding 2026-02"
 slug: "agentic-coding-202602"
 draft: false
 date: 2026-02-26T15:00:00.000+09:00
-tags: ["AI", "Claude Code"]
+tags: ["ai", "claude code"]
 ---
 
 最近仕事先でも Claude Code が使えるようになった。

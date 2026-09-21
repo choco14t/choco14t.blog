@@ -3,7 +3,7 @@ title: "リクエストIDを追加して調査を快適にする"
 slug: "send-request-id-from-gateway"
 draft: false
 date: 2023-01-07T15:00:00.000+09:00
-tags: ["GraphQL", "Apollo", "NestJS"]
+tags: ["graphql", "apollo", "nestjs"]
 ---
 
 この記事は Zenn で投稿していた内容を移行したものになります。

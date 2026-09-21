@@ -4,7 +4,7 @@ slug: "enjoyed-tddbc"
 draft: false
 date: 2021-03-07T10:00:00.000+09:00
 description: "楽しかったの一言に尽きる"
-tags: ["Diary"]
+tags: ["diary"]
 ---
 
 3 月 6 日に開催された [TDDBC Sendai X](https://tddbc-sendai-x.peatix.com/) に初参加したので感想だったり、ふりかえりをしてみる。

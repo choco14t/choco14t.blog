@@ -1,7 +1,7 @@
 ---
 title: "インストールしているnpmパッケージの脆弱性を解消する"
 slug: "resolve-vulnerabilities-in-installed-npm-packages"
-draft: false
+draft: true
 date: 2019-09-19T10:13:00.000+09:00
 description: "あるリポジトリを見たらセキュリティの脆弱性があるよとのことだったので、プロダクトとかではないので悪影響はないが更新しておいた。"
 tags: ["npm"]
