@@ -15,6 +15,25 @@
     margin: 1rem 0;
   }
 
+  table {
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+    overflow-wrap: anywhere;
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--color-raised);
+  }
+
   h2 {
     position: relative;
     font-size: 1.4rem;
