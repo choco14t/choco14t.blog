@@ -3,7 +3,7 @@ title: "読んだ #1 月曜日の抹茶カフェ"
 slug: "yonda-1"
 draft: false
 date: 2022-05-05T15:00:00.000+09:00
-tags: ["Diary"]
+tags: ["diary"]
 ---
 
 久方ぶりの更新。昨日 [月曜日の抹茶カフェ](https://www.amazon.co.jp/dp/B09CD7Y3K2/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) を読み終えた。

@@ -4,7 +4,7 @@ slug: "good-things-to-buy-in-2020"
 draft: false
 date: 2020-12-15T22:00:00.000+09:00
 description: "2020年も色々買った"
-tags: ["Diary"]
+tags: ["diary"]
 ---
 
 年末も近づいてきたということで。

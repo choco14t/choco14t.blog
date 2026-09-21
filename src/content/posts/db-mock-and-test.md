@@ -3,7 +3,7 @@ title: "DB のモックとテスト"
 slug: "db-mock-and-test"
 draft: false
 date: 2022-11-26T15:00:00.000+09:00
-tags: ["Test"]
+tags: ["test"]
 ---
 
 TDD とライオンで著名な t-wada さんがこんなツイートをしていた。

@@ -3,7 +3,7 @@ title: "Apollo Server v4 の調査メモ"
 slug: "memo-apollo-server-v4"
 draft: false
 date: 2023-01-06T15:00:00.000+09:00
-tags: ["GraphQL", "Apollo", "TypeScript", "Node.js"]
+tags: ["graphql", "apollo", "typescript", "node.js"]
 ---
 
 この記事は Zenn で投稿していた内容を移行したものになります。

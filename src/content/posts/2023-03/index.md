@@ -3,7 +3,7 @@ title: "近況 2023年3月"
 slug: "2023-03"
 draft: false
 date: 2023-03-05T00:00:00.000Z
-tags: ["Diary"]
+tags: ["diary"]
 ---
 
 年は明けているし気づけば 3 月になっていた。

@@ -3,7 +3,7 @@ title: "Rails から NestJS への移行に挑戦してみて"
 slug: "migrate-rails-to-nestjs"
 draft: false
 date: 2023-02-13T15:00:00.000+09:00
-tags: ["GraphQL", "Apollo", "NestJS"]
+tags: ["graphql", "apollo", "nestjs"]
 ---
 
 この記事は Zenn で投稿していた内容を移行したものになります。

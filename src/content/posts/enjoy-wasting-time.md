@@ -3,7 +3,7 @@ title: "無駄な時間を楽しむ"
 slug: "enjoy-wasting-time"
 draft: false
 date: 2023-03-11T00:00:00.000Z
-tags: ["Diary"]
+tags: ["diary"]
 ---
 
 タイムパフォーマンス(以下タイパ)という言葉がふと思い浮かんだので書いてみる。

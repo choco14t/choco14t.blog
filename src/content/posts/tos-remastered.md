@@ -3,7 +3,7 @@ title: "テイルズ オブ シンフォニア Remastered"
 slug: "tos-remastered"
 draft: false
 date: 2023-02-27T00:00:00.000Z
-tags: ["Diary", "Game"]
+tags: ["diary", "game"]
 ---
 
 2 月 16 日に発売された [テイルズ オブ シンフォニア Remastered](https://tosre-nowagain.tales-ch.jp/) をクリアしたので感想を書いていく。ネタバレが含まれるので、これからプレーする予定の人は注意。
